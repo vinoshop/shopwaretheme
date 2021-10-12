@@ -1,0 +1,26 @@
+version: "3"
+
+services:
+
+  shopware:
+    image: dockware/play:latest
+    container_name: shopware
+    volumes:
+      - "db_volume:/var/lib/mysql"
+      - "shop_volume:/var/www/html"
+      - ./plugins:/var/www/html/custom/plugins
+    ports:
+      - "80:80"
+      - "888:888"
+    environment:
+      PORT: 80
+      VIRTUAL_HOST: testshop.vinoshop.at
+      LETSENCRYPT_HOST: testshop.vinoshop.at
+      LETSENCRYPT_EMAIL: 7055@htl.rennweg.at
+      TRUSTED_PROXIES: REMOTE_ADDR,127.0.0.1,172.18.0.3,172.18.0.0/24
+
+volumes:
+  db_volume:
+    driver: local
+  shop_volume:
+    driver: local
