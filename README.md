@@ -7,3 +7,4 @@ To start: ``docker-compose up -d``
 * https://developer.shopware.com/docs/guides/plugins/plugins/storefront/customize-templates
 * https://developer.shopware.com/docs/guides/plugins/plugins/storefront/add-custom-page
 
+docker-compose exec shopware /bin/sh
