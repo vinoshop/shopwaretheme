@@ -20,7 +20,8 @@ class ExampleController extends StorefrontController
     public function showExample(): Response
     {
         return $this->renderStorefront('@VinoshopTheme/storefront/page/example.html.twig', [
-            'example' => 'Hello world'
+            'header' => 'Vinoshop.at',
+            "content" => 'Vinoshop ist eine Verkaufsplattform für kleinere Winzer, welche noch keine oder eine nicht adäquate Web-Präsenz besitzen. Jeder der Weinbauern besitzt dabei eine eigene Unterseite, um das eigene Weingut darzustellen.',
         ]);
     }
 }

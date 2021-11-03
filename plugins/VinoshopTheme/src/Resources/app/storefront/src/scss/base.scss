@@ -1,0 +1,19 @@
+@import "variables";
+
+body {
+  color: $vinoshop-almost-black;
+  background-color: $vinoshop-almost-white;
+}
+h1 {
+  color: $vinoshop-dark-red;
+}
+h1:hover {
+  color: $vinoshop-bright-red;
+}
+
+.svg-almost-white {
+  fill: $vinoshop-almost-white;
+}
+.header {
+  background-color: $vinoshop-almost-black;
+}
