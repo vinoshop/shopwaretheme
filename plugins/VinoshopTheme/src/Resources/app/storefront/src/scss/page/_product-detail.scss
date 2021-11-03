@@ -1,0 +1,75 @@
+.product-detail {
+
+  &-manufacturer {
+    margin-bottom: 0;
+    color: $almost_black;
+    font-weight: 600;
+  }
+
+  &-name {
+    font-size: 2.5rem;
+    color: $almost_black;
+    font-weight: 600;
+  }
+
+
+  &-infos {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &-manufacturer {
+    font-size: 1.25rem;
+  }
+
+  &-good-with {
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    & p {
+      margin: 0;
+      font-size: 1.1rem;
+      color: $almost_black;
+    }
+
+    &-list {
+      list-style-type: none;
+      display: flex;
+      flex-direction: row;
+      margin: 0;
+      padding: 0;
+
+      & > li {
+        background-color: transparentize(#a1a1a1, .76);
+        padding: .3rem 1.25rem;
+        margin: .25rem;
+        font-weight: 600;
+        color: $almost_black;
+      }
+    }
+  }
+
+
+  &-price {
+    color: $chianti_red;
+    display: flex;
+    align-items: start;
+    font-weight: 600;
+
+    &-euros {
+      font-size: 2.5rem;
+    }
+
+    &-cents {
+      font-size: 2rem;
+    }
+
+    &::after {
+      content: '€';
+      font-size: 2.5rem;
+    }
+  }
+
+}

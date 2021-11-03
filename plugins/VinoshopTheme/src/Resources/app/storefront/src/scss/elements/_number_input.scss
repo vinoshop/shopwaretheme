@@ -1,0 +1,32 @@
+.elem-input {
+  display: flex;
+
+  & input {
+    all: unset;
+    -webkit-appearance: textfield;
+    -moz-appearance: textfield;
+    appearance: textfield;
+
+    border: black 1px solid;
+
+    &::-webkit-inner-spin-button,
+    &::-webkit-outer-spin-button {
+      -webkit-appearance: none;
+    }
+  }
+
+  &-number-controls {
+    display: flex;
+    flex-direction: column;
+
+    & button {
+      all: unset;
+      background-color: $chianti_red;
+      cursor: pointer;
+
+      & .icon {
+        color: $almost_white;
+      }
+    }
+  }
+}

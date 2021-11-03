@@ -1,0 +1,22 @@
+.elem-button {
+
+  all: unset;
+  text-transform: uppercase;
+  background-color: $red_wine_stain;
+  color: $almost_white;
+  -webkit-text-fill-color: $almost_white;
+
+  cursor: pointer;
+
+  font-family: $default_font_family;
+  font-weight: 600;
+  font-size: 1.25rem;
+  letter-spacing: .1rem;
+
+  display: inline-flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: .75rem;
+
+}

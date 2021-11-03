@@ -1,0 +1,139 @@
+{% sw_extends '@Storefront/storefront/base.html.twig' %}
+
+{% block base_head %}
+    {% sw_include '@Storefront/storefront/page/product-detail/meta.html.twig' %}
+{% endblock %}
+
+{% block base_content %}
+    {% block page_product_detail %}
+        <div class="product-detail"
+             itemscope
+             itemtype="https://schema.org/Product">
+
+
+{#            {% for media in page.product.media.element %}#}
+{#                <img src="{{ media.media.url }}">#}
+{#            {% endfor %}#}
+
+            <div class="row">
+                <img class="col-6 product-detail-image-big" src="{{ (page.product.media.elements|first).media.url }}">
+
+                <div class="col-6 product-detail-infos">
+                    <h3 class="product-detail-manufacturer">{{ page.product.manufacturer.translated.name }}</h3>
+                    <h2 class="product-detail-name">{{ page.product.translated.name }}</h2>
+                    <div class="product-detail-price">
+                        <p class="product-detail-price-euros">{{ page.product.calculatedPrice.unitPrice|split('.')[0] }}</p>
+                        <p class="product-detail-price-cents">{{ page.product.calculatedPrice.unitPrice|split('.')[1] }}</p>
+                    </div>
+
+                    <div class="product-detail-good-with">
+                        <p>Passend zu:</p>
+                        <ul class="product-detail-good-with-list">
+                            <li>Steak</li>
+                            <li>Käse</li>
+                        </ul>
+                    </div>
+
+                    <div class="row">
+                        {% sw_include '@Storefront/storefront/element/cms_element_input.html.twig' with {
+                            type: 'number',
+                            default_value: '0'
+                        } %}
+                        <button class="col-6 elem-button">Sofort kaufen</button>
+                    </div>
+                    <button class="elem-button">In den Warenkorb</button>
+                </div>
+            </div>
+
+
+
+
+            <div class="product-detail-tabs">
+                <div class="product-detail-tabs-headers">
+                    <a class="product-detail-tabs-description">Beschreibung</a>
+                    <a class="product-detail-tabs-taste">Geschmack</a>
+                </div>
+                <div class="product-detail-tabs-content">
+                    <div class="product-detail-tabs-content-description">
+                        Wow! Dieser wunderbar moderne Grenache aus dem nördlichen Zentralspanien überzeugt durch dunkle Beerenfrucht, reife Kirsche und dezente Würze. Die Hälfte des Weins reift für mehr Komplexität vier Monate lang in Barriques. Leicht gekühlt serviert, lässt dieser Kickass-Wein viele wesentlich teurere Weine weit hinter sich. Jahrgang 2017 und 2018 wurden auf den Zealand Wine Awards mit der Gold-Medaille ausgezeichnet.
+                    </div>
+                    <div class="product-detail-tabs-content-taste">
+                        Wow! Dieser wunderbar moderne Grenache aus dem nördlichen Zentralspanien überzeugt durch dunkle Beerenfrucht, reife Kirsche und dezente Würze. Die Hälfte des Weins reift für mehr Komplexität vier Monate lang in Barriques. Leicht gekühlt serviert, lässt dieser Kickass-Wein viele wesentlich teurere Weine weit hinter sich. Jahrgang 2017 und 2018 wurden auf den Zealand Wine Awards mit der Gold-Medaille ausgezeichnet.
+                    </div>
+                </div>
+            </div>
+
+            <div class="produc-detail-more-wine">
+                <div class="product-detail-more-wine-header">
+                    <h2>Weine vom selben Winzer</h2>
+                    <h3>Entdecke benachbarte Gärprozesse</h3>
+                </div>
+                <div class="product-detail-more-wine-products">
+                    Weinliste hier
+                </div>
+            </div>
+
+            <div class="produc-detail-more-wine">
+                <div class="product-detail-more-wine-header">
+                    <h2>Weine aus der selben Kategorie</h2>
+                    <h3>Entdecke geschmackliche Ähnlichkeiten</h3>
+                </div>
+                <div class="product-detail-more-wine-products">
+                    Weinliste hier
+                </div>
+            </div>
+
+
+{#            {% block page_product_detail_inner %} #}
+{#                {% block page_product_detail_content %}#}
+{#                    <div class="product-detail-content">#}
+{#                        {% block page_product_detail_headline %}#}
+{#                            <div class="row align-items-center product-detail-headline">#}
+{#                                {{ page.product.translated.name }}#}
+{#                            </div>#}
+{#                        {% endblock %}#}
+
+{#                        {% set mediaItems = page.product.media.media %}#}
+
+
+{#                        {% block page_product_detail_main %}#}
+{#                            <div class="row product-detail-main">#}
+{#                                {% block page_product_detail_media %}#}
+{#                                    <div class="col-lg-7 product-detail-media">#}
+{#                                        {% if page.product.media %}#}
+{#                                            {% sw_include '@Storefront/storefront/element/cms-element-image-gallery.html.twig' with {#}
+{#                                                'mediaItems': mediaItems,#}
+{#                                            } %}#}
+{#                                        {% endif %}#}
+{#                                    </div>#}
+{#                                {% endblock %}#}
+
+{#                                {% block page_product_detail_buy %}#}
+{#                                    <div class="col-lg-5 product-detail-buy">#}
+{#                                        {% sw_include '@Storefront/storefront/page/product-detail/buy-widget.html.twig' %}#}
+{#                                    </div>#}
+{#                                {% endblock %}#}
+{#                            </div>#}
+{#                        {% endblock %}#}
+{#                    </div>#}
+{#                {% endblock %}#}
+
+{#                {% block page_product_detail_tabs %}#}
+{#                    <div class="product-detail-tabs">#}
+{#                        {% sw_include '@Storefront/storefront/page/product-detail/tabs.html.twig' %}#}
+{#                    </div>#}
+{#                {% endblock %}#}
+
+{#                {% block page_product_detail_cross_selling %}#}
+{#                    {% if page.crossSellings.element is defined and page.crossSellings.element|filter(item => item.total > 0)|length > 0 %}#}
+{#                        <div class="product-detail-tabs product-detail-cross-selling">#}
+{#                            {% sw_include '@Storefront/storefront/page/product-detail/cross-selling/tabs.html.twig' with {#}
+{#                                crossSellings: page.crossSellings#}
+{#                            } %}#}
+{#                        </div>#}
+{#                    {% endif %}#}
+{#                {% endblock %}#}
+{#            {% endblock %}#}
+        </div>
+    {% endblock %}
+{% endblock %}

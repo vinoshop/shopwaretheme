@@ -19,6 +19,12 @@ or
 
 ``docker-compose exec shopware /bin/sh -c "bin/console cache:clear"``
 
+if you changed js or scss:
+``docker-compose exec shopware /bin/sh -c "bin/console theme:compile"``
+
+Alternatively:
+https://docs.dockware.io/development/watchers
+
 
 ###install theme:
 ```
