@@ -1,0 +1,17 @@
+{% set type = type|default("text") %}
+
+<div class="elem-input">
+    <input class="elem-input" type="{{ type }}" value="{{ default_value }}"/>
+    {% if type == 'number' %}
+        <div class="elem-input-number-controls">
+            <button class="elem-input-number-increase">{% sw_icon 'chevron-up' style {
+                    namespace: 'VinoshopTheme',
+                    pack: 'material'
+                } %}</button>
+            <button class="elem-input-number-decrease">{% sw_icon 'chevron-down' style {
+                    namespace: 'VinoshopTheme',
+                    pack: 'material'
+                } %}</button>
+        </div>
+    {% endif %}
+</div>
