@@ -1,19 +1,9 @@
 @import "variables";
 
-body {
-  color: $vinoshop-almost-black;
-  background-color: $vinoshop-almost-white;
-}
-h1 {
-  color: $vinoshop-dark-red;
-}
-h1:hover {
-  color: $vinoshop-bright-red;
-}
+// Pages
+@import "page/product-detail/tabs";
+@import "page/product-detail";
 
-.svg-almost-white {
-  fill: $vinoshop-almost-white;
-}
-.header {
-  background-color: $vinoshop-almost-black;
-}
+// Elements
+@import "elements/button";
+@import "elements/number_input";

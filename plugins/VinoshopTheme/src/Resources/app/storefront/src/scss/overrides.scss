@@ -6,3 +6,9 @@ This file is used to override default SCSS variables from the Shopware Storefron
 Because of the !default flags, theme variable overrides have to be declared beforehand.
 https://getbootstrap.com/docs/4.0/getting-started/theming/#variable-defaults
 */
+
+@import "variables";
+
+body, h1, h2, h3, h4, h5, h6, p, a {
+  font-family: $default_font_family;
+}

@@ -1,14 +1,14 @@
 {
   "name": "VinoshopTheme",
-  "author": "Shopware AG",
+  "author": "Vinoshop Dev-Team",
   "views": [
      "@Storefront",
      "@Plugins",
      "@VinoshopTheme"
   ],
   "style": [
-    "app/storefront/src/scss/overrides.scss",
     "@Storefront",
+    "app/storefront/src/scss/overrides.scss",
     "app/storefront/src/scss/base.scss"
   ],
   "script": [
@@ -19,20 +19,5 @@
     "@Storefront",
     "app/storefront/src/assets"
   ],
-  "sw-logo-desktop": {
-    "label": {
-      "en-GB": "Desktop",
-      "de-DE": "Desktop"
-    },
-    "helpText": {
-      "en-GB": "Displayed for viewports of above 991px",
-      "de-DE": "Wird über einem Viewport von 991px angezeigt"
-    },
-    "type": "media",
-    "value": "app/storefront/src/assets/logo/logo.png",
-    "editable": true,
-    "block": "media",
-    "order": 100
-  }
-
+  "version": 1
 }
