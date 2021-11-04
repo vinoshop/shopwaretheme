@@ -36,3 +36,8 @@ bin/console theme:change
 1
 bin/console cache:clear
 ```
+
+###Password for admin
+```
+Shopware
+```
