@@ -1,89 +1,71 @@
-.bg-hello {
-  background-color: aqua;
-}
-
-/*
-Header
-==================================================
-Contains custom styles for the header at the top of the page.
-The header contains the shop logo, the search form and various actions like the offcanvas cart button.
-*/
-
-.header-row {
-  padding: $spacer-sm 0;
-}
-
-.header-logo-col {
-  margin: $spacer 110px;
-}
-
-.header-logo-main {
-  text-align: center;
-  display: block;
-}
-
-.header-logo-main-link {
-  width: 100%;
-}
-
-.header-logo-picture {
-  display: block;
-  max-width: 300px;
-  margin: auto;
-}
-
-.header-search {
-  margin: $spacer-sm 0;
-}
-
-.header-search-form {
+.header-main {
+  background-color: $almost_black;
   position: relative;
-}
-
-.header-search-btn {
-  .loader ~ .header-search-icon {
-    display: none;
-  }
-}
-
-.header-cart-total {
-  display: none;
-}
-
-.header-cart .header-cart-badge,
-.header-wishlist .header-wishlist-badge {
-  position: absolute;
-  right: -0.25rem;
-}
-
-@include media-breakpoint-up(sm) {
-  .header-row {
-    padding-bottom: $spacer;
-  }
+  margin-bottom: 3rem;
 
   .header-logo-col {
-    padding-bottom: $spacer-sm;
+    position: static;
+    width: 10rem;
   }
 
-  .header-search-col {
-    .collapse:not(.show) {
-      display: block;
+  .header-logo-main {
+    aspect-ratio: 1;
+    position: absolute;
+    background-color: $almost_black;
+    height: calc(100% + 3rem);
+    padding: .5rem;
+    top: 0;
+
+    &-img {
+      height: 100%;
     }
   }
 
-  .header-search {
-    max-width: 400px;
-    margin: auto;
+  .navigation {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .nav-link {
+      text-transform: uppercase;
+      color: rgba($almost_white, .7);
+      font-weight: 600;
+      font-size: 1.2rem;
+      letter-spacing: .1rem;
+      transition: .2s all;
+
+      &:hover {
+        color: rgba($almost_white, .85);
+      }
+
+      &.active {
+        color: $almost_white;
+        font-size: 1.4rem;
+
+        .main-navigation-link-text {
+          border-color: rgba($almost_white, .7);
+        }
+      }
+
+      & .main-navigation-link-text {
+        padding-top: 3px;
+      }
+    }
+    }
+
+  .action {
+    padding: .5rem;
+    margin: 0 .5rem;
+    cursor: pointer;
+
+    .icon {
+      color: rgba($almost_white, .7);
+      transition: .2s all;
+    }
+
+    &:hover .icon {
+      color: rgba($almost_white, .85);
+    }
   }
 
-  .header-cart-total {
-    display: inline-block;
-    margin-left: $spacer-sm;
-  }
-}
-
-@include media-breakpoint-up(lg) {
-  .header-logo-col {
-    margin: 0;
-  }
 }

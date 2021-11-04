@@ -25,6 +25,9 @@ if you changed js or scss:
 Alternatively:
 https://docs.dockware.io/development/watchers
 
+if js or scss was changed:
+``bin/console theme:compile && bin/console cache:clear``
+
 
 ###install theme:
 ```
