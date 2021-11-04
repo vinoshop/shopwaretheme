@@ -4,7 +4,6 @@
   background-image: url("/bundles/vinoshoptheme/lp_background.png");
   background-repeat: no-repeat;
   background-size: cover;
-  background-attachment: fixed;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -16,4 +15,46 @@
 }
 .landing-page-image-content-h1 {
   color: $almost_white;
+}
+.landing-page-image-content-btn-color {
+  color: $almost_white;
+  border: $almost_white 1px solid;
+}
+.landing-page-image-content-btn-color:hover {
+  background: $almost_white;
+  color: $almost_black;
+}
+
+.landing-page-products {
+  padding: 5%;
+  background-color: #b20038;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-content: center;
+  justify-self: center;
+  gap: 2%;
+}
+.landing-page-produts-width {
+  max-width: 1920px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+.landing-page-products-center {
+  /*display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-content: center;*/
+  padding: 2%;
+}
+.landing-page-products-header {
+  width: 50%;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+
 }

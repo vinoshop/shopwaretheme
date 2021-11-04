@@ -1,4 +1,4 @@
-{% sw_extends '@Storefront/storefront/base.html.twig' %}
+{% sw_extends '@VinoshopTheme/storefront/base.html.twig' %}
 {# {% block base_header %}  {% endblock %}
 {% block base_navigation %}  {% endblock %} #}
 {% block base_main %}
@@ -6,17 +6,20 @@
         <!-- landing page -->
         <div class="landing-page-image-content">
             <h1 class="display-3 landing-page-image-content-h1" >Die Exklusivsten <br> Weine</h1>
-            <button>Shop now</button>
+            <a type="button"  class="btn landing-page-image-content-btn-color display-5">Shop now</a>
         </div>
     </div>
-    <div>
-        <h2 class="product-header">Unsere Produkte</h2>
-        <div>
-            <div><h3>Flat Lake</h3></div>
-            <div><h3>Grüner Veltliner</h3></div>
-            <div><h3>Flat Lake</h3></div>
-            <div><h3>Grüner Veltliner</h3></div>
+    <div class="landing-page-products-center">
+        <div class="landing-page-produts-width">
+            <h2 class="landing-page-products-header"><span>Unsere Produkte</span></h2>
+            <div class="landing-page-products">
+                <div><h3>Flat Lake</h3></div>
+                <div><h3>Grüner Veltliner</h3></div>
+                <div><h3>Flat Lake</h3></div>
+                <div><h3>Grüner Veltliner</h3></div>
+            </div>
         </div>
+
     </div>
     <div>
         <h1>Virtueller Wein im Postfach</h1>
