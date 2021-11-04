@@ -15,8 +15,16 @@
 {#                <img src="{{ media.media.url }}">#}
 {#            {% endfor %}#}
 
-            <div class="row">
-                <img class="col-6 product-detail-image-big" src="{{ (page.product.media.elements|first).media.url }}">
+
+            <div class="container row">
+                <div class="col-6 row">
+                    <div class="col-3 product-detail-images-small">
+                        {% for media in page.product.media.elements %}
+                            <img class="{% if media == page.product.media.elements|first %}active{% endif %}" src="{{ media.media.url }}">
+                        {% endfor %}
+                    </div>
+                    <img class="col-9 product-detail-image-big" src="{{ (page.product.media.elements|first).media.url }}">
+                </div>
 
                 <div class="col-6 product-detail-infos">
                     <h3 class="product-detail-manufacturer">{{ page.product.manufacturer.translated.name }}</h3>
@@ -47,10 +55,9 @@
 
 
 
-
             <div class="product-detail-tabs">
                 <div class="product-detail-tabs-headers">
-                    <a class="product-detail-tabs-description">Beschreibung</a>
+                    <a class="product-detail-tabs-description active">Beschreibung</a>
                     <a class="product-detail-tabs-taste">Geschmack</a>
                 </div>
                 <div class="product-detail-tabs-content">

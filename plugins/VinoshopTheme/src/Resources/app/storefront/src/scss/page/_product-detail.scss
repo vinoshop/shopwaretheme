@@ -1,5 +1,18 @@
 .product-detail {
 
+  &-images-small > img {
+    width: 100%;
+    border: 4px rgba($gray, .12) solid;
+  }
+
+  &-images-small > img.active {
+    border-color: $red_wine_stain;
+  }
+
+  &-image-big {
+    border: 8px rgba($gray, .12) solid;
+  }
+
   &-manufacturer {
     margin-bottom: 0;
     color: $almost_black;
@@ -69,6 +82,30 @@
     &::after {
       content: '€';
       font-size: 2.5rem;
+    }
+  }
+
+  &-tabs-headers {
+    border-bottom: 2px $gray solid;
+
+    > a {
+      font-size: 1.05rem;
+      display: inline-block;
+      text-transform: uppercase;
+      position: relative;
+      padding: 1rem 0;
+      margin: 0 1rem;
+      cursor: pointer;
+    }
+
+    & > .active::after {
+      content: '';
+      position: absolute;
+      bottom: -2.5px;
+      left: 0;
+      width: 100%;
+      height: 4px;
+      background-color: $almost_black;
     }
   }
 
