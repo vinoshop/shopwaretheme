@@ -1,1 +1,1 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([["vinoshop-theme"],{IZbq:function(n,o){}},[["IZbq","runtime"]]]);
+(window.webpackJsonp=window.webpackJsonp||[]).push([["vinoshop-theme"],{IZbq:function(o,n){console.log("hello user")}},[["IZbq","runtime"]]]);
