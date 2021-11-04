@@ -1,12 +1,43 @@
 {% sw_extends '@Storefront/storefront/base.html.twig' %}
+{# {% block base_header %}  {% endblock %}
+{% block base_navigation %}  {% endblock %} #}
 {% block base_main %}
-    {{ dump() }}
-
-    <div style="">
+    <div class="landing-page-image">
         <!-- landing page -->
-
+        <div class="landing-page-image-content">
+            <h1 class="display-3 landing-page-image-content-h1" >Die Exklusivsten <br> Weine</h1>
+            <button>Shop now</button>
+        </div>
     </div>
     <div>
-        <!-- products -->
+        <h2 class="product-header">Unsere Produkte</h2>
+        <div>
+            <div><h3>Flat Lake</h3></div>
+            <div><h3>Grüner Veltliner</h3></div>
+            <div><h3>Flat Lake</h3></div>
+            <div><h3>Grüner Veltliner</h3></div>
+        </div>
+    </div>
+    <div>
+        <h1>Virtueller Wein im Postfach</h1>
+        <p>Hol dir unsere neuesten Weine zuerst</p>
+        <div>
+            <label>
+                <input type="text" alt="email" value="" placeholder="Email Adresse eingeben">
+            </label>
+            <button>Absenden</button>
+        </div>
+    </div>
+    <div>
+        <!-- winzer -->
+        <div></div>
+        <!-- winzer's auswahl -->
+        <div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+    <div>
+        <h1>#vinoshop on Instagram</h1>
     </div>
 {% endblock %}
