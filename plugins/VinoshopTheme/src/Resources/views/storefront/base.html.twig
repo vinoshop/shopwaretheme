@@ -1,4 +1,13 @@
 {% sw_extends '@Storefront/storefront/base.html.twig' %}
 
+{% if not large_header_margin is defined %}
+    {% set large_header_margin = true %}
+{% endif %}
+
+{% block base_header %}
+    {{ parent() }}
+    <div class="header-spacing{% if large_header_margin %} header-large-margin{% endif %}"></div>
+{% endblock %}
+
 {% block base_navigation %}
 {% endblock %}
