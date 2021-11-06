@@ -9,6 +9,8 @@ To start: ``docker-compose up -d``
 
 docker-compose exec shopware /bin/sh
 
+### when you want to start developing
+``bin/console theme:compile && bin/console assets:install && bin/console cache:clear``
 
 ### reload theme:
 ```
@@ -29,7 +31,7 @@ if js or scss was changed:
 ``bin/console theme:compile && bin/console cache:clear``
 
 
-###install theme:
+### install theme:
 ```
 docker-compose exec shopware /bin/sh
 bin/console plugin:refresh
