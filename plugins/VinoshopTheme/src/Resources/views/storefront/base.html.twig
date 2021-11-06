@@ -1,8 +1,6 @@
 {% sw_extends '@Storefront/storefront/base.html.twig' %}
 
-{% if not large_header_margin is defined %}
-    {% set large_header_margin = true %}
-{% endif %}
+{% set large_header_margin = large_header_margin ?? true %}
 
 {% block base_header %}
     {{ parent() }}
