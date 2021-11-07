@@ -1,0 +1,33 @@
+{% block component_product_box %}
+    {% if product %}
+        {% set name = product.translated.name %}
+        {% set id = product.id %}
+        {% set cover = product.cover.media %}
+        {% set variation = product.variation %}
+
+        <div class="card product-box">
+            {% block component_product_box_content %}
+                <div class="card-body">
+
+                    {% block component_product_box_image %}
+                        <div class="product-image-wrapper">
+                            <a href="{{ seoUrl('frontend.detail.page', {'productId': id}) }}">
+                                {% sw_thumbnails 'product-image-th' with {
+                                    media: cover,
+                                    attributes: {
+                                        class: 'product-image'
+                                    }
+                                } %}
+                            </a>
+                        </div>
+                    {% endblock %}
+
+                    <p class="price">{{ product.calculatedPrice.unitPrice }}</p>
+
+                    <p class="manufacturer">{{ product.manufacturer.name }}</p>
+                    <p class="name">{{ product.translated.name }}</p>
+                </div>
+            {% endblock %}
+        </div>
+    {% endif %}
+{% endblock %}

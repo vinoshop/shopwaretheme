@@ -6,6 +6,7 @@
     -webkit-appearance: textfield;
     -moz-appearance: textfield;
     appearance: textfield;
+    flex-grow: 1;
 
     border: rgba($gray, .24) 4px solid;
     border-right: none;

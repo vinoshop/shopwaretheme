@@ -1,12 +1,16 @@
 @import "variables";
 
+// Components
+@import "component/product/card";
+
 // Layouts
 @import "layout/header";
+@import "layout/footer";
 
 // Pages
 @import "page/product-detail/tabs";
 @import "page/product-detail";
-@import "page/content/_content-landingpage";
+@import "page/content/content-landingpage";
 @import "page/content";
 
 // Elements

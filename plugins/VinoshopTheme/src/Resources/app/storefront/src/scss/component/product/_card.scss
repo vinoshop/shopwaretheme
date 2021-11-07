@@ -1,0 +1,45 @@
+.card.product-box {
+
+  .price {
+    font-weight: 600;
+    font-size: 1.25rem;
+    text-align: right;
+    margin-bottom: 0;
+
+    &::after {
+      content: ' €';
+
+    }
+  }
+
+  .manufacturer {
+    color: $gray;
+    font-size: .75rem;
+    font-weight: 600;
+    margin-bottom: 0;
+  }
+
+  .name {
+    font-size: 1.5rem;
+    white-space: nowrap;
+    font-weight: 600;
+    color: $almost_black;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    display: block;
+    width: 100%;
+    margin-bottom: 0;
+  }
+
+  .product-image-wrapper {
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: $light_gray;
+
+    .product-image {
+      object-fit: cover;
+    }
+  }
+}

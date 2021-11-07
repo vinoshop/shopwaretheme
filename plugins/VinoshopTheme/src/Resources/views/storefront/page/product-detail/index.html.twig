@@ -10,20 +10,18 @@
              itemscope
              itemtype="https://schema.org/Product">
 
-
-{#            {% for media in page.product.media.element %}#}
-{#                <img src="{{ media.media.url }}">#}
-{#            {% endfor %}#}
+            {{ dump() }}
+            {{ dump(page.extensions.products_from_same_manufacturer.elements|first) }}
 
 
-            <div class="container row">
-                <div class="col-6 row">
-                    <div class="col-3 product-detail-images-small">
+            <div class="small-container row">
+                <div class="col-6 product-detail-images">
+                    <div class="product-detail-images-small">
                         {% for media in page.product.media.elements %}
                             <img class="{% if media == page.product.media.elements|first %}active{% endif %}" src="{{ media.media.url }}">
                         {% endfor %}
                     </div>
-                    <img class="col-9 product-detail-image-big" src="{{ (page.product.media.elements|first).media.url }}">
+                    <img class="product-detail-image-big" src="{{ (page.product.media.elements|first).media.url }}">
                 </div>
 
                 <div class="col-6 product-detail-infos">
@@ -54,18 +52,13 @@
                 </div>
             </div>
 
-
-
-            <div class="product-detail-tabs">
+            <div class="small-container product-detail-tabs">
                 <div class="product-detail-tabs-headers">
                     <a class="product-detail-tabs-description active">Beschreibung</a>
                     <a class="product-detail-tabs-taste">Geschmack</a>
                 </div>
                 <div class="product-detail-tabs-content">
                     <div class="product-detail-tabs-content-description">
-                        Wow! Dieser wunderbar moderne Grenache aus dem nördlichen Zentralspanien überzeugt durch dunkle Beerenfrucht, reife Kirsche und dezente Würze. Die Hälfte des Weins reift für mehr Komplexität vier Monate lang in Barriques. Leicht gekühlt serviert, lässt dieser Kickass-Wein viele wesentlich teurere Weine weit hinter sich. Jahrgang 2017 und 2018 wurden auf den Zealand Wine Awards mit der Gold-Medaille ausgezeichnet.
-                    </div>
-                    <div class="product-detail-tabs-content-taste">
                         Wow! Dieser wunderbar moderne Grenache aus dem nördlichen Zentralspanien überzeugt durch dunkle Beerenfrucht, reife Kirsche und dezente Würze. Die Hälfte des Weins reift für mehr Komplexität vier Monate lang in Barriques. Leicht gekühlt serviert, lässt dieser Kickass-Wein viele wesentlich teurere Weine weit hinter sich. Jahrgang 2017 und 2018 wurden auf den Zealand Wine Awards mit der Gold-Medaille ausgezeichnet.
                     </div>
                 </div>
@@ -77,7 +70,11 @@
                     <h3>Entdecke benachbarte Gärprozesse</h3>
                 </div>
                 <div class="product-detail-more-wine-products">
-                    Weinliste hier
+                    {% for product_elem in page.extensions.products_from_same_manufacturer.elements %}
+                        {% sw_include '@Storefront/storefront/component/product/card/box.html.twig' with {
+                            'product': product_elem
+                        } %}
+                    {% endfor %}
                 </div>
             </div>
 
@@ -87,7 +84,11 @@
                     <h3>Entdecke geschmackliche Ähnlichkeiten</h3>
                 </div>
                 <div class="product-detail-more-wine-products">
-                    Weinliste hier
+                    {% for product_elem in page.extensions.products_from_same_category.elements %}
+                        {% sw_include '@Storefront/storefront/component/product/card/box.html.twig' with {
+                            'product': product_elem
+                        } %}
+                    {% endfor %}
                 </div>
             </div>
 

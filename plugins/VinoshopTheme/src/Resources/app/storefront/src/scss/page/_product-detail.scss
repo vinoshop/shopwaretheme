@@ -1,7 +1,29 @@
 .product-detail {
 
+  .small-container {
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  &-images {
+    display: flex;
+    gap: .5rem;
+  }
+
+  &-images-small {
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+  }
+
+  &-image-big {
+    width: inherit;
+  }
+
   &-images-small > img {
-    width: 100%;
+    width: 4rem;
+    height: 4rem;
     border: 4px rgba($gray, .12) solid;
   }
 
@@ -11,6 +33,7 @@
 
   &-image-big {
     border: 8px rgba($gray, .12) solid;
+    object-fit: cover;
   }
 
   &-manufacturer {
@@ -23,6 +46,7 @@
     font-size: 2.5rem;
     color: $almost_black;
     font-weight: 600;
+    line-height: 2.5rem;
   }
 
 
@@ -40,6 +64,9 @@
     display: flex;
     flex-direction: row;
     align-items: center;
+
+    margin-top: 1rem;
+    margin-bottom: 1rem;
 
     & p {
       margin: 0;
@@ -79,6 +106,11 @@
       font-size: 2rem;
     }
 
+    &-euros, &-cents {
+      color: $chianti_red;
+      margin-bottom: 0;
+    }
+
     &::after {
       content: '€';
       font-size: 2.5rem;
@@ -88,10 +120,20 @@
   &-action-section {
     display: flex;
     flex-wrap: wrap;
+    gap: .5rem;
+
+    > * {
+      align-self: center;
+    }
 
     .input-amount, .btn-buy-now {
       min-width: 40%;
       flex-grow: 1;
+    }
+
+    .btn-buy-now {
+      background-color: $almost_black;
+      text-transform: none;
     }
 
     .btn-shopping-cart {
@@ -100,27 +142,45 @@
     }
   }
 
-  &-tabs-headers {
-    border-bottom: 2px $gray solid;
+  &-tabs {
+    margin-top: 3rem;
+    margin-bottom: 3rem;
 
-    > a {
-      font-size: 1.05rem;
-      display: inline-block;
-      text-transform: uppercase;
-      position: relative;
-      padding: 1rem 0;
-      margin: 0 1rem;
-      cursor: pointer;
+    &-headers {
+      border-bottom: 2px $gray solid;
+      display: flex;
+      justify-content: center;
+
+      > a {
+        font-size: 1.05rem;
+        display: inline-block;
+        text-transform: uppercase;
+        position: relative;
+        padding: 1rem 0;
+        margin: 0 1rem;
+        cursor: pointer;
+      }
+
+      & > .active::after {
+        content: '';
+        position: absolute;
+        bottom: -2.5px;
+        left: 0;
+        width: 100%;
+        height: 4px;
+        background-color: $almost_black;
+      }
     }
 
-    & > .active::after {
-      content: '';
-      position: absolute;
-      bottom: -2.5px;
-      left: 0;
-      width: 100%;
-      height: 4px;
-      background-color: $almost_black;
+    &-content {
+      padding: 1rem;
+      display: flex;
+      justify-content: center;
+
+      &-description {
+        max-width: 50rem;
+        color: $dark_gray;
+      }
     }
   }
 
