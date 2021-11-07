@@ -42,14 +42,15 @@
                         </ul>
                     </div>
 
-                    <div class="row">
+                    <div class="product-detail-action-section">
                         {% sw_include '@Storefront/storefront/element/cms_element_input.html.twig' with {
                             type: 'number',
-                            default_value: '0'
+                            default_value: '0',
+                            classes: 'input-amount'
                         } %}
-                        <button class="col-6 elem-button">Sofort kaufen</button>
+                        <button class="col-6 elem-button btn-buy-now">Sofort kaufen</button>
+                        <button class="elem-button btn-shopping-cart">In den Warenkorb</button>
                     </div>
-                    <button class="elem-button">In den Warenkorb</button>
                 </div>
             </div>
 
@@ -70,7 +71,7 @@
                 </div>
             </div>
 
-            <div class="produc-detail-more-wine">
+            <div class="product-detail-more-wine">
                 <div class="product-detail-more-wine-header">
                     <h2>Weine vom selben Winzer</h2>
                     <h3>Entdecke benachbarte Gärprozesse</h3>
@@ -80,7 +81,7 @@
                 </div>
             </div>
 
-            <div class="produc-detail-more-wine">
+            <div class="product-detail-more-wine">
                 <div class="product-detail-more-wine-header">
                     <h2>Weine aus der selben Kategorie</h2>
                     <h3>Entdecke geschmackliche Ähnlichkeiten</h3>

@@ -1,6 +1,6 @@
 {% set type = type|default("text") %}
 
-<div class="elem-input">
+<div class="elem-input{% if classes is defined %} {{ classes }}{% endif %}">
     <input class="elem-input" type="{{ type }}" value="{{ default_value }}"/>
     {% if type == 'number' %}
         <div class="elem-input-number-controls">
