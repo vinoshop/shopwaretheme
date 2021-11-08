@@ -1,46 +1,87 @@
-{% sw_extends '@VinoshopTheme/storefront/base.html.twig' %}
-{# {% block base_header %}  {% endblock %}
-{% block base_navigation %}  {% endblock %} #}
+{% sw_extends '@Storefront/storefront/base.html.twig' %}
+{% set large_header_margin = false %}
 {% block base_main %}
-    <div class="landing-page-image">
+    <div class="landing-page-image container">
         <!-- landing page -->
         <div class="landing-page-image-content">
-            <h1 class="display-3 landing-page-image-content-h1" >Die Exklusivsten <br> Weine</h1>
-            <a type="button"  class="btn landing-page-image-content-btn-color display-5">Shop now</a>
+            <h1 class="display-3 landing-page-image-content-h1">Die Exklusivsten <br> Weine</h1>
+            <a type="button" class="btn landing-page-image-content-btn-color display-5">Shop now</a>
         </div>
     </div>
-    <div class="landing-page-products-center">
+    <div class="landing-page-products-padding">
         <div class="landing-page-produts-width">
             <h2 class="landing-page-products-header"><span>Unsere Produkte</span></h2>
             <div class="landing-page-products">
-                <div><h3>Flat Lake</h3></div>
-                <div><h3>Grüner Veltliner</h3></div>
-                <div><h3>Flat Lake</h3></div>
-                <div><h3>Grüner Veltliner</h3></div>
+                <div class="landing-page-products-product">
+                    <img src="{{ asset('bundles/vinoshoptheme/gv-alte-reben.png', 'asset') }}">
+                    <p class="landing-page-products-product-winzer">Winzer Schmidt</p>
+                    <h5 class="landing-page-products-product-header">Flat Lake</h5>
+                    <div class="landing-page-products-product-line"></div>
+                    <h4 class="landing-page-products-product-price">20,99€</h4>
+                    <a href="" class="landing-page-products-product-btn">In den Warenkorb</a>
+                </div>
+                <div class="landing-page-products-product">
+                    <img src="{{ asset('bundles/vinoshoptheme/gv-alte-reben.png', 'asset') }}">
+                    <p class="landing-page-products-product-winzer">Winzer Schmidt</p>
+                    <h5 class="landing-page-products-product-header">Grüner Veltliner</h5>
+                    <div class="landing-page-products-product-line"></div>
+                    <h4 class="landing-page-products-product-price">20,99€</h4>
+                    <a href="" class="landing-page-products-product-btn ">In den Warenkorb</a>
+                </div>
+                <div class="landing-page-products-product">
+                    <img src="{{ asset('bundles/vinoshoptheme/gv-alte-reben.png', 'asset') }}">
+                    <p class="landing-page-products-product-winzer">Winzer Schmidt</p>
+                    <h5 class="landing-page-products-product-header">Flat Lake</h5>
+                    <div class="landing-page-products-product-line"></div>
+                    <h4 class="landing-page-products-product-price">20,99€</h4>
+                    <a class="landing-page-products-product-btn ">In den Warenkorb</a>
+                </div>
+                <div class="landing-page-products-product">
+                    <img src="{{ asset('bundles/vinoshoptheme/gv-alte-reben.png', 'asset') }}">
+                    <p class="landing-page-products-product-winzer">Winzer Schmidt</p>
+                    <h5 class="landing-page-products-product-header">Grüner Veltliner</h5>
+                    <div class="landing-page-products-product-line"></div>
+                    <h4 class="landing-page-products-product-price">20,99€</h4>
+                    <a href="" class="landing-page-products-product-btn ">In den Warenkorb</a>
+                </div>
             </div>
         </div>
-
     </div>
-    <div>
-        <h1>Virtueller Wein im Postfach</h1>
-        <p>Hol dir unsere neuesten Weine zuerst</p>
-        <div>
+
+    <div class="category container">
+        <!-- categories: Rotwein & Weißwein -->
+        <div class="row">
+            <div class="col container" id="cat_rotwein"><h1>Rotwein</h1></div>
+            <div class="col container" id="cat_weisswein"><h1>Weißwein</h1></div>
+        </div>
+    </div>
+
+    <div class="newsletter">
+        <h1 class="newsletter-header">Virtueller Wein im Postfach</h1>
+        <p class="newsletter-paragraph">Hol dir unsere neuesten Weine zuerst</p>
+        <div class="newsletter-input-size">
             <label>
                 <input type="text" alt="email" value="" placeholder="Email Adresse eingeben">
             </label>
-            <button>Absenden</button>
+            <button type="button">Absenden</button>
         </div>
     </div>
-    <div>
+    <div class="container recommendation">
         <!-- winzer -->
-        <div></div>
-        <!-- winzer's auswahl -->
-        <div>
-            <div></div>
-            <div></div>
+        <div class="row">
+            <div id="winzer" class=" col"></div>
+            <div id="winzer_produkte" class="col">
+                <h2>Häupls Auswahl</h2>
+                <hr>
+                <div class="row">
+                    <div class="col">flasche</div>
+                    <div class="col">flasche</div>
+                </div>
+
+            </div>
         </div>
     </div>
-    <div>
+    <div class="container">
         <h1>#vinoshop on Instagram</h1>
     </div>
 {% endblock %}
