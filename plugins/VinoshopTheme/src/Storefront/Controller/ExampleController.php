@@ -15,11 +15,11 @@ use Symfony\Component\Routing\Annotation\Route;
 class ExampleController extends StorefrontController
 {
     /**
-     * @Route("/example", name="frontend.example.example", methods={"GET"})
+     * @Route("/a", name="frontend.example.example", methods={"GET"})
      */
     public function showExample(): Response
     {
-        return $this->renderStorefront('@VinoshopTheme/storefront/page/example.html.twig', [
+        return $this->renderStorefront('@VinoshopTheme/storefront/page/landing-page/landingpage.html.twig', [
             'example' => 'Hello world'
         ]);
     }

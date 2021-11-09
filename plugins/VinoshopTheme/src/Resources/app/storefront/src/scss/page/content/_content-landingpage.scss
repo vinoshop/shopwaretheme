@@ -1,0 +1,200 @@
+.landing-page-image {
+  height: 80vh;
+  background-image: url("/bundles/vinoshoptheme/lp_background.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 10px 10px 10px 5%;
+  max-width: 1920px;
+}
+
+.landing-page-image-content {
+  height: fit-content;
+}
+
+.landing-page-image-content-h1 {
+  color: $almost_white;
+}
+
+.landing-page-image-content-btn-color {
+  color: $almost_white !important;
+  border: $almost_white 4px solid;
+  border-radius: 0;
+  font-size: 1rem;
+  width: 15vw;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+.landing-page-image-content-btn-color:hover {
+  background: $almost_white;
+  color: $almost_black !important;
+}
+
+.landing-page-products {
+  //background-color: #b20038;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 2%;
+  padding-top: 2%;
+  padding-bottom: 2%;
+}
+
+.landing-page-produts-width {
+  max-width: 1920px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.landing-page-products-padding {
+  padding: 2%;
+
+  a {
+    all: unset;
+    text-transform: uppercase;
+    background-color: $red_wine_stain;
+    color: $almost_white;
+    -webkit-text-fill-color: $almost_white;
+    cursor: pointer;
+    font-family: $default_font_family;
+    font-weight: 600;
+    font-size: 1.25rem;
+    letter-spacing: .1rem;
+
+    display: inline-flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: .75rem;
+  }
+}
+
+.landing-page-products-header {
+  width: 50%;
+  text-align: center;
+  margin: 50px auto 35px;
+}
+
+
+.landing-page-products-product {
+  display: flex;
+  flex-direction: column;
+  width: 250px;
+}
+
+.landing-page-products-product-header {
+  text-align: center;
+  margin-bottom: 6px;
+}
+
+.landing-page-products-product-price {
+  text-align: center;
+  margin-bottom: 6px;
+}
+
+.landing-page-products-product-btn {
+  background-color: $almost_white;
+  color: $almost_black;
+}
+
+.landing-page-products-product-line {
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+  border-bottom: $almost_black 2px solid;
+  margin-bottom: 6px;
+}
+
+.landing-page-products-product-winzer {
+  text-align: center;
+  margin-top: 5px;
+  margin-bottom: 2px;
+  font-size: 12px;
+}
+
+.newsletter {
+  //background-color: #b20038;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+.newsletter-paragraph {
+  color: $gray;
+}
+
+.newsletter-input-size {
+  font-size: 26px;
+  padding: 0 2px 2px 6px;
+  background-color: $almost_white;
+}
+
+.newsletter-input-size > button {
+  background-color: $almost_white;
+}
+
+.category {
+  //background-color: #b20038;
+  height: 50vh;
+
+  #cat_rotwein {
+    background-image: url("/bundles/vinoshoptheme/category_rotwein.png");
+    background-repeat: no-repeat;
+    height: 50vh;
+
+    h1 {
+      text-align: center;
+      color: $almost_white;
+    }
+  }
+
+  #cat_weisswein {
+    background-image: url("/bundles/vinoshoptheme/category_weisswein.png");
+    background-repeat: no-repeat;
+    height: 50vh;
+
+    h1 {
+      text-align: center;
+      color: $almost_white;
+    }
+  }
+}
+
+.recommendation {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  //background-color: #b20038;
+  height: 50vh;
+
+  #winzer {
+    background-image: url("/bundles/vinoshoptheme/winzer.png");
+    height: 50vh;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+  #winzer_produkte {
+    //background-color: #a1a1a1;
+    height: 50vh;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    div {
+      height: 10%;
+
+    }
+  }
+}
+
