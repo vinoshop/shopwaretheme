@@ -60,7 +60,7 @@
                         {{ page.product.translated.description|raw|sw_sanitize }}
                     </div>
                     <div class="product-detail-tabs-content-description">
-                        {{ page.product.translated.customFields.vs_product_taste|raw|sw_sanitize }}
+                        {{ page.product.translated.customFields.vs_product_taste|raw|default('')|sw_sanitize }}
                     </div>
                 </div>
             </div>
