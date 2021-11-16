@@ -1,4 +1,4 @@
-# Shopware Vinoshop Theme
+::# Shopware Vinoshop Theme
 
 To start: ``docker-compose up -d``
 

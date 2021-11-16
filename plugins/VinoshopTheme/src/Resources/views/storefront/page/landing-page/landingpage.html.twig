@@ -56,14 +56,16 @@
         </div>
     </div>
 
-    <div class="newsletter">
-        <h1 class="newsletter-header">Virtueller Wein im Postfach</h1>
-        <p class="newsletter-paragraph">Hol dir unsere neuesten Weine zuerst</p>
-        <div class="newsletter-input-size">
-            <label>
-                <input type="text" alt="email" value="" placeholder="Email Adresse eingeben">
-            </label>
-            <button type="button">Absenden</button>
+    <div class="newsletter container ">
+        <div id="newsletter-div">
+            <h3 id="newsletter-subheader">Hol dir unsere neuesten Weine zuerst</h3>
+            <div class="newsletter-input-size">
+                <label>
+                    <input id="newsletter-input" type="text" alt="email" value="" placeholder="Email Adresse eingeben">
+                </label>
+                <a class="newsletter-button">Absenden</a>
+            </div>
+            <h1 id="newsletter-header">... Virtueller Wein im Postfach</h1>
         </div>
     </div>
     <div class="container recommendation">
@@ -71,17 +73,17 @@
         <div class="row">
             <div id="winzer" class=" col"></div>
             <div id="winzer_produkte" class="col">
-                <h2>Häupls Auswahl</h2>
+                <h2>Max Auswahl</h2>
                 <hr>
                 <div class="row">
                     <div class="col">flasche</div>
                     <div class="col">flasche</div>
                 </div>
-
             </div>
         </div>
     </div>
     <div class="container">
         <h1>#vinoshop on Instagram</h1>
+        <div>{{ dump() }}</div>
     </div>
 {% endblock %}
