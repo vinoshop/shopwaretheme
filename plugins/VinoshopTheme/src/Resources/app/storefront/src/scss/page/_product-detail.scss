@@ -180,6 +180,13 @@
       &-description {
         max-width: 50rem;
         color: $dark_gray;
+        opacity: 0;
+        display: none;
+
+        &.active {
+          opacity: 1;
+          display: block;
+        }
       }
     }
   }
@@ -217,6 +224,11 @@
       }
 
     }
+  }
+
+  .product-detail-more-wine-products {
+    display: flex;
+    flex-wrap: wrap;
   }
 
 }

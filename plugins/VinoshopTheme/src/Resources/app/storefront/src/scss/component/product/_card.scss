@@ -1,4 +1,9 @@
 .card.product-box {
+  background-color: transparent;
+
+  .card-body {
+    background-color: transparent;
+  }
 
   .price {
     font-weight: 600;
@@ -15,17 +20,18 @@
   .manufacturer {
     color: $gray;
     font-size: .75rem;
-    font-weight: 600;
+    font-weight: 500;
     margin-bottom: 0;
   }
 
   .name {
     font-size: 1.5rem;
+    line-height: 1.3rem;
     white-space: nowrap;
     font-weight: 600;
     color: $almost_black;
     text-overflow: ellipsis;
-    overflow: hidden;
+    overflow-x: hidden;
     display: block;
     width: 100%;
     margin-bottom: 0;
@@ -37,9 +43,15 @@
     justify-content: center;
     align-items: center;
     background-color: $light_gray;
+    height: auto;
+    margin-bottom: 0;
 
     .product-image {
       object-fit: cover;
+      width: 100%;
+      max-height: none;
+      border: 1px black solid;
+      border-radius: 4px;
     }
   }
 }

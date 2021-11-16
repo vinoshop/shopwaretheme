@@ -10,9 +10,7 @@
              itemscope
              itemtype="https://schema.org/Product">
 
-            {{ dump() }}
-            {{ dump(page.extensions.products_from_same_manufacturer.elements|first) }}
-
+            <template data-product-page-plugin></template>
 
             <div class="small-container row">
                 <div class="col-6 product-detail-images">
@@ -58,8 +56,11 @@
                     <a class="product-detail-tabs-taste">Geschmack</a>
                 </div>
                 <div class="product-detail-tabs-content">
+                    <div class="product-detail-tabs-content-description active">
+                        {{ page.product.translated.description|raw|sw_sanitize }}
+                    </div>
                     <div class="product-detail-tabs-content-description">
-                        Wow! Dieser wunderbar moderne Grenache aus dem nördlichen Zentralspanien überzeugt durch dunkle Beerenfrucht, reife Kirsche und dezente Würze. Die Hälfte des Weins reift für mehr Komplexität vier Monate lang in Barriques. Leicht gekühlt serviert, lässt dieser Kickass-Wein viele wesentlich teurere Weine weit hinter sich. Jahrgang 2017 und 2018 wurden auf den Zealand Wine Awards mit der Gold-Medaille ausgezeichnet.
+                        {{ page.product.translated.customFields.vs_product_taste|raw|sw_sanitize }}
                     </div>
                 </div>
             </div>

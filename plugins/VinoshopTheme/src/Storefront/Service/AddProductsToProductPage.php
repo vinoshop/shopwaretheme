@@ -9,6 +9,8 @@ use Shopware\Core\Framework\DataAbstractionLayer\Search\Aggregation\Metric\Count
 use Shopware\Core\Framework\DataAbstractionLayer\Search\AggregationResult\Metric\CountResult;
 use Shopware\Core\Framework\DataAbstractionLayer\Search\Criteria;
 use Shopware\Core\Framework\DataAbstractionLayer\Search\Filter\EqualsFilter;
+use Shopware\Core\Framework\DataAbstractionLayer\Search\Filter\NotFilter;
+use Shopware\Core\Framework\DataAbstractionLayer\Search\Filter\MultiFilter;
 use Shopware\Storefront\Page\Product\ProductPageLoadedEvent;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Shopware\Core\Framework\Struct\ArrayEntity;
@@ -40,31 +42,36 @@ class AddProductsToProductPage implements EventSubscriberInterface
 
     public function addProductLists(ProductPageLoadedEvent $event): void
     {
-        $criteria = new Criteria();
-        $criteria->addFilter(new EqualsFilter('product.active', true));
 
+        $productId = $event->getPage()->getProduct()->parentId;
         $manufacturerId = $event->getPage()->getProduct()->manufacturerId;
         $categoryId = $event->getPage()->getProduct()->getSEOCategory()->id;
 
+        $isMainVariantAndNotCurrentProduct = new MultiFilter(
+            MultiFilter::CONNECTION_AND,
+            [
+                new EqualsFilter('parentId', null),
+                new NotFilter(
+                    NotFilter::CONNECTION_AND,
+                    [ new EqualsFilter('id', $productId) ]
+                )
+            ]
+        );
+
         $manufacturerCriteria = new Criteria();
         $manufacturerCriteria->addFilter(new EqualsFilter('manufacturerId', $manufacturerId));
+        $manufacturerCriteria->addFilter($isMainVariantAndNotCurrentProduct);
+        $manufacturerCriteria->addAssociation('manufacturer');
         $productsFromSameManufacturer = $this->productRepository->search($manufacturerCriteria, $event->getSalesChannelContext());
-        $this->mapManufacturersToProducts($productsFromSameManufacturer, $event->getSalesChannelContext());
 
         $event->getPage()->addExtension('products_from_same_manufacturer', $productsFromSameManufacturer);
 
         $categoryCriteria = new Criteria();
         $categoryCriteria->addFilter(new EqualsFilter('categoryIds', $categoryId));
+        $categoryCriteria->addFilter($isMainVariantAndNotCurrentProduct);
+        $categoryCriteria->addAssociation('manufacturer');
         $productsFromSameCategory = $this->productRepository->search($categoryCriteria, $event->getSalesChannelContext());
-        $this->mapManufacturersToProducts($productsFromSameCategory, $event->getSalesChannelContext());
-
 
         $event->getPage()->addExtension('products_from_same_category', $productsFromSameCategory);
-    }
-
-    private function mapManufacturersToProducts($products, $context) {
-        foreach ($products as $product) {
-
-        }
     }
 }
