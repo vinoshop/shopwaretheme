@@ -1,0 +1,18 @@
+<div class="product-detail-more-wine">
+    <div class="product-detail-more-wine-header">
+        <h2>{{ title|default('Weitere Produkte') }}</h2>
+        <h3>{{ subtitle|default('Eine besondere Auswahl') }}</h3>
+    </div>
+    <div class="product-detail-more-wine-products">
+        {% if product_elements|length > 0 %}
+            {% for product_elem in product_elements %}
+                {% sw_include '@Storefront/storefront/component/product/card/box.html.twig' with {
+                    'product': product_elem
+                } %}
+            {% endfor %}
+
+        {% else %}
+            <p>Keine weiteren Produkte vorhanden</p>
+        {% endif %}
+    </div>
+</div>
