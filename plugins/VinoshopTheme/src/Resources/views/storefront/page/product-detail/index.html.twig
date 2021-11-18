@@ -51,7 +51,7 @@
                 </div>
                 <div class="product-detail-tabs-content">
                     <div id="tabs-description" class="product-detail-tabs-content-description active">
-                        <div>{{ page.product.translated.description|raw|sw_sanitize }}</div>
+                        <div>{{ page.product.translated.description|raw|default("Keine Beschreibung eingetragen")|sw_sanitize }}</div>
                     </div>
                     <div id="tabs-taste" class="product-detail-tabs-content-description">
                         <div>
