@@ -1,4 +1,4 @@
-{% sw_extends '@Storefront/storefront/base.html.twig' %}
+{% sw_extends '@Storefront/storefront/page/product-detail/index.html.twig' %}
 
 {% block base_head %}
     {% sw_include '@Storefront/storefront/page/product-detail/meta.html.twig' %}
@@ -9,8 +9,6 @@
         <div class="product-detail"
              itemscope
              itemtype="https://schema.org/Product">
-
-            {{ dump() }}
 
             <template data-product-page-plugin></template>
 
@@ -42,15 +40,7 @@
                         </ul>
                     </div>
 
-                    <div class="product-detail-action-section">
-                        {% sw_include '@Storefront/storefront/element/cms_element_input.html.twig' with {
-                            type: 'number',
-                            default_value: '0',
-                            classes: 'input-amount'
-                        } %}
-                        <button class="col-6 elem-button btn-buy-now">Sofort kaufen</button>
-                        <button class="elem-button btn-shopping-cart">In den Warenkorb</button>
-                    </div>
+                    {% sw_include '@Storefront/storefront/page/product-detail/buy-widget-form.html.twig' %}
                 </div>
             </div>
 
@@ -61,11 +51,13 @@
                 </div>
                 <div class="product-detail-tabs-content">
                     <div id="tabs-description" class="product-detail-tabs-content-description active">
-                        {{ page.product.translated.description|raw|sw_sanitize }}
+                        <div>{{ page.product.translated.description|raw|sw_sanitize }}</div>
                     </div>
                     <div id="tabs-taste" class="product-detail-tabs-content-description">
-                        {{ page.product.translated.customFields.vs_product_taste|raw|default('Kein Geschmack eingetragen')
-                        |sw_sanitize }}
+                        <div>
+                            {{ page.product.translated.customFields.vs_product_taste|raw|default('Kein Geschmack eingetragen')
+                            |sw_sanitize }}
+                        </div>
                     </div>
                 </div>
             </div>

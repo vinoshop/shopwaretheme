@@ -1,5 +1,6 @@
 .card.product-box {
   background-color: transparent;
+  border: none;
 
   .card-body {
     background-color: transparent;
@@ -26,14 +27,15 @@
 
   .name {
     font-size: 1.5rem;
-    line-height: 1.3rem;
+    line-height: 1.7rem;
     white-space: nowrap;
     font-weight: 600;
     color: $almost_black;
     text-overflow: ellipsis;
-    overflow-x: hidden;
+    overflow: hidden;
     display: block;
     width: 100%;
+    max-width: 16rem;
     margin-bottom: 0;
   }
 
