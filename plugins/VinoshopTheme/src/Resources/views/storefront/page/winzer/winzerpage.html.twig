@@ -1,0 +1,57 @@
+{% sw_extends '@Storefront/storefront/base.html.twig' %}
+{% set large_header_margin = false %}
+{% block base_main %}
+    <div class="winzerpage">
+        <div class="container-fluid">
+            {# #}
+            <img class="winzerpage-hof-image"
+                 src="{{ asset('bundles/vinoshoptheme/winzerpage/winzer_reben.jpg', 'asset') }}" alt="">
+        </div>
+        <div>
+            {# Daten #}
+            <h1>Max Mustermann</h1>
+            <h2>Burgenland</h2>
+        </div>
+        <div>
+            {# beschreibung #}
+            <h5>EINE EINZIGARTIGE GESCHICHTE</h5>
+            <p>
+                Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed
+                diam nonumy eirmod tempor invidunt ut labore et dolore magna
+                aliquyam erat, sed diam voluptua. At vero eos et accusam et
+                justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea
+                takimata sanctus est Lorem ipsum dolor sit amet.
+            </p>
+            {# Quote #}
+            <img src="{{ asset('bundles/vinoshoptheme/winzerpage/20211024_PVS_Weinblatt_Citation_v3.svg', 'asset') }}"
+                 alt="">
+            <h1>"Du Quatschkopf, des gibt a minus."</h1>
+            <p>-Max Mustermann</p>
+            <div></div>
+            <p>
+                At vero eos et accusam et justo duo dolores et ea rebum. Stet
+                clita kasd gubergren, no sea takimata sanctus est Lorem ipsum
+                dolor sit amet.
+            </p>
+        </div>
+        <div>
+            {#Galerie#}
+            <div>
+                <img src="" alt="">
+            </div>
+            {#Video#}
+            <div>
+
+            </div>
+        </div>
+        <div>
+            {#restliche Produkte#}
+            <h1>PRÄMIERTE WEINE VON MAX MUSTERMANN</h1>
+            <div>
+                {#produkte#}
+
+            </div>
+            <button type="button" class="btn">Mehr Anzeigen</button>
+        </div>
+    </div>
+{% endblock %}
