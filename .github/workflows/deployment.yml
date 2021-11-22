@@ -32,4 +32,4 @@ jobs:
           cd /home/shopwaretheme/dev && \
           git pull && \
           cd /home/docker/vinoshop-test && \
-          docker-compose exec shopware /bin/sh -c \"bin/console cache:clear\""
+          docker-compose exec -T shopware /bin/sh -c \"bin/console cache:clear\""
