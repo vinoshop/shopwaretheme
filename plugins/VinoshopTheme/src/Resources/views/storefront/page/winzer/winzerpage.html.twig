@@ -1,21 +1,18 @@
 {% sw_extends '@Storefront/storefront/base.html.twig' %}
 {% set large_header_margin = false %}
 {% block base_main %}
-    <div class="winzerpage">
-        <div class="container-fluid">
-            {# #}
-            <img class="winzerpage-hof-image"
-                 src="{{ asset('bundles/vinoshoptheme/winzerpage/winzer_reben.jpg', 'asset') }}" alt="">
+    <div class="container winzerpage">
+        <div class="winzerpage-img container">
+            <div class="winzerpage-name container">
+                {# Daten #}
+                <h1>Max Mustermann</h1>
+                <p>Burgenland</p>
+            </div>
         </div>
-        <div>
-            {# Daten #}
-            <h1>Max Mustermann</h1>
-            <h2>Burgenland</h2>
-        </div>
-        <div>
+        <div class="winzerpage-story container">
             {# beschreibung #}
-            <h5>EINE EINZIGARTIGE GESCHICHTE</h5>
-            <p>
+            <h4 class="winzerpage-story-header">EINE EINZIGARTIGE GESCHICHTE</h4>
+            <p class="winzerpage-story-content">
                 Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed
                 diam nonumy eirmod tempor invidunt ut labore et dolore magna
                 aliquyam erat, sed diam voluptua. At vero eos et accusam et
@@ -34,21 +31,21 @@
                 dolor sit amet.
             </p>
         </div>
-        <div>
-            {#Galerie#}
+        <div class="container">
+            {# Galerie #}
             <div>
                 <img src="" alt="">
             </div>
-            {#Video#}
+            {# Video #}
             <div>
 
             </div>
         </div>
-        <div>
-            {#restliche Produkte#}
+        <div class="container">
+            {# restliche Produkte #}
             <h1>PRÄMIERTE WEINE VON MAX MUSTERMANN</h1>
             <div>
-                {#produkte#}
+                {# produkte #}
 
             </div>
             <button type="button" class="btn">Mehr Anzeigen</button>

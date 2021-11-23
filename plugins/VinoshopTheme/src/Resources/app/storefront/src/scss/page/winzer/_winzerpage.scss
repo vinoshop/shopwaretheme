@@ -1,7 +1,48 @@
 .winzerpage {
+  max-width: 1920px;
+  margin-left: 0;
+  margin-right: 0;
 
-  .winzerpage-hof-image {
-    max-width: 120rem;
+  .winzerpage-img {
+    height: 45rem;
+    background-image: url("/bundles/vinoshoptheme/winzerpage/winzer_reben.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    max-width: 1920px;
+    position: relative;
+    margin-bottom: 9rem;
+    display: flex;
+    justify-content: center;
   }
 
+  .winzerpage-name {
+    background-color: $chianti_red;
+    max-width: 70%;
+    padding: 1.5rem 0 1.5rem 0;
+    position: absolute;
+    bottom: -7rem;
+
+    h1, p {
+      text-align: center;
+      color: $almost_white;
+    }
+
+    p {
+      font-size: 1.5rem;
+      font-weight: lighter;
+      margin-bottom: 0;
+    }
+  }
+
+  .winzerpage-story {
+
+    .winzerpage-story-header {
+      margin-left: 2rem;
+    }
+
+    .winzerpage-story-content {
+
+    }
+  }
 }

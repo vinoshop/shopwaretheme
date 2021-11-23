@@ -1,13 +1,14 @@
 .landing-page-image {
-  height: 80vh;
-  background-image: url("/bundles/vinoshoptheme/lp_background.png");
+  height: 45rem;
+  background-image: url("/bundles/vinoshoptheme/homepage/lp_background.png");
   background-repeat: no-repeat;
   background-size: cover;
+  background-position: center;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   justify-content: center;
-  padding: 10px 10px 10px 5%;
+  padding: 1rem 1rem 1rem 3rem;
   max-width: 1920px;
 }
 
@@ -22,11 +23,6 @@
 .landing-page-image-content-btn-color {
   color: $almost_white !important;
   border: $almost_white 4px solid;
-  border-radius: 0;
-  font-size: 1rem;
-  width: 15vw;
-  padding-top: 1rem;
-  padding-bottom: 1rem;
 }
 
 .landing-page-image-content-btn-color:hover {
@@ -189,11 +185,12 @@
 .category {
   //background-color: #b20038;
   height: 50vh;
+  max-width: 1920px;
 
   #cat_rotwein {
-    background-image: url("/bundles/vinoshoptheme/category_rotwein.png");
+    background-image: url("/bundles/vinoshoptheme/homepage/categories/category_rotwein.png");
     background-repeat: no-repeat;
-    height: 50vh;
+    //height: auto;
 
     h1 {
       text-align: center;
@@ -204,9 +201,9 @@
   }
 
   #cat_weisswein {
-    background-image: url("/bundles/vinoshoptheme/category_weisswein.png");
+    background-image: url("/bundles/vinoshoptheme/homepage/categories/category_weisswein.png");
     background-repeat: no-repeat;
-    height: 50vh;
+    //height: fit-content;
 
     h1 {
       text-align: center;
@@ -224,7 +221,7 @@
   height: 50vh;
 
   #winzer {
-    background-image: url("/bundles/vinoshoptheme/winzer.png");
+    background-image: url("/bundles/vinoshoptheme/homepage/winzer/winzer.png");
     height: 50vh;
     background-repeat: no-repeat;
     background-size: cover;
