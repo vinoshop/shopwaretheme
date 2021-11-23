@@ -7,7 +7,7 @@ To start: ``docker-compose up -d``
 * https://developer.shopware.com/docs/guides/plugins/plugins/storefront/customize-templates
 * https://developer.shopware.com/docs/guides/plugins/plugins/storefront/add-custom-page
 
-docker-compose exec shopware /bin/sh
+docker-compose exec shopware /bin/bash
 
 ### when you want to start developing
 ``bin/console theme:compile && bin/console assets:install && bin/console cache:clear``
