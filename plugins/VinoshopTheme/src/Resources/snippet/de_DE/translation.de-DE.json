@@ -1,0 +1,10 @@
+{
+  "customFields": {
+    "vs_product_good_with": {
+      "red_meat": "Rotes Fleisch",
+      "light_meat": "Helles Fleisch",
+      "vegetables": "Gemüse",
+      "cheese": "Käse"
+    }
+  }
+}

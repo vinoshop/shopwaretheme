@@ -18,13 +18,20 @@
   }
 
   &-image-big {
-    width: inherit;
+    flex-grow: 1;
+    width: 10px;
   }
 
   &-images-small > img {
     width: 4rem;
     height: 4rem;
     border: 4px rgba($gray, .12) solid;
+    cursor: pointer;
+    transition: border .2s ease;
+
+    &:hover {
+      border-color: rgba($gray, .22);
+    }
   }
 
   &-images-small > img.active {
@@ -159,39 +166,55 @@
         padding: 1rem 0;
         margin: 0 1rem;
         cursor: pointer;
+
+        &:hover::after {
+          transition: background-color .2s ease;
+          background-color: $gray;
+        }
       }
 
-      & > .active::after {
+      & > ::after {
         content: '';
         position: absolute;
         bottom: -2.5px;
         left: 0;
         width: 100%;
         height: 4px;
+      }
+      & > a.active::after {
         background-color: $almost_black;
       }
     }
 
     &-content {
       padding: 1rem;
-      display: flex;
-      justify-content: center;
+      display: block;
+      position: relative;
+      height: 10rem;
 
       &-description {
-        max-width: 50rem;
-        color: $dark_gray;
+        position: absolute;
+        width: 100%;
+        display: flex;
+        justify-content: center;
         opacity: 0;
-        display: none;
+        transition: all .2s ease;
+
+        > div {
+          max-width: 50rem;
+          color: $dark_gray;
+        }
 
         &.active {
           opacity: 1;
-          display: block;
         }
       }
     }
   }
 
   &-more-wine {
+    margin-bottom: 5rem;
+
     &-header {
 
       h2 {
@@ -224,11 +247,15 @@
       }
 
     }
-  }
 
-  .product-detail-more-wine-products {
-    display: flex;
-    flex-wrap: wrap;
+    &-products {
+      display: flex;
+      flex-wrap: wrap;
+
+      > div {
+        flex-grow: 0;
+      }
+    }
   }
 
 }

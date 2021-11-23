@@ -1,4 +1,4 @@
-{% sw_extends '@Storefront/storefront/base.html.twig' %}
+{% sw_extends '@Storefront/storefront/page/product-detail/index.html.twig' %}
 
 {% block base_head %}
     {% sw_include '@Storefront/storefront/page/product-detail/meta.html.twig' %}
@@ -16,7 +16,8 @@
                 <div class="col-6 product-detail-images">
                     <div class="product-detail-images-small">
                         {% for media in page.product.media.elements %}
-                            <img class="{% if media == page.product.media.elements|first %}active{% endif %}" src="{{ media.media.url }}">
+                            <img class="{% if media == page.product.media.elements|first %}active{% endif %}"
+                                 src="{{ media.media.url }}">
                         {% endfor %}
                     </div>
                     <img class="product-detail-image-big" src="{{ (page.product.media.elements|first).media.url }}">
@@ -33,117 +34,45 @@
                     <div class="product-detail-good-with">
                         <p>Passend zu:</p>
                         <ul class="product-detail-good-with-list">
-                            <li>Steak</li>
-                            <li>Käse</li>
+                            {% for good_with in page.product.translated.customFields.vs_product_good_with %}
+                                <li>{{ ('customFields.vs_product_good_with.' ~ good_with)|trans }}</li>
+                            {% endfor %}
                         </ul>
                     </div>
 
-                    <div class="product-detail-action-section">
-                        {% sw_include '@Storefront/storefront/element/cms_element_input.html.twig' with {
-                            type: 'number',
-                            default_value: '0',
-                            classes: 'input-amount'
-                        } %}
-                        <button class="col-6 elem-button btn-buy-now">Sofort kaufen</button>
-                        <button class="elem-button btn-shopping-cart">In den Warenkorb</button>
-                    </div>
+                    {% sw_include '@Storefront/storefront/page/product-detail/buy-widget-form.html.twig' %}
                 </div>
             </div>
 
             <div class="small-container product-detail-tabs">
                 <div class="product-detail-tabs-headers">
-                    <a class="product-detail-tabs-description active">Beschreibung</a>
-                    <a class="product-detail-tabs-taste">Geschmack</a>
+                    <a class="product-detail-tabs-description active" data-content-id="tabs-description">Beschreibung</a>
+                    <a class="product-detail-tabs-taste" data-content-id="tabs-taste">Geschmack</a>
                 </div>
                 <div class="product-detail-tabs-content">
-                    <div class="product-detail-tabs-content-description active">
-                        {{ page.product.translated.description|raw|sw_sanitize }}
+                    <div id="tabs-description" class="product-detail-tabs-content-description active">
+                        <div>{{ page.product.translated.description|raw|sw_sanitize }}</div>
                     </div>
-                    <div class="product-detail-tabs-content-description">
-                        {{ page.product.translated.customFields.vs_product_taste|raw|default('')|sw_sanitize }}
+                    <div id="tabs-taste" class="product-detail-tabs-content-description">
+                        <div>
+                            {{ page.product.translated.customFields.vs_product_taste|raw|default('Kein Geschmack eingetragen')
+                            |sw_sanitize }}
+                        </div>
                     </div>
                 </div>
             </div>
 
-            <div class="product-detail-more-wine">
-                <div class="product-detail-more-wine-header">
-                    <h2>Weine vom selben Winzer</h2>
-                    <h3>Entdecke benachbarte Gärprozesse</h3>
-                </div>
-                <div class="product-detail-more-wine-products">
-                    {% for product_elem in page.extensions.products_from_same_manufacturer.elements %}
-                        {% sw_include '@Storefront/storefront/component/product/card/box.html.twig' with {
-                            'product': product_elem
-                        } %}
-                    {% endfor %}
-                </div>
-            </div>
+            {% sw_include '@Storefront/storefront/page/product-detail/more-products.html.twig' with {
+                'title': 'Weine vom selben Winzer',
+                'subtitle': 'Entdecke benachbarte Gärprozesse',
+                'product_elements': page.extensions.products_from_same_manufacturer.elements
+            } %}
 
-            <div class="product-detail-more-wine">
-                <div class="product-detail-more-wine-header">
-                    <h2>Weine aus der selben Kategorie</h2>
-                    <h3>Entdecke geschmackliche Ähnlichkeiten</h3>
-                </div>
-                <div class="product-detail-more-wine-products">
-                    {% for product_elem in page.extensions.products_from_same_category.elements %}
-                        {% sw_include '@Storefront/storefront/component/product/card/box.html.twig' with {
-                            'product': product_elem
-                        } %}
-                    {% endfor %}
-                </div>
-            </div>
-
-
-{#            {% block page_product_detail_inner %} #}
-{#                {% block page_product_detail_content %}#}
-{#                    <div class="product-detail-landing-page">#}
-{#                        {% block page_product_detail_headline %}#}
-{#                            <div class="row align-items-center product-detail-headline">#}
-{#                                {{ page.product.translated.name }}#}
-{#                            </div>#}
-{#                        {% endblock %}#}
-
-{#                        {% set mediaItems = page.product.media.media %}#}
-
-
-{#                        {% block page_product_detail_main %}#}
-{#                            <div class="row product-detail-main">#}
-{#                                {% block page_product_detail_media %}#}
-{#                                    <div class="col-lg-7 product-detail-media">#}
-{#                                        {% if page.product.media %}#}
-{#                                            {% sw_include '@Storefront/storefront/element/cms-element-image-gallery.html.twig' with {#}
-{#                                                'mediaItems': mediaItems,#}
-{#                                            } %}#}
-{#                                        {% endif %}#}
-{#                                    </div>#}
-{#                                {% endblock %}#}
-
-{#                                {% block page_product_detail_buy %}#}
-{#                                    <div class="col-lg-5 product-detail-buy">#}
-{#                                        {% sw_include '@Storefront/storefront/page/product-detail/buy-widget.html.twig' %}#}
-{#                                    </div>#}
-{#                                {% endblock %}#}
-{#                            </div>#}
-{#                        {% endblock %}#}
-{#                    </div>#}
-{#                {% endblock %}#}
-
-{#                {% block page_product_detail_tabs %}#}
-{#                    <div class="product-detail-tabs">#}
-{#                        {% sw_include '@Storefront/storefront/page/product-detail/tabs.html.twig' %}#}
-{#                    </div>#}
-{#                {% endblock %}#}
-
-{#                {% block page_product_detail_cross_selling %}#}
-{#                    {% if page.crossSellings.element is defined and page.crossSellings.element|filter(item => item.total > 0)|length > 0 %}#}
-{#                        <div class="product-detail-tabs product-detail-cross-selling">#}
-{#                            {% sw_include '@Storefront/storefront/page/product-detail/cross-selling/tabs.html.twig' with {#}
-{#                                crossSellings: page.crossSellings#}
-{#                            } %}#}
-{#                        </div>#}
-{#                    {% endif %}#}
-{#                {% endblock %}#}
-{#            {% endblock %}#}
+            {% sw_include '@Storefront/storefront/page/product-detail/more-products.html.twig' with {
+                'title': 'Weine aus der selben Kategorie',
+                'subtitle': 'Entdecke geschmackliche Ähnlichkeiten',
+                'product_elements': page.extensions.products_from_same_category.elements
+            } %}
         </div>
     {% endblock %}
 {% endblock %}
