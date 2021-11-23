@@ -13,12 +13,12 @@
 
   &-images-small {
     display: flex;
-    flex-direction: column;
     gap: .5rem;
   }
 
   &-image-big {
     flex-grow: 1;
+    min-width: 10rem;
     width: 10px;
   }
 
