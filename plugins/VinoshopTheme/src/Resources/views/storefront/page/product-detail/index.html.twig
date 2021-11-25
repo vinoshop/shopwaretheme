@@ -13,15 +13,15 @@
             <template data-product-page-plugin></template>
 
             <div class="small-container row">
-                <div class="col-lg-6 col-12 product-detail-images flex-column flex-lg-row">
+                <div class="col-lg-6 col-12 product-detail-images flex-column flex-lg-row align-items-center align-items-lg-start">
                     <div class="product-detail-images-small d-none d-lg-flex flex-column">
                         {% for media in page.product.media.elements %}
                             <img class="{% if media == page.product.media.elements|first %}active{% endif %}"
                                  src="{{ media.media.url }}">
                         {% endfor %}
                     </div>
-                    <img class="product-detail-image-big w-100 w-lg-auto" src="{{ (page.product.media.elements|first).media.url }}">
-                    <div class="product-detail-images-small d-flex flex-row d-lg-none">
+                    <img class="product-detail-image-big w-auto" src="{{ (page.product.media.elements|first).media.url }}">
+                    <div class="product-detail-images-small d-flex flex-row d-lg-none mb-3">
                         {% for media in page.product.media.elements %}
                             <img class="{% if media == page.product.media.elements|first %}active{% endif %}"
                                  src="{{ media.media.url }}">
@@ -29,7 +29,7 @@
                     </div>
                 </div>
 
-                <div class="col-lg-6 col-12 product-detail-infos">
+                <div class="col-lg-6 product-detail-infos mx-auto">
                     <h3 class="product-detail-manufacturer">{{ page.product.manufacturer.translated.name }}</h3>
                     <h2 class="product-detail-name">{{ page.product.translated.name }}</h2>
                     <div class="product-detail-price">

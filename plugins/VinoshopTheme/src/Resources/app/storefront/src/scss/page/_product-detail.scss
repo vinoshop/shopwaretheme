@@ -19,6 +19,7 @@
   &-image-big {
     flex-grow: 1;
     min-width: 10rem;
+    max-width: calc(min(90vw, 30rem));
     width: 10px;
   }
 
@@ -60,6 +61,7 @@
   &-infos {
     display: flex;
     flex-direction: column;
+    max-width: 40rem;
   }
 
   &-manufacturer {
@@ -191,6 +193,10 @@
       display: block;
       position: relative;
       height: 10rem;
+
+      @media (max-width: 540px) {
+        height: calc(20rem - 50vw + 10rem);
+      }
 
       &-description {
         position: absolute;

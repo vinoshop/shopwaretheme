@@ -19,19 +19,21 @@ export default class ProductPagePlugin extends Plugin {
                 document.getElementById(header.getAttribute("data-content-id")).classList.add("active");
             });
 
-            const productImagesSmall = document.getElementsByClassName("product-detail-images-small")[0].children;
-            let activeImage = null;
+            const productImagesSmall = [
+                ...document.getElementsByClassName("product-detail-images-small")[0].children,
+                ...document.getElementsByClassName("product-detail-images-small")[1].children
+            ];
             for (let img of productImagesSmall) {
-                if (img.classList.contains("active"))
-                    activeImage = img;
-
                 img.addEventListener("click", () => {
                     if (img.classList.contains("active"))
                         return;
-                    activeImage.classList.remove("active");
-                    activeImage = img;
-                    img.classList.add("active");
-                    document.getElementsByClassName("product-detail-image-big")[0].setAttribute("src", img.getAttribute("src"));
+                    let src = img.getAttribute("src");
+                    productImagesSmall.forEach(el => {
+                        if (el.getAttribute("src") === src)
+                            el.classList.add("active")
+                        else el.classList.remove("active")
+                    })
+                    document.getElementsByClassName("product-detail-image-big")[0].setAttribute("src", src);
                 })
             }
 
