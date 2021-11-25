@@ -1,0 +1,60 @@
+<div class="nav-container d-flex flex-column">
+    <button class="d-block btn ml-auto mr-3 mt-3 btn-close-mobile-nav-overview"
+            type="button"
+            aria-label="{{ "general.menuLink"|trans|striptags }}">
+        {% block asdasd %}
+            {% sw_icon 'x' %}
+        {% endblock %}
+    </button>
+
+
+    {% if context.salesChannel.translated.homeEnabled %}
+        {% set homeLabel = context.salesChannel.translated.homeName|default("general.homeLink"|trans) %}
+        <a class="mobile-nav-link{% if controllerAction is same as('home') %} active{% endif %}"
+           href="{{ path('frontend.home.page') }}"
+           itemprop="url"
+           title="{{ homeLabel|striptags }}">
+            <div class="nav-link-text">
+                <span itemprop="name">{{ homeLabel|sw_sanitize }}</span>
+            </div>
+        </a>
+    {% endif %}
+
+    {% for treeItem in page.header.navigation.tree %}
+        {% set category = treeItem.category %}
+        {% set name = category.translated.name %}
+        {% set categorId = category.id %}
+        <a class="mobile-nav-link{% if category.id == page.header.navigation.active.id or category.id in activePath %} active{% endif %}"
+           href="{{ category_url(category) }}"
+           itemprop="url"
+           title="{{ name }}">
+            <div class="nav-link-text">
+                <span itemprop="name">{{ name }}</span>
+            </div>
+        </a>
+    {% endfor %}
+
+    <div class="d-flex flex-column justify-content-end mt-auto pb-4">
+        <div class="d-flex justify-content-around mt-auto">
+            <div class="search-menu action">
+                {% sw_icon 'search' style {
+                    namespace: 'VinoshopTheme',
+                    pack: 'fontawesome'
+                } %}
+            </div>
+            <div class="cart-menu action"
+                 data-offcanvas-cart="true">
+                {% sw_icon 'shopping-bag' style {
+                    namespace: 'VinoshopTheme',
+                    pack: 'fontawesome'
+                } %}
+            </div>
+            <div class="account-menu action">
+                {% sw_icon 'user' style {
+                    namespace: 'VinoshopTheme',
+                    pack: 'fontawesome'
+                } %}
+            </div>
+        </div>
+    </div>
+</div>

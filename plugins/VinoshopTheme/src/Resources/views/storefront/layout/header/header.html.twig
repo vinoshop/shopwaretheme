@@ -2,30 +2,14 @@
     {% block layout_header_navigation %}
         <div class="row align-items-center bg-black">
             {% block layout_header_logo %}
-                <div class="col-12 col-lg-auto header-logo-col">
+                <div class="col-auto header-logo-col">
                     {% sw_include '@Storefront/storefront/layout/header/logo.html.twig' %}
                 </div>
             {% endblock %}
 
             {% block layout_header_categories %}
-                <div class="col-12 order-2 col-sm order-sm-1 header-search-col">
+                <div class="d-none d-lg-block col-12 order-2 col-sm order-sm-1 header-search-col">
                     <div class="row">
-                        <div class="col-sm-auto d-none d-sm-block d-lg-none">
-                            {% block layout_header_navigation_toggle_tablet %}
-                                <div class="nav-main-toggle">
-                                    {% block layout_header_navigation_toggle_tablet_button %}
-                                        <button class="btn nav-main-toggle-btn header-actions-btn"
-                                                type="button"
-                                                data-offcanvas-menu="true"
-                                                aria-label="{{ "general.menuLink"|trans|striptags }}">
-                                            {% block layout_header_navigation_toggle_tablet_button_icon %}
-                                                {% sw_icon 'stack' %}
-                                            {% endblock %}
-                                        </button>
-                                    {% endblock %}
-                                </div>
-                            {% endblock %}
-                        </div>
                         <div class="col">
                             {% sw_include '@Storefront/storefront/layout/header/navigation.html.twig' %}
                         </div>
@@ -34,7 +18,7 @@
             {% endblock %}
 
             {% block layout_header_actions %}
-                <div class="col-12 order-1 col-sm-auto order-sm-2 header-actions-col">
+                <div class="col-12 order-1 col-sm-auto order-sm-2 header-actions-col d-none d-lg-block">
                     <div class="row no-gutters">
                         {% block layout_header_navigation_toggle %}
                             <div class="col d-sm-none">
@@ -82,6 +66,30 @@
                     </div>
                 </div>
             {% endblock %}
+
+            {% block layout_header_nav_toggle %}
+                <div class="col-2 ml-auto d-block d-lg-none text-right">
+                    <div class="nav-main-toggle">
+                        {% block layout_header_navigation_toggle_tablet_button %}
+                            <button class="btn nav-main-toggle-btn header-actions-btn"
+                                    type="button"
+                                    data-header-plugin="true"
+                                    aria-label="{{ "general.menuLink"|trans|striptags }}">
+                                {% block layout_header_navigation_toggle_tablet_button_icon %}
+                                    {% sw_icon 'stack' %}
+                                {% endblock %}
+                            </button>
+                        {% endblock %}
+                    </div>
+                </div>
+            {% endblock %}
+
+        </div>
+    {% endblock %}
+
+    {% block layout_header_mobile_nav_overlay %}
+        <div class="header-mobile-nav-overlay">
+            {% sw_include '@Storefront/storefront/layout/header/mobile-overlay.html.twig' %}
         </div>
     {% endblock %}
 {% endblock %}
