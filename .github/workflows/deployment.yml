@@ -1,6 +1,6 @@
 # This is a basic workflow to help you get started with Actions
 
-name: deployment
+name: deployment_testshop
 
 # Controls when the workflow will run
 on:
@@ -32,4 +32,6 @@ jobs:
           cd /home/shopwaretheme/dev && \
           git pull && \
           cd /home/docker/vinoshop-test && \
-          docker-compose exec -T shopware /bin/sh -c \"bin/console cache:clear\""
+          docker-compose exec shopware /bin/sh -c \"bin/console theme:compile\" && \
+          docker-compose exec shopware /bin/sh -c \"bin/console assets:install\" && \
+          docker-compose exec shopware /bin/sh -c \"bin/console cache:clear\""
