@@ -1,17 +1,21 @@
 .winzerpage {
   max-width: 1920px;
-  margin-left: 0;
-  margin-right: 0;
+  padding-left: 0;
+  padding-right: 0;
+
+  p {
+    margin-bottom: 0;
+  }
 
   .winzerpage-img {
-    height: 45rem;
+    height: 80vh;
     background-image: url("/bundles/vinoshoptheme/winzerpage/winzer_reben.jpg");
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
     max-width: 1920px;
     position: relative;
-    margin-bottom: 9rem;
+    margin-bottom: 11rem;
     display: flex;
     justify-content: center;
   }
@@ -21,7 +25,7 @@
     max-width: 70%;
     padding: 1.5rem 0 1.5rem 0;
     position: absolute;
-    bottom: -7rem;
+    bottom: -4.25rem;
 
     h1, p {
       text-align: center;
@@ -29,20 +33,130 @@
     }
 
     p {
-      font-size: 1.5rem;
+      font-size: 1.25rem;
       font-weight: lighter;
       margin-bottom: 0;
     }
   }
 
   .winzerpage-story {
+    padding-right: 0;
+    padding-left: 0;
 
     .winzerpage-story-header {
       margin-left: 2rem;
+      margin-bottom: 2.5rem;
     }
 
     .winzerpage-story-content {
+      margin-left: 12rem;
+      margin-right: 12rem;
+      font-size: 1.1rem;
+    }
 
+
+
+    .winzerpage-story-content-margin {
+      margin-bottom: 3.6rem;
+    }
+
+    .winzerpage-story-quote {
+      margin-left: 12rem;
+      margin-right: 12rem;
+
+      #winzerpage-story-quote-img {
+        margin-bottom: 2.5rem;
+        width: auto;
+        height: auto;
+      }
+
+      #winzerpage-story-quote-img-2 {
+        margin-top: .5rem;
+        margin-bottom: 3.2rem;
+        width: auto;
+        height: auto;
+      }
+
+      .winzerpage-story-quote-header {
+        font-weight: 300;
+        font-size: 2.5rem;
+        font-style: italic;
+        width: 100%;
+        text-align: center;
+      }
+
+      .winzerpage-story-quote-name {
+        font-weight: 400;
+        font-size: 1.1rem;
+        font-style: normal;
+        width: 100%;
+        text-align: right;
+      }
+
+      #winzerpage-story-quote-centerer {
+        display: flex;
+        justify-content: center;
+
+        #winzerpage-story-quote-centerer-2 {
+          width: fit-content;
+        }
+      }
+    }
+  }
+
+  .winzerpage-media {
+    padding-left: 0;
+    padding-right: 0;
+
+    .winzerpage-media-helper {
+      margin-left: 2rem;
+      margin-right: 2rem;
+
+      .winzerpage-media-images {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 1rem;
+      }
+    }
+
+    .winzerpage-media-header {
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin-top: 5rem;
+      margin-bottom: 4.6rem;
+    }
+
+    .winzerpage-media-video {
+      display: flex;
+      justify-content: center;
+      margin-top: 7rem;
+
+      .winzerpage-media-video-size {
+        width: 70%;
+        aspect-ratio: 16/9;
+      }
+    }
+  }
+
+  .winzerpage-products {
+    padding-left: 0;
+    padding-right: 0;
+
+
+    .winzerpage-products-header {
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin: 5rem 2rem 4.6rem;
+    }
+
+    .winzerpage-products-flexbox {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      margin-left: 2rem;
+      margin-right: 2rem;
     }
   }
 }

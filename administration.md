@@ -20,5 +20,8 @@ assign to ``Manufactures``
 
 custom fields:
 * ``vs_winzer_picture`` type ``media field``
-* ``vs_winzer_video`` type ``media field``
+* ``vs_winzer_video`` type ``text field``
 * ``vs_winzer_quote`` type ``text field``
+* ``vs_winzer_story_p1`` type ``text field``
+* ``vs_winzer_story_header`` type ``text field``
+* ``vs_winzer_story_p2`` type ``text field``
