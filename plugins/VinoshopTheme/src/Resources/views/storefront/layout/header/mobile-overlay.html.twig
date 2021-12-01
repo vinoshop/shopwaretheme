@@ -10,7 +10,7 @@
 
     {% if context.salesChannel.translated.homeEnabled %}
         {% set homeLabel = context.salesChannel.translated.homeName|default("general.homeLink"|trans) %}
-        <a class="mobile-nav-link{% if controllerAction is same as('home') %} active{% endif %}"
+        <a class="mobile-nav-link{% if app.request.attributes.get("_route") == 'frontend.home.page' %} active{% endif %}"
            href="{{ path('frontend.home.page') }}"
            itemprop="url"
            title="{{ homeLabel|striptags }}">
