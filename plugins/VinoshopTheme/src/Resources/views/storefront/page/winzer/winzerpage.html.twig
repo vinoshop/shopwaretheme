@@ -1,0 +1,80 @@
+{% sw_extends '@Storefront/storefront/base.html.twig' %}
+{% set large_header_margin = false %}
+{% block base_main %}
+    <div class="winzerpage container">
+        <div class="winzerpage-img container">
+            <div class="winzerpage-name container">
+                {# Daten #}
+                <h1>Max Mustermann</h1>
+                <p>Burgenland</p>
+            </div>
+        </div>
+        <div class="winzerpage-story container">
+            {# beschreibung #}
+            <h4 class="winzerpage-story-header">EINE EINZIGARTIGE GESCHICHTE</h4>
+            <p class="winzerpage-story-content winzerpage-story-content-margin">
+                Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed
+                diam nonumy eirmod tempor invidunt ut labore et dolore magna
+                aliquyam erat, sed diam voluptua. At vero eos et accusam et
+                justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea
+                takimata sanctus est Lorem ipsum dolor sit amet.
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                Accusamus aut cupiditate dolor dolore error ex excepturi illum iure laudantium magni natus
+                necessitatibus,
+                non, officia quaerat sequi, veritatis voluptatum!
+            </p>
+            {# Quote #}
+            <div class="winzerpage-story-quote">
+                <img id="winzerpage-story-quote-img"
+                     src="{{ asset('bundles/vinoshoptheme/winzerpage/20211123_PVS_Weinblatt_Citation_v4.svg', 'asset') }}"
+                     alt="bild">
+                <div id="winzerpage-story-quote-centerer">
+                    <div id="winzerpage-story-quote-centerer-2">
+                        <p class="winzerpage-story-quote-header">"Du Quatschkopf, des gibt a minus."</p>
+                        <p class="winzerpage-story-quote-name">-Herbert Buschbeck, 2019</p>
+                    </div>
+                </div>
+
+                <img id="winzerpage-story-quote-img-2"
+                     src="{{ asset('bundles/vinoshoptheme/winzerpage/20211123_PVS_Weinblatt_Citation_Line_v4.svg', 'asset') }}"
+                     alt="bild">
+            </div>
+            <p class="winzerpage-story-content">
+                At vero eos et accusam et justo duo dolores et ea rebum. Stet
+                clita kasd gubergren, no sea takimata sanctus est Lorem ipsum
+                dolor sit amet. Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                Consectetur eligendi excepturi
+                inventore labore magni nemo, odit quidem ut.
+                Earum eligendi hic iure natus nulla numquam praesentium
+                quis reprehenderit. Excepturi, quam.
+            </p>
+        </div>
+        <div class="winzerpage-media container">
+            {# Galerie #}
+            <div class="winzerpage-media-helper">
+                <p class="winzerpage-media-header">ZU BESUCH BEI MAX MUSTERMANN</p>
+                <div class="winzerpage-media-images">
+                    <img src="{{ asset('bundles/vinoshoptheme/winzerpage/media/Bild 15.png', 'asset') }}" alt="">
+                    <img src="{{ asset('bundles/vinoshoptheme/winzerpage/media/Bild 16.png', 'asset') }}" alt="">
+                    <img src="{{ asset('bundles/vinoshoptheme/winzerpage/media/Bild 17.png', 'asset') }}" alt="">
+                </div>
+                {# Video #}
+                <div class="winzerpage-media-video">
+                    <iframe class="winzerpage-media-video-size" src="https://www.youtube.com/embed/UzN45twykQw"
+                            title="YouTube video player" frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen></iframe>
+                </div>
+            </div>
+        </div>
+        <div class="winzerpage-products container">
+            {# restliche Produkte #}
+            <p class="winzerpage-products-header">PRÄMIERTE WEINE VON MAX MUSTERMANN</p>
+            <div class="winzerpage-products-flexbox">
+                {# produkte #}
+
+            </div>
+            <button type="button" class="btn">Mehr Anzeigen</button>
+        </div>
+    </div>
+{% endblock %}
