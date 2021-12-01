@@ -1,59 +1,65 @@
 {% sw_extends '@Storefront/storefront/base.html.twig' %}
 {% set large_header_margin = false %}
 {% block base_main %}
-    <div class="landing-page-image container">
-        <!-- landing page -->
-        <div class="landing-page-image-content">
-            <h1 class="display-3 landing-page-image-content-h1">Die Exklusivsten <br> Weine</h1>
-            {#<a href="#" class="landing-page-image-content-btn-color display-5 border border-2 p-3 mt-5">Shop now</a>#}
-            <a href="" class="display-5 border border-2 border-#b20038 p-3 mt-5 text-light">Entdecken</a>
-        </div>
-    </div>
-    <div class="landing-page-products-padding">
-        <div class="landing-page-produts-width">
-            <h2 class="landing-page-products-header"><span>Unsere Produkte</span></h2>
-            <div class="landing-page-products">
-
-            </div>
-        </div>
-    </div>
-
-    <div class="category container">
-        <!-- categories: Rotwein & Weißwein -->
-        <div class="row">
-            <div class="col container" id="cat_rotwein"><h1>Rotwein</h1></div>
-            <div class="col container" id="cat_weisswein"><h1>Weißwein</h1></div>
-        </div>
-    </div>
-    {{ dump() }}
-    <div class="newsletter container ">
-        <div id="newsletter-div">
-            <h3 id="newsletter-subheader">Hol dir unsere neuesten Weine zuerst</h3>
-            <div class="newsletter-input-size">
-                <label>
-                    <input id="newsletter-input" type="text" alt="email" value="" placeholder="Email Adresse eingeben">
-                </label>
-                <a class="newsletter-button">Absenden</a>
-            </div>
-            <h1 id="newsletter-header">... Virtueller Wein im Postfach</h1>
-        </div>
-    </div>
-    <div class="container recommendation">
-        <!-- winzer -->
-        <div class="row">
-            <div id="winzer" class=" col"></div>
-            <div id="winzer_produkte" class="col">
-                <h2>Max Auswahl</h2>
-                <hr>
-                <div class="row">
-                    <div class="col">flasche</div>
-                    <div class="col">flasche</div>
+    <div class="landingpage container">
+        <div style="background-image: url('/bundles/vinoshoptheme/homepage/lp_background.png');" class="landingpage-top">
+            <div class="landingpage-top-text container">
+                <h1 class="display-3">Die Exklusivsten <br> Weine</h1>
+                {# <a href="#" class="landing-page-image-content-btn-color display-5 border border-2 p-3 mt-5">Shop now</a> #}
+                <div class="landingpage-top-text-button">
+                    <a href="#" class="display-5">Entdecken</a>
                 </div>
             </div>
         </div>
-    </div>
-    <div class="container">
-        <h1>#vinoshop on Instagram</h1>
-        <div>{{ dump() }}</div>
+        <div class="landingpage-products container">
+            <div class="landingpage-products-flex">
+                <hr>
+                <h2 class="landingpage-products-header">Unsere Produkte</h2>
+                <hr>
+            </div>
+
+            <div class="landingpage-products-section container">
+                <div style="background-color: #a1a1a1; height: 30rem; aspect-ratio: 3/4;"></div>
+                <div style="background-color: #a1a1a1; height: 30rem; aspect-ratio: 3/4;"></div>
+                <div style="background-color: #a1a1a1; height: 30rem; aspect-ratio: 3/4;"></div>
+            </div>
+        </div>
+
+        <div class="landingpage-categories">
+            <!-- categories: Rotwein & Weißwein -->
+            <div class="landingpage-categories-category1"><a href="">Rotwein</a></div>
+            <div class="landingpage-categories-category2"><a href="">Weißwein</a></div>
+        </div>
+        <div class="newsletter container ">
+            <div id="newsletter-div">
+                <h3 id="newsletter-subheader">Hol dir unsere neuesten Weine zuerst</h3>
+                <div class="newsletter-input-size">
+                    <label>
+                        <input id="newsletter-input" type="text" alt="email" value=""
+                               placeholder="Email Adresse eingeben">
+                    </label>
+                    <a class="newsletter-button">Absenden</a>
+                </div>
+                <h1 id="newsletter-header">... Virtueller Wein im Postfach</h1>
+            </div>
+        </div>
+        <div class="container recommendation">
+            <!-- winzer -->
+            <div class="row">
+                <div id="winzer" class=" col"></div>
+                <div id="winzer_produkte" class="col">
+                    <h3>Max Auswahl</h3>
+                    <hr>
+                    <div class="row">
+                        <div class="col">flasche</div>
+                        <div class="col">flasche</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <h4>#vinoshop on Instagram</h4>
+            <div>{# {{ dump() }} #}</div>
+        </div>
     </div>
 {% endblock %}
