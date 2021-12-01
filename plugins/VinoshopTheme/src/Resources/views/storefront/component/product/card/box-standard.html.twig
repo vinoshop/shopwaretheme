@@ -22,7 +22,8 @@
                         </div>
                     {% endblock %}
 
-                    <p class="price">{{ product.calculatedPrice.unitPrice }}</p>
+                    {% set splitPrice = product.calculatedPrice.unitPrice|split(".") %}
+                    <p class="price">{{ splitPrice[0] }}.{{ "%02d"|format(splitPrice[1]|default("")) }}</p>
 
                     <p class="manufacturer">{{ product.manufacturer.name }}</p>
                     <p class="name">{{ product.translated.name }}</p>
