@@ -40,11 +40,8 @@
   }
 
   .winzerpage-story {
-    padding-right: 0;
-    padding-left: 0;
 
     .winzerpage-story-header {
-      margin-left: 2rem;
       margin-bottom: 2.5rem;
     }
 
@@ -53,8 +50,6 @@
       margin-right: 12rem;
       font-size: 1.1rem;
     }
-
-
 
     .winzerpage-story-content-margin {
       margin-bottom: 3.6rem;
@@ -105,12 +100,8 @@
   }
 
   .winzerpage-media {
-    padding-left: 0;
-    padding-right: 0;
 
     .winzerpage-media-helper {
-      margin-left: 2rem;
-      margin-right: 2rem;
 
       .winzerpage-media-images {
         display: flex;
@@ -141,14 +132,11 @@
   }
 
   .winzerpage-products {
-    padding-left: 0;
-    padding-right: 0;
-
 
     .winzerpage-products-header {
       font-size: 1.25rem;
       font-weight: 700;
-      margin: 5rem 2rem 4.6rem;
+      margin: 5rem 0 4.6rem;
     }
 
     .winzerpage-products-flexbox {
