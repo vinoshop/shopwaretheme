@@ -10,7 +10,7 @@ To start: ``docker-compose up -d``
 docker-compose exec shopware /bin/bash
 
 ### when you want to start developing
-``bin/console theme:compile && bin/console assets:install && bin/console cache:clear``
+``./bin/build-storefront.sh``
 
 ### reload theme:
 ```
