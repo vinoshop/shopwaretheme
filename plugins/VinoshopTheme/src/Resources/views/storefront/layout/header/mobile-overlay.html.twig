@@ -50,10 +50,12 @@
                 } %}
             </div>
             <div class="account-menu action">
-                {% sw_icon 'user' style {
-                    namespace: 'VinoshopTheme',
-                    pack: 'fontawesome'
-                } %}
+                <a href="{{ path("frontend.account.home.page") }}">
+                    {% sw_icon 'user' style {
+                        namespace: 'VinoshopTheme',
+                        pack: 'fontawesome'
+                    } %}
+                </a>
             </div>
         </div>
     </div>

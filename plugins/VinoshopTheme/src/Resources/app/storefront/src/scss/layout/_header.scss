@@ -75,6 +75,28 @@
       color: rgba($almost_white, .85);
     }
   }
+
+
+  .search-overlay:not(.search-visible) {
+    display: none;
+  }
+
+  .search-overlay {
+    position: absolute;
+    left: 0;
+    top: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba($almost_black, .8);
+    width: 100vw;
+    height: 100vh;
+  }
+
+}
+
+body.mobile-nav-open {
+  overflow: hidden;
 }
 
 .header-spacing {
@@ -150,4 +172,8 @@
     }
 
   }
+}
+
+body:has(.header-row) {
+  background-color: #b20038 !important;
 }

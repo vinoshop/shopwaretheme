@@ -57,10 +57,12 @@
                         </div>
                         <div class="col-auto">
                             <div class="account-menu action">
-                                {% sw_icon 'user' style {
-                                    namespace: 'VinoshopTheme',
-                                    pack: 'fontawesome'
-                                } %}
+                                <a href="{{ path("frontend.account.home.page") }}">
+                                    {% sw_icon 'user' style {
+                                        namespace: 'VinoshopTheme',
+                                        pack: 'fontawesome'
+                                    } %}
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -90,6 +92,12 @@
     {% block layout_header_mobile_nav_overlay %}
         <div class="header-mobile-nav-overlay">
             {% sw_include '@Storefront/storefront/layout/header/mobile-overlay.html.twig' %}
+        </div>
+    {% endblock %}
+
+    {% block layout_header_searcg_overlay %}
+        <div class="search-overlay">
+            {% sw_include '@Storefront/storefront/layout/header/search-overlay.html.twig' %}
         </div>
     {% endblock %}
 {% endblock %}

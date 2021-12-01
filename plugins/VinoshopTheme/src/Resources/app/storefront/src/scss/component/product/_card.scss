@@ -45,8 +45,9 @@
     justify-content: center;
     align-items: center;
     background-color: $light_gray;
+    border-radius: 4px;
     height: auto;
-    margin-bottom: 0;
+    margin-bottom: .2rem;
 
     .product-image {
       object-fit: cover;

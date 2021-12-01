@@ -21,6 +21,9 @@
     min-width: 10rem;
     max-width: calc(min(90vw, 30rem));
     width: 10px;
+    border: 8px rgba($gray, .12) solid;
+    background-color: #fff;
+    object-fit: cover;
   }
 
   &-images-small > img {
@@ -29,6 +32,7 @@
     border: 4px rgba($gray, .12) solid;
     cursor: pointer;
     transition: border .2s ease;
+    background-color: #fff;
 
     &:hover {
       border-color: rgba($gray, .22);
@@ -37,11 +41,6 @@
 
   &-images-small > img.active {
     border-color: $red_wine_stain;
-  }
-
-  &-image-big {
-    border: 8px rgba($gray, .12) solid;
-    object-fit: cover;
   }
 
   &-manufacturer {
