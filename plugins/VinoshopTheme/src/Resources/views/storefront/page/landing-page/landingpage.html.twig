@@ -2,7 +2,8 @@
 {% set large_header_margin = false %}
 {% block base_main %}
     <div class="landingpage container">
-        <div style="background-image: url('/bundles/vinoshoptheme/homepage/lp_background.png');" class="landingpage-top">
+        <div style="background-image: url('/bundles/vinoshoptheme/homepage/lp_background.png');"
+             class="landingpage-top">
             <div class="landingpage-top-text container">
                 <h1 class="display-3">Die Exklusivsten <br> Weine</h1>
                 {# <a href="#" class="landing-page-image-content-btn-color display-5 border border-2 p-3 mt-5">Shop now</a> #}
@@ -19,48 +20,45 @@
             </div>
 
             <div class="landingpage-products-section container">
-                <div style="background-color: #a1a1a1; height: 30rem; aspect-ratio: 3/4;"></div>
-                <div style="background-color: #a1a1a1; height: 30rem; aspect-ratio: 3/4;"></div>
-                <div style="background-color: #a1a1a1; height: 30rem; aspect-ratio: 3/4;"></div>
+                <div style="background-color: #a1a1a1; height: 25rem; aspect-ratio: 3/4;"></div>
+                <div style="background-color: #a1a1a1; height: 25rem; aspect-ratio: 3/4;"></div>
+                <div style="background-color: #a1a1a1; height: 25rem; aspect-ratio: 3/4;"></div>
             </div>
         </div>
 
         <div class="landingpage-categories">
             <!-- categories: Rotwein & Weißwein -->
-            <div class="landingpage-categories-category1"><a href="">Rotwein</a></div>
-            <div class="landingpage-categories-category2"><a href="">Weißwein</a></div>
-            <div class="landingpage-categories-category2"><a href="">Schaumwein</a></div>
+            <div style="background-image: url('/bundles/vinoshoptheme/homepage/categories/category_rotwein.png');"
+                 class="landingpage-categories-category"><a href="">Rotwein</a></div>
+            <div style="background-image: url('/bundles/vinoshoptheme/homepage/categories/category_weisswein.png');"
+                 class="landingpage-categories-category"><a href="">Weißwein</a></div>
+            <div {# style="background-image: url('/bundles/vinoshoptheme/homepage/categories/lp_background.png');" #}
+                 class="landingpage-categories-category">
+                <a href="">Schaumwein</a></div>
         </div>
-        <div class="newsletter container ">
-            <div id="newsletter-div">
-                <h3 id="newsletter-subheader">Hol dir unsere neuesten Weine zuerst</h3>
-                <div class="newsletter-input-size">
+        <div class="landingpage-newsletter container">
+            <div>
+                <p id="landingpage-newsletter-subheader">Hol Dir unsere neuesten Weine zuerst</p>
+                <div class="landingpage-newsletter-input">
                     <label>
-                        <input id="newsletter-input" type="text" alt="email" value=""
-                               placeholder="Email Adresse eingeben">
+                        <input id="landingpage-newsletter-input-field" type="text" alt="email" value=""
+                               placeholder="newsletter@vinoshop.at">
                     </label>
-                    <a class="newsletter-button">Absenden</a>
+                    <button type="submit" id="landingpage-newsletter-input-button">Absenden</button>
                 </div>
-                <h1 id="newsletter-header">... Virtueller Wein im Postfach</h1>
+                <p id="landingpage-newsletter-header">... Virtueller Wein im Postfach</p>
             </div>
         </div>
-        <div class="container recommendation">
+        <div class="landingpage-recommendation container">
             <!-- winzer -->
-            <div class="row">
-                <div id="winzer" class=" col"></div>
-                <div id="winzer_produkte" class="col">
-                    <h3>Max Auswahl</h3>
-                    <hr>
-                    <div class="row">
-                        <div class="col">flasche</div>
-                        <div class="col">flasche</div>
-                    </div>
+            <div style="width: 50%; height: fit-content; background-image: url('/bundles/vinoshoptheme/homepage/winzer/winzer.png');"></div>
+            <div>
+                <h3>Max Auswahl</h3>
+                <div class="landingpage-recommendation-products">
+                    <div style="background-color: #a1a1a1; width: 15rem; aspect-ratio: 1;"></div>
+                    <div style="background-color: #a1a1a1; width: 15rem; aspect-ratio: 1;"></div>
                 </div>
             </div>
-        </div>
-        <div class="container">
-            <h4>#vinoshop on Instagram</h4>
-            <div>{# {{ dump() }} #}</div>
         </div>
     </div>
 {% endblock %}
