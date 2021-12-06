@@ -58,6 +58,7 @@
   }
 
   .landingpage-products {
+    height: 60vh;
     margin-bottom: 5rem;
 
     .landingpage-products-flex {
@@ -69,7 +70,7 @@
     }
 
     hr {
-      margin-top: 3rem;
+      margin-top: 5.25rem;
       margin-left: 1rem;
       margin-right: 1rem;
       //border: 0.125rem solid $almost_black;
@@ -80,7 +81,7 @@
 
     .landingpage-products-header {
       font-size: 2em;
-      margin-top: 2rem;
+      margin-top: 4.25rem;
       text-align: center;
     }
 
@@ -114,6 +115,13 @@
       font-size: 2rem;
       color: $almost_white;
       background-color: red;
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
+    }
+
+    a {
+      color: $almost_white;
     }
   }
 
@@ -189,12 +197,26 @@
     flex-direction: row;
     background-color: $light_gray;
     width: 70%;
+    height: 283px;
+    margin-bottom: 5rem;
 
     .landingpage-recommendation-products {
       display: flex;
       flex-direction: row;
       gap: 1rem;
-      justify-content: left;
+      justify-content: space-between;
     }
+    .landingpage-recommendation-winzer {
+      height: 30vh;
+      aspect-ratio: 16/9;
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
+    }
+  }
+  .center {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
   }
 }
