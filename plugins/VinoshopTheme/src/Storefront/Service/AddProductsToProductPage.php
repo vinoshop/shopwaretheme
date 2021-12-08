@@ -9,6 +9,7 @@ use Shopware\Core\Framework\DataAbstractionLayer\Search\Aggregation\Metric\Count
 use Shopware\Core\Framework\DataAbstractionLayer\Search\AggregationResult\Metric\CountResult;
 use Shopware\Core\Framework\DataAbstractionLayer\Search\Criteria;
 use Shopware\Core\Framework\DataAbstractionLayer\Search\Filter\EqualsFilter;
+use Shopware\Core\Framework\DataAbstractionLayer\Search\Filter\EqualsAnyFilter;
 use Shopware\Core\Framework\DataAbstractionLayer\Search\Filter\NotFilter;
 use Shopware\Core\Framework\DataAbstractionLayer\Search\Filter\MultiFilter;
 use Shopware\Storefront\Page\Product\ProductPageLoadedEvent;
@@ -26,11 +27,16 @@ class AddProductsToProductPage implements EventSubscriberInterface
      * @var EntityRepository
      */
     private $manufacturerRepository;
+    /**
+     * @var EntityRepository
+     */
+    private $tagRepository;
 
-    public function __construct(SalesChannelRepositoryInterface $productRepository, EntityRepository $manufacturerRepository)
+    public function __construct(SalesChannelRepositoryInterface $productRepository, EntityRepository $manufacturerRepository, EntityRepository $tagRepository)
     {
         $this->productRepository = $productRepository;
         $this->manufacturerRepository = $manufacturerRepository;
+        $this->tagRepository = $tagRepository;
     }
 
     public static function getSubscribedEvents(): array
