@@ -5,6 +5,8 @@
         {% set cover = product.cover.media %}
         {% set variation = product.variation %}
 
+        {{ dump() }}
+
         <div class="card product-box">
             {% block component_product_box_content %}
                 <div class="card-body">
