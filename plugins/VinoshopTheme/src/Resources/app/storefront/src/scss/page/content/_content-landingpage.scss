@@ -196,24 +196,51 @@
     display: flex;
     flex-direction: row;
     background-color: $light_gray;
-    width: 70%;
-    height: 40vh;
+    height: 45vh;
     margin-bottom: 5rem;
+    padding-left: 0;
+    padding-right: 0;
+
 
     .landingpage-recommendation-products {
       display: flex;
       flex-direction: row;
       gap: 1rem;
-      justify-content: space-between;
+      justify-content: space-around;
+      align-items: center;
+      width: max-content;
+      height: 45vh;
     }
     .landingpage-recommendation-winzer {
-      height: 40vh;
-      aspect-ratio: 16/9;
+      height: 45vh;
+      aspect-ratio: 3/3;
       background-repeat: no-repeat;
       background-size: cover;
       background-position: center;
     }
   }
+  .landingpage-recommendation-header {
+    display: flex;
+    flex-direction: row;
+    align-content: space-around;
+    justify-content: center;
+    margin-bottom: 1rem;
+
+    hr {
+      margin-top: 1rem;
+      margin-left: 1rem;
+      margin-right: 1rem;
+      //border: 0.125rem solid $almost_black;
+      background-color: $light_gray;
+      height: .125rem;
+      width: 32%;
+    }
+  }
+  .width {
+    margin-left: 0;
+    margin-right: 0;
+  }
+
   .center {
     display: flex;
     flex-direction: row;
