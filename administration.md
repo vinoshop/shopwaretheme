@@ -5,6 +5,7 @@ assign to ``products``
 
 custom fields:
 * ``vs_product_taste`` type ``text editor``
+* ``vs_product_is_bio`` type ``active switch``
 * ``vs_product_good_with`` type ``select field``
     * multi select
     * options:
