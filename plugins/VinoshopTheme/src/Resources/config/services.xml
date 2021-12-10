@@ -26,5 +26,11 @@
             <argument type="service" id="product_tag.repository"/>
             <tag name="kernel.event_subscriber"/>
         </service>
+        <service id="VinoshopTheme\Storefront\Controller\RegisterPageController"  public="true">
+            <argument type="service" id="Shopware\Storefront\Page\Account\Login\AccountLoginPageLoader"/>
+            <call method="setContainer">
+                <argument type="service" id="service_container"/>
+            </call>
+        </service>
     </services>
 </container>
