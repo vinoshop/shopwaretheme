@@ -12,42 +12,42 @@
         <div class="winzerpage-story container">
             {# beschreibung #}
             <h4 class="winzerpage-story-header">EINE EINZIGARTIGE GESCHICHTE</h4>
-            <p class="winzerpage-story-content winzerpage-story-content-margin">
-                Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed
-                diam nonumy eirmod tempor invidunt ut labore et dolore magna
-                aliquyam erat, sed diam voluptua. At vero eos et accusam et
-                justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea
-                takimata sanctus est Lorem ipsum dolor sit amet.
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                Accusamus aut cupiditate dolor dolore error ex excepturi illum iure laudantium magni natus
-                necessitatibus,
-                non, officia quaerat sequi, veritatis voluptatum!
-            </p>
+            <div class="winzerpage-story-helper">
+                <p class="winzerpage-story-content">
+                    Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed
+                    diam nonumy eirmod tempor invidunt ut labore et dolore magna
+                    aliquyam erat, sed diam voluptua. At vero eos et accusam et
+                    justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea
+                    takimata sanctus est Lorem ipsum dolor sit amet.
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                    Accusamus aut cupiditate dolor dolore error ex excepturi illum iure laudantium magni natus
+                    necessitatibus,
+                    non, officia quaerat sequi, veritatis voluptatum!
+                </p>
+            </div>
+
             {# Quote #}
-            <div class="winzerpage-story-quote">
-                <img id="winzerpage-story-quote-img"
-                     src="{{ asset('bundles/vinoshoptheme/winzerpage/20211123_PVS_Weinblatt_Citation_v4.svg', 'asset') }}"
-                     alt="bild">
+            <div class="winzerpage-story-quote container">
+                <div id="winzerpage-story-quote-img"></div>
                 <div id="winzerpage-story-quote-centerer">
                     <div id="winzerpage-story-quote-centerer-2">
                         <p class="winzerpage-story-quote-header">"In Vino Veritas."</p>
                         <p class="winzerpage-story-quote-name">-Marcus Aurelius, 100 n. Chr.</p>
                     </div>
                 </div>
-
-                <img id="winzerpage-story-quote-img-2"
-                     src="{{ asset('bundles/vinoshoptheme/winzerpage/20211123_PVS_Weinblatt_Citation_Line_v4.svg', 'asset') }}"
-                     alt="bild">
+                <div id="winzerpage-story-quote-img-2"></div>
             </div>
-            <p class="winzerpage-story-content">
-                At vero eos et accusam et justo duo dolores et ea rebum. Stet
-                clita kasd gubergren, no sea takimata sanctus est Lorem ipsum
-                dolor sit amet. Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                Consectetur eligendi excepturi
-                inventore labore magni nemo, odit quidem ut.
-                Earum eligendi hic iure natus nulla numquam praesentium
-                quis reprehenderit. Excepturi, quam.
-            </p>
+            <div class="winzerpage-story-helper">
+                <p class="winzerpage-story-content">
+                    At vero eos et accusam et justo duo dolores et ea rebum. Stet
+                    clita kasd gubergren, no sea takimata sanctus est Lorem ipsum
+                    dolor sit amet. Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                    Consectetur eligendi excepturi
+                    inventore labore magni nemo, odit quidem ut.
+                    Earum eligendi hic iure natus nulla numquam praesentium
+                    quis reprehenderit. Excepturi, quam.
+                </p>
+            </div>
         </div>
         <div class="winzerpage-media container">
             {# Galerie #}
@@ -72,7 +72,48 @@
             <p class="winzerpage-products-header">PRÄMIERTE WEINE VON MAX MUSTERMANN</p>
             <div class="winzerpage-products-flexbox">
                 {# produkte #}
+                <div class="row cms-listing-row js-listing-wrapper center">
+                    <div class="cms-listing-col col-sm-6 col-lg-4 col-xl-3">
+                        <div class="card product-box">
+                            <div class="card-body">
+                                <div class="product-image-wrapper">
+                                    <a href="https://testshop.vinoshop.at/Riesling-2020/SW10012">
+                                        <img src="https://testshop.vinoshop.at/media/1f/a7/54/1638384385/FLASCHE_10%20Kopie.png"
+                                             srcset="https://testshop.vinoshop.at/thumbnail/1f/a7/54/1638384385/FLASCHE_10%20Kopie_1920x1920.png 1920w, https://testshop.vinoshop.at/thumbnail/1f/a7/54/1638384385/FLASCHE_10%20Kopie_800x800.png 800w, https://testshop.vinoshop.at/thumbnail/1f/a7/54/1638384385/FLASCHE_10%20Kopie_400x400.png 400w"
+                                             sizes="(min-width: 1200px) 280px, (min-width: 992px) 350px, (min-width: 768px) 390px, (min-width: 576px) 315px, (min-width: 0px) 500px, 100vw"
+                                             class="product-image">
+                                    </a>
+                                </div>
+                                <p class="price">10.80</p>
+                                <p class="manufacturer"></p>
+                                <p class="name">Riesling 2020</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="cms-listing-col col-sm-6 col-lg-4 col-xl-3">
 
+
+                        <div class="card product-box">
+                            <div class="card-body">
+
+                                <div class="product-image-wrapper">
+                                    <a href="https://testshop.vinoshop.at/Welschriesling-2020/SW10010">
+
+
+                                        <img src="https://testshop.vinoshop.at/media/66/87/8d/1638379848/Welschriesling_Poys.png"
+                                             srcset="https://testshop.vinoshop.at/thumbnail/66/87/8d/1638379848/Welschriesling_Poys_1920x1920.png 1920w, https://testshop.vinoshop.at/thumbnail/66/87/8d/1638379848/Welschriesling_Poys_800x800.png 800w, https://testshop.vinoshop.at/thumbnail/66/87/8d/1638379848/Welschriesling_Poys_400x400.png 400w"
+                                             width="275.5px" height="275.5px" class="product-image">
+                                    </a>
+                                </div>
+
+                                <p class="price">13.52</p>
+
+                                <p class="manufacturer">Weingut Lukas Poys</p>
+                                <p class="name">Welschriesling 2020</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
             <button type="button" class="btn">Mehr Anzeigen</button>
         </div>

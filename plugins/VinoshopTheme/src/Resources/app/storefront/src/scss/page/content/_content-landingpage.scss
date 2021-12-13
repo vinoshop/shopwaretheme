@@ -23,6 +23,30 @@
         color: $almost_white;
         font-weight: 400;
         font-family: $default_font_family;
+        text-shadow: 1px 1px 0 $almost_black,
+        -1px 1px 0 $almost_black,
+        1px -1px 0 $almost_black,
+        -1px -1px 0 $almost_black,
+        0px 1px 0 $almost_black,
+        0px -1px 0 $almost_black,
+        -1px 0px 0 $almost_black,
+        1px 0px 0 $almost_black,
+        2px 2px 0 $almost_black,
+        -2px 2px 0 $almost_black,
+        2px -2px 0 $almost_black,
+        -2px -2px 0 $almost_black,
+        0px 2px 0 $almost_black,
+        0px -2px 0 $almost_black,
+        -2px 0px 0 $almost_black,
+        2px 0px 0 $almost_black,
+        1px 2px 0 $almost_black,
+        -1px 2px 0 $almost_black,
+        1px -2px 0 $almost_black,
+        -1px -2px 0 $almost_black,
+        2px 1px 0 $almost_black,
+        -2px 1px 0 $almost_black,
+        2px -1px 0 $almost_black,
+        -2px -1px 0 $almost_black;
       }
 
       .landingpage-top-text-button {
@@ -129,12 +153,28 @@
     display: flex;
     align-content: center;
     justify-content: center;
-
     margin-bottom: 20rem;
-    width: 70%;
+
+    .landingpage-newsletter-input-div {
+      max-width: 36.375rem;
+    }
+
+    @media (max-width: 575.98px) {
+      .landingpage-newsletter-input-div {
+        max-width: 30rem;
+      }
+
+      #landingpage-newsletter-input-field {
+        max-width: 70%;
+      }
+    }
+
+    @media (max-width: 991.98px) {
+
+    }
+
 
     #landingpage-newsletter-subheader {
-      margin-right: 10rem;
       margin-bottom: 1.25rem;
       font-size: 1.1rem;
       text-align: left;
@@ -158,10 +198,12 @@
         font-family: $default_font_family;
         color: $gray;
         background-color: $light_gray;
-        width: 20rem;
+        max-width: 20rem;
         border: none;
         padding-left: .2rem;
-        height: 3rem;
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+        max-height: 3rem;
       }
 
       #landingpage-newsletter-input-field:focus {
@@ -177,6 +219,8 @@
         color: $almost_white;
         outline: none !important;
         border: none;
+        padding-right: 1rem;
+        padding-left: 1rem;
       }
 
       #landingpage-newsletter-input-button:focus {
@@ -196,24 +240,51 @@
     display: flex;
     flex-direction: row;
     background-color: $light_gray;
-    width: 70%;
-    height: 40vh;
+    height: 45vh;
     margin-bottom: 5rem;
+    padding-left: 0;
+    padding-right: 0;
+
 
     .landingpage-recommendation-products {
       display: flex;
       flex-direction: row;
       gap: 1rem;
-      justify-content: space-between;
+      justify-content: space-around;
+      align-items: center;
+      width: max-content;
+      height: 45vh;
     }
     .landingpage-recommendation-winzer {
-      height: 40vh;
-      aspect-ratio: 16/9;
+      height: 45vh;
+      aspect-ratio: 3/3;
       background-repeat: no-repeat;
       background-size: cover;
       background-position: center;
     }
   }
+  .landingpage-recommendation-header {
+    display: flex;
+    flex-direction: row;
+    align-content: space-around;
+    justify-content: center;
+    margin-bottom: 1rem;
+
+    hr {
+      margin-top: 1rem;
+      margin-left: 1rem;
+      margin-right: 1rem;
+      //border: 0.125rem solid $almost_black;
+      background-color: $light_gray;
+      height: .125rem;
+      width: 32%;
+    }
+  }
+  .width {
+    margin-left: 0;
+    margin-right: 0;
+  }
+
   .center {
     display: flex;
     flex-direction: row;

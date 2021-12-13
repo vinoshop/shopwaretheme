@@ -42,5 +42,4 @@ class HomepageController extends StorefrontController
             ['page' => $page],
         );
     }
-
 }
