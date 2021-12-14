@@ -32,14 +32,14 @@
 
   .navigation {
     display: flex;
-    justify-content: center;
+    justify-content: right;
     align-items: center;
 
     .nav-link {
       text-transform: uppercase;
       color: rgba($almost_white, .7);
-      font-weight: 600;
-      font-size: 1.2rem;
+      font-weight: normal;
+      font-size: 1rem;
       letter-spacing: .1rem;
       transition: .2s all;
 
