@@ -1,5 +1,52 @@
 .footer {
   background-color: $almost_black;
-  color: $almost_white;
   padding: 2rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  justify-items: center;
+
+  h3, div, a {
+    color: $almost_white
+  }
+
+  h3 {
+    text-transform: uppercase;
+    letter-spacing: .04rem;
+    font-size: 1rem;
+    margin: 0;
+  }
+
+  .categories, .justice {
+
+    &-list {
+      display: flex;
+      flex-direction: column;
+      padding: .5rem;
+      padding-top: 0;
+
+      > * {
+        color: darken($almost_white, 20%);
+        font-weight: 300;
+      }
+    }
+  }
+
+  .infos {
+
+    > div {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+
+      .icon,  {
+        display: block;
+      }
+
+      > a {
+        display: block;
+      }
+    }
+  }
 }
