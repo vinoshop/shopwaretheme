@@ -7,7 +7,6 @@
         {% endblock %}
     </button>
 
-
     {% if context.salesChannel.translated.homeEnabled %}
         {% set homeLabel = context.salesChannel.translated.homeName|default("general.homeLink"|trans) %}
         <a class="mobile-nav-link{% if app.request.attributes.get("_route") == 'frontend.home.page' %} active{% endif %}"
@@ -34,7 +33,11 @@
         </a>
     {% endfor %}
 
-    <div class="d-flex flex-column justify-content-end mt-auto pb-4">
+    {% block layout_header_mobile_search_form %}
+        {% sw_include '@Storefront/storefront/layout/header/mobile-search-form.html.twig' %}
+    {% endblock %}
+
+    <div class="d-flex flex-column justify-content-end mt-auto pb-5">
         <div class="d-flex justify-content-around mt-auto">
             <div class="search-menu action">
                 {% sw_icon 'search' style {

@@ -40,6 +40,7 @@
 
                         <div class="col-auto">
                             <div class="search-menu action">
+                                {% sw_include '@Storefront/storefront/layout/header/search-form.html.twig' %}
                                 {% sw_icon 'search' style {
                                     namespace: 'VinoshopTheme',
                                     pack: 'fontawesome'
@@ -92,12 +93,6 @@
     {% block layout_header_mobile_nav_overlay %}
         <div class="header-mobile-nav-overlay">
             {% sw_include '@Storefront/storefront/layout/header/mobile-overlay.html.twig' %}
-        </div>
-    {% endblock %}
-
-    {% block layout_header_searcg_overlay %}
-        <div class="search-overlay">
-            {% sw_include '@Storefront/storefront/layout/header/search-overlay.html.twig' %}
         </div>
     {% endblock %}
 {% endblock %}

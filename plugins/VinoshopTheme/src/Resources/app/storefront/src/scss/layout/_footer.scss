@@ -26,6 +26,7 @@
 
     > div {
       padding: .5rem;
+      padding-top: 1rem;
     }
 
     .categories, .justice {
@@ -46,7 +47,6 @@
     .infos {
       display: flex;
       flex-direction: column;
-      justify-content: center;
 
       > div {
         display: flex;
@@ -69,6 +69,7 @@
     }
 
     .more {
+      padding-top: .3rem;
       .logo-textmarke {
         height: 3rem;
       }

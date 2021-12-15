@@ -8,15 +8,15 @@ export default class HeaderPlugin extends Plugin {
         document.getElementsByClassName("btn-close-mobile-nav-overview")[0]
             .addEventListener("click", () => document.body.classList.remove("mobile-nav-open"));
 
-        let searchOverlay = document.getElementsByClassName("search-overlay")[0];
         [...header.getElementsByClassName("search-menu")].forEach(x => x.addEventListener("click", () => {
-            searchOverlay.classList.add("search-visible");
+            if (header.classList.contains("search-visible"))
+                header.classList.remove("search-visible");
+            else
+                header.classList.add("search-visible");
         }));
-        searchOverlay.addEventListener("click", event => {
-            searchOverlay.classList.remove("search-visible")
-        })
-        document.getElementsByClassName("header-search-form")[0].addEventListener("click", event => {
+
+        [...header.getElementsByClassName("header-search-form")].forEach(x => x.addEventListener("click", event => {
             event.stopPropagation();
-        })
+        }));
     }
 }
