@@ -12,6 +12,10 @@
     height: 100%;
   }
 
+  .header-row {
+    padding: .5rem 0 !important;
+  }
+
   .header-logo-col {
     position: static;
     width: 10rem;
@@ -146,6 +150,11 @@ body.mobile-nav-open {
   width: 100%;
   height: 100vh;
   background-color: rgba(black, .4);
+
+  .btn-close-mobile-nav-overview {
+    margin-right: 20px;
+    margin-top: 1.25rem;
+  }
 
 
   .nav-container {
