@@ -50,7 +50,7 @@
   }
 
   &-name {
-    font-size: 2.5rem;
+    font-size: 2rem;
     color: $almost_black;
     font-weight: 600;
     line-height: 2.5rem;
@@ -115,11 +115,11 @@
     font-weight: 600;
 
     &-euros {
-      font-size: 2.5rem;
+      font-size: 2.0rem;
     }
 
     &-cents {
-      font-size: 2rem;
+      font-size: 1.5rem;
     }
 
     &-euros, &-cents {
@@ -129,28 +129,29 @@
 
     &::after {
       content: '€';
-      font-size: 2.5rem;
-      padding-left: .5rem;
+      font-size: 2rem;
+      padding-left: .25rem;
     }
   }
 
   &-action-section {
     display: flex;
     flex-wrap: wrap;
-    gap: .5rem;
+    flex-direction: row;
+    gap: 0.5rem;
+    width: 100%;
 
-    > * {
-      align-self: center;
+    .c6 {
+      flex: 1 1 45%;
+      min-width: 11rem;
+    }
+    .c12 {
+      flex: 0 0 100%;
+      min-width: 90%;
     }
 
-    .input-amount, .btn-buy-now {
-      min-width: 40%;
-      flex-grow: 1;
-    }
-
-    .btn-buy-now {
-      background-color: $almost_black;
-      text-transform: none;
+    .input-amount {
+      padding: 0;
     }
 
     .btn-shopping-cart {

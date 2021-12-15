@@ -1,17 +1,18 @@
-{% set type = type|default("text") %}
-
-<div class="elem-input{% if classes is defined %} {{ classes }}{% endif %}"{% if type == "number" %} data-number-input-plugin{% endif %}>
-    <input class="elem-input" type="{{ type }}" value="{{ default_value }}" name="{{ name }}"{% if additionally is defined %} {{ additionally }}{% endif %}/>
-    {% if type == 'number' %}
-        <div class="elem-input-number-controls">
-            <button class="elem-input-number-increase" type="button">{% sw_icon 'chevron-up' style {
-                    namespace: 'VinoshopTheme',
-                    pack: 'material'
-                } %}</button>
-            <button class="elem-input-number-decrease" type="button">{% sw_icon 'chevron-down' style {
-                    namespace: 'VinoshopTheme',
-                    pack: 'material'
-                } %}</button>
-        </div>
-    {% endif %}
+<div class="input-amount input-group c6"
+     data-number-input-plugin="true">
+    <input class="form-control elem-number-input" min="0" max="100" type="text">
+    <div class="number-control">
+        <button class="btn btn-primary elem-input-number-increase" type="button">
+            {% sw_icon 'chevron-up' style {
+                namespace: 'VinoshopTheme',
+                pack: 'material'
+            } %}
+        </button>
+        <button class="btn btn-primary elem-input-number-decrease" type="button">
+            {% sw_icon 'chevron-down' style {
+                namespace: 'VinoshopTheme',
+                pack: 'material'
+            } %}
+        </button>
+    </div>
 </div>
