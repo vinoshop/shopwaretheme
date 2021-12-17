@@ -5,7 +5,7 @@ import HeaderPlugin from "./scripts/header-plugin.plugin";
 const PluginManager = window.PluginManager;
 PluginManager.register('ProductPagePlugin', ProductPagePlugin, '[data-product-page-plugin]');
 PluginManager.register('NumberInputPlugin', NumberInputPlugin, '[data-number-input-plugin]');
-PluginManager.register('NumberInputPlugin', HeaderPlugin, '[data-header-plugin]');
+PluginManager.register('HeaderPlugin', HeaderPlugin, '[data-header-plugin]');
 
 function getElementByXPath(xpath_identifier, elem) {
     return document.evaluate(

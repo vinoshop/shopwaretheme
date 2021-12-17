@@ -1,4 +1,4 @@
-::# Shopware Vinoshop Theme
+# Shopware Vinoshop Theme
 
 To start: ``docker-compose up -d``
 
@@ -14,15 +14,15 @@ docker-compose exec shopware /bin/bash
 
 ### reload theme:
 ```
-docker-compose exec shopware /bin/sh
+docker-compose exec shopware /bin/bash
 bin/console cache:clear
 ```
 or
 
-``docker-compose exec shopware /bin/sh -c "bin/console cache:clear"``
+``docker-compose exec shopware /bin/bash -c "bin/console cache:clear"``
 
 if you changed js or scss:
-``docker-compose exec shopware /bin/sh -c "bin/console theme:compile"``
+``docker-compose exec shopware /bin/bash -c "bin/console theme:compile"``
 
 Alternatively:
 https://docs.dockware.io/development/watchers
@@ -33,7 +33,7 @@ if js or scss was changed:
 
 ### install theme:
 ```
-docker-compose exec shopware /bin/sh
+docker-compose exec shopware /bin/bash
 bin/console plugin:refresh
 bin/console plugin:install --activate VinoshopTheme
 bin/console theme:change
@@ -45,4 +45,11 @@ bin/console cache:clear
 ###Password for admin
 ```
 Shopware
+```
+
+### Password for MySQL
+```
+User: root
+Password: root
+Port: 3306
 ```
