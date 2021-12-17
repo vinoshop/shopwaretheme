@@ -5,8 +5,8 @@
         <div style="background-image: url('/bundles/vinoshoptheme/homepage/lp_background.png');"
              class="landingpage-top">
             <div class="landingpage-top-text container">
-                <h1 class="display-3">Die Exklusivsten <br> Weine</h1>
-                {# <a href="#" class="landing-page-image-content-btn-color display-5 border border-2 p-3 mt-5">Shop now</a> #}
+                <h1 class="display-3">Die exklusivsten <br> Weine</h1>
+                {# <a href="#" class="content-image-content-btn-color display-5 border border-2 p-3 mt-5">Shop now</a> #}
                 <div class="landingpage-top-text-button">
                     <a href="#" class="display-5">Entdecken</a>
                 </div>
@@ -18,7 +18,7 @@
                 <h2 class="landingpage-products-header">Unsere Produkte</h2>
                 <hr>
             </div>
-            {#<div class="row cms-listing-row js-listing-wrapper center">
+            {# <div class="row cms-listing-row js-listing-wrapper center">
                 <div class="cms-listing-col col-sm-6 col-lg-4 col-xl-3">
                     <div class="card product-box">
                         <div class="card-body">
@@ -60,7 +60,7 @@
                         </div>
                     </div>
                 </div>
-            </div>#}
+            </div> #}
         </div>
 
         <div class="landingpage-categories">
@@ -92,7 +92,8 @@
             <hr>
         </div>
         <div class="landingpage-recommendation container">
-           {# <!-- winzer -->
+            {{ dump(page) }}
+            {# <!-- winzer -->
             <div style="background-image: url('/bundles/vinoshoptheme/homepage/winzer/winzer.png');"
                  class="landingpage-recommendation-winzer"></div>
             <div class="landingpage-recommendation-products container">
@@ -136,8 +137,7 @@
                         </div>
                     </div>
                 </div>
-            </div>#}
+            </div> #}
         </div>
-    </div>
     </div>
 {% endblock %}
