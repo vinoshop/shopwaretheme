@@ -1,0 +1,186 @@
+{% sw_extends '@Storefront/storefront/base.html.twig' %}
+{% set large_header_margin = false %}
+{% block base_main_inner %}
+    {% block page_content %}
+        {#{{ dump(page.cmsPage.sections.elements) }}
+        {% for element in page.cmsPage.sections.elements %}
+            {{ dump(element.blocks.elements) }}
+            {% for block_element in element.blocks.elements %}
+                {{ dump(block_element.slots.elements) }}
+            {% endfor %}
+        {% endfor %}#}
+        {# {% block cms_breadcrumb %}
+                <div class="breadcrumb cms-breadcrumb container">
+                    {% sw_include '@VinoshopTheme/storefront/layout/breadcrumb.html.twig' with {
+                        context: context,
+                        category: page.header.navigation.active
+                    } only %}
+                </div>
+            {% endblock %} #}
+        {% block cms_content %}
+            {# {% sw_include "@VinoshopTheme/storefront/page/content/detail.html.twig" with {'cmsPage': page.cmsPage} %} #}
+            <div class="cms-page">
+                {% block page_content_blocks %}
+                    <div class="landingpage container">
+                        {% for element in page.cmsPage.sections.elements %}
+                            {% for block_element in element.blocks.elements %}
+                                {% set name = block_element.name %}
+                                {# {{ dump(block_element.backgroundMedia.url) }} #}
+
+                                {% if name == "landingpage_top_bg_img" %}
+                                    <div style="background-image: url({{ block_element.backgroundMedia.url }})"
+                                         class="landingpage-top">
+
+                                        {% for text_element in page.cmsPage.sections.elements %}
+                                            {% for block_text_element in text_element.blocks.elements %}
+                                                {% set text_name = block_text_element.name %}
+                                                {% if text_name == "landingpage_top_header" %}
+                                                    {% for text in block_text_element.slots.elements %}
+                                                        <div class="landingpage-top-text container">
+                                                            {{ text.data.content | raw }}
+                                                            <div class="landingpage-top-text-button">
+                                                                <a href="#" class="display-5">Entdecken</a>
+                                                            </div>
+                                                        </div>
+                                                    {% endfor %}
+                                                {% endif %}
+                                            {% endfor %}
+                                        {% endfor %}
+                                    </div>
+                                {% endif %}
+                            {% endfor %}
+                        {% endfor %}
+                        <div class="landingpage-products container">
+                            <div class="landingpage-products-flex">
+                                <hr>
+                                <h2 class="landingpage-products-header">Unsere Produkte</h2>
+                                <hr>
+                            </div>
+                            {# <div class="row cms-listing-row js-listing-wrapper center">
+                <div class="cms-listing-col col-sm-6 col-lg-4 col-xl-3">
+                    <div class="card product-box">
+                        <div class="card-body">
+                            <div class="product-image-wrapper">
+                                <a href="https://testshop.vinoshop.at/Riesling-2020/SW10012">
+                                    <img src="https://testshop.vinoshop.at/media/1f/a7/54/1638384385/FLASCHE_10%20Kopie.png"
+                                         srcset="https://testshop.vinoshop.at/thumbnail/1f/a7/54/1638384385/FLASCHE_10%20Kopie_1920x1920.png 1920w, https://testshop.vinoshop.at/thumbnail/1f/a7/54/1638384385/FLASCHE_10%20Kopie_800x800.png 800w, https://testshop.vinoshop.at/thumbnail/1f/a7/54/1638384385/FLASCHE_10%20Kopie_400x400.png 400w"
+                                         sizes="(min-width: 1200px) 280px, (min-width: 992px) 350px, (min-width: 768px) 390px, (min-width: 576px) 315px, (min-width: 0px) 500px, 100vw"
+                                         class="product-image">
+                                </a>
+                            </div>
+                            <p class="price">10.80</p>
+                            <p class="manufacturer"></p>
+                            <p class="name">Riesling 2020</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="cms-listing-col col-sm-6 col-lg-4 col-xl-3">
+
+
+                    <div class="card product-box">
+                        <div class="card-body">
+
+                            <div class="product-image-wrapper">
+                                <a href="https://testshop.vinoshop.at/Welschriesling-2020/SW10010">
+
+
+                                    <img src="https://testshop.vinoshop.at/media/66/87/8d/1638379848/Welschriesling_Poys.png"
+                                         srcset="https://testshop.vinoshop.at/thumbnail/66/87/8d/1638379848/Welschriesling_Poys_1920x1920.png 1920w, https://testshop.vinoshop.at/thumbnail/66/87/8d/1638379848/Welschriesling_Poys_800x800.png 800w, https://testshop.vinoshop.at/thumbnail/66/87/8d/1638379848/Welschriesling_Poys_400x400.png 400w"
+                                         width="275.5px" height="275.5px"
+                                         class="product-image">
+                                </a>
+                            </div>
+
+                            <p class="price">13.52</p>
+
+                            <p class="manufacturer">Weingut Lukas Poys</p>
+                            <p class="name">Welschriesling 2020</p>
+                        </div>
+                    </div>
+                </div>
+            </div> #}
+                        </div>
+
+                        <div class="landingpage-categories">
+                            <!-- categories: Rotwein & Weißwein -->
+                            <div style="background-image: url('/bundles/vinoshoptheme/homepage/categories/category_rotwein.png');"
+                                 class="landingpage-categories-category"><a href="">Rotwein</a></div>
+                            <div style="background-image: url('/bundles/vinoshoptheme/homepage/categories/category_weisswein.png');"
+                                 class="landingpage-categories-category"><a href="">Weißwein</a></div>
+                            <div style="background-image: url('/bundles/vinoshoptheme/homepage/categories/category_schaumwein.jpg');"
+                                 class="landingpage-categories-category">
+                                <a href="">Schaumwein</a></div>
+                        </div>
+                        <div class="landingpage-newsletter container">
+                            <div class="landingpage-newsletter-input-div">
+                                <p id="landingpage-newsletter-subheader">Hol Dir unsere neuesten Weine zuerst</p>
+                                <div class="landingpage-newsletter-input">
+                                    <label>
+                                        <input id="landingpage-newsletter-input-field" type="text" alt="email"
+                                               value=""
+                                               placeholder="newsletter@vinoshop.at">
+                                    </label>
+                                    <button type="submit" id="landingpage-newsletter-input-button">Absenden</button>
+                                </div>
+                                <p id="landingpage-newsletter-header">... Virtueller Wein im Postfach</p>
+                            </div>
+                        </div>
+                        <div class="landingpage-recommendation-header container">
+                            <hr>
+                            <h2 class="landingpage-recommendation-header-size">Max's Auswahl</h2>
+                            <hr>
+                        </div>
+                        <div class="landingpage-recommendation container">
+                            {{ dump(page) }}
+                            {# <!-- winzer -->
+            <div style="background-image: url('/bundles/vinoshoptheme/homepage/winzer/winzer.png');"
+                 class="landingpage-recommendation-winzer"></div>
+            <div class="landingpage-recommendation-products container">
+                <div class="cms-listing-col col-sm-6 col-lg-4 col-xl-6">
+                    <div class="card product-box">
+                        <div class="card-body">
+                            <div class="product-image-wrapper">
+                                <a href="https://testshop.vinoshop.at/Riesling-2020/SW10012">
+                                    <img src="https://testshop.vinoshop.at/media/1f/a7/54/1638384385/FLASCHE_10%20Kopie.png"
+                                         srcset="https://testshop.vinoshop.at/thumbnail/1f/a7/54/1638384385/FLASCHE_10%20Kopie_1920x1920.png 1920w, https://testshop.vinoshop.at/thumbnail/1f/a7/54/1638384385/FLASCHE_10%20Kopie_800x800.png 800w, https://testshop.vinoshop.at/thumbnail/1f/a7/54/1638384385/FLASCHE_10%20Kopie_400x400.png 400w"
+                                         sizes="(min-width: 1200px) 280px, (min-width: 992px) 350px, (min-width: 768px) 390px, (min-width: 576px) 315px, (min-width: 0px) 500px, 100vw"
+                                         width="275.5px" height="275.5px"
+                                         class="product-image">
+                                </a>
+                            </div>
+                            <p class="price">10.80</p>
+                            <p class="manufacturer"></p>
+                            <p class="name">Riesling 2020</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="cms-listing-col col-sm-6 col-lg-4 col-xl-6">
+
+
+                    <div class="card product-box">
+                        <div class="card-body">
+
+                            <div class="product-image-wrapper">
+                                <a href="https://testshop.vinoshop.at/Welschriesling-2020/SW10010">
+
+
+                                    <img src="https://testshop.vinoshop.at/media/66/87/8d/1638379848/Welschriesling_Poys.png"
+                                         srcset="https://testshop.vinoshop.at/thumbnail/66/87/8d/1638379848/Welschriesling_Poys_1920x1920.png 1920w, https://testshop.vinoshop.at/thumbnail/66/87/8d/1638379848/Welschriesling_Poys_800x800.png 800w, https://testshop.vinoshop.at/thumbnail/66/87/8d/1638379848/Welschriesling_Poys_400x400.png 400w"
+                                         width="275.5px" height="275.5px"
+                                         class="product-image">
+                                </a>
+                            </div>
+                            <p class="price">13.52</p>
+                            <p class="manufacturer">Weingut Lukas Poys</p>
+                            <p class="name">Welschriesling 2020</p>
+                        </div>
+                    </div>
+                </div>
+            </div> #}
+                        </div>
+                    </div>
+                {% endblock %}
+            </div>
+        {% endblock %}
+    {% endblock %}
+{% endblock %}

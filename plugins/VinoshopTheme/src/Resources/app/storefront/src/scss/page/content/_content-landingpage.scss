@@ -109,6 +109,35 @@
       text-align: center;
     }
 
+
+    // Medium devices (tablets, 768px and up)
+    @media (min-width: 768px) {
+      hr {
+        width: 28%;
+      }
+    }
+
+    @media (max-width: 767.98px) {
+      hr {
+        width: 32%;
+      }
+
+      .landingpage-products-header {
+        margin-top: 3.75rem;
+      }
+    }
+
+    @media (max-width: 575.98px) {
+      .landingpage-products-header {
+        margin-top: 3.75rem;
+      }
+
+      hr {
+        width: 25%;
+      }
+    }
+
+
     .landingpage-products-section {
       display: flex;
       flex-direction: row;
@@ -124,6 +153,7 @@
     flex-direction: row;
     align-content: center;
     justify-content: center;
+    flex-wrap: wrap;
     margin-bottom: 20rem;
 
     .landingpage-categories-category {

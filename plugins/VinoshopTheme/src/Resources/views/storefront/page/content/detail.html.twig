@@ -1,0 +1,34 @@
+{% block page_content_sections_inner %}
+    <div class="cms-sections">
+        {% for section in cmsPage.sections %}
+            {% set sectionBgColor = section.backgroundColor %}
+            {% set sectionBgImg = section.backgroundMedia|sw_encode_media_url %}
+            {% set sectionBgImgMode = section.backgroundMediaMode %}
+            {% set sectionClasses = [section.cssClass, 'pos-' ~ section.position, 'cms-section-' ~ section.type] %}
+            {% if sectionBgImg %}
+                {% set sectionClasses = ['bg-image']|merge(sectionClasses) %}
+            {% endif %}
+            {% if sectionBgColor %}
+                {% set sectionClasses = ['bg-color']|merge(sectionClasses) %}
+            {% endif %}
+            {% block page_content_section %}
+                {#<div class="cms-section {{ sectionClasses|join(' ') }}"
+                     style="{% if sectionBgColor %}background-color: {{ sectionBgColor }};{% endif %}{% if sectionBgImg %}background-image: url({{ sectionBgImg }});background-size: {{ section.backgroundMediaMode }};{% endif %}">
+                    {% sw_include "@Storefront/storefront/section/cms-section-" ~ section.type ~ ".html.twig" %}
+                </div>#}
+                {#<div style="
+                            {% if sectionBgColor %}background-color: {{ sectionBgColor }};{% endif %}
+                            {% if sectionBgImg %}background-image: url({{ sectionBgImg }});/*background-size: {{ section.backgroundMediaMode }};*/{% endif %}"
+                     class="landingpage-top cms-section {{ sectionClasses|join(' ') }}">
+                    <div class="landingpage-top-text container ">
+                        <h1 class="display-3">Die exklusivsten <br> Weine</h1>
+                        #}{# <a href="#" class="content-image-content-btn-color display-5 border border-2 p-3 mt-5">Shop now</a> #}{#
+                        <div class="landingpage-top-text-button">
+                            <a href="#" class="display-5">Entdecken</a>
+                        </div>
+                    </div>#}
+                </div>
+            {% endblock %}
+        {% endfor %}
+    </div>
+{% endblock %}
