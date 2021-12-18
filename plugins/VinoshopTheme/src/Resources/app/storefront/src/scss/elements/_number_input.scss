@@ -53,3 +53,33 @@
     }
   }
 }
+
+.input-amount {
+
+  .number-control {
+    display: flex;
+    flex-direction: column;
+    height: 40px;
+    width: 3rem;
+
+    .btn {
+      height: 50%;
+      padding: 0;
+
+      .icon > svg {
+        top: -.25em;
+      }
+
+      &:nth-child(1) {
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+      }
+      &:nth-child(2) {
+        border-bottom-left-radius: 0;
+        border-top-left-radius: 0;
+        border-top-right-radius: 0;
+      }
+    }
+  }
+}

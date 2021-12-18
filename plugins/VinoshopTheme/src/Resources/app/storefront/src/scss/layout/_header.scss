@@ -2,7 +2,7 @@
   background-color: $almost_black;
   position: fixed;
   margin-bottom: 3rem;
-  z-index: 10;
+  z-index: 1000;
   width: 100%;
   height: 5rem;
   display: flex;
@@ -10,6 +10,10 @@
 
   .container, .header-row {
     height: 100%;
+  }
+
+  .header-row {
+    padding: .5rem 0 !important;
   }
 
   .header-logo-col {
@@ -32,14 +36,14 @@
 
   .navigation {
     display: flex;
-    justify-content: center;
+    justify-content: right;
     align-items: center;
 
     .nav-link {
       text-transform: uppercase;
       color: rgba($almost_white, .7);
-      font-weight: 600;
-      font-size: 1.2rem;
+      font-weight: normal;
+      font-size: 1rem;
       letter-spacing: .1rem;
       transition: .2s all;
 
@@ -56,42 +60,68 @@
       }
 
       & .main-navigation-link-text {
-        padding-top: 3px;
+        padding-top: 10px;
       }
     }
   }
 
   .action {
-    padding: .5rem;
     margin: 0 .5rem;
     cursor: pointer;
+
+    > a {
+      padding: .5rem;
+    }
 
     .icon {
       color: rgba($almost_white, .7);
       transition: .2s all;
+      padding: .5rem;
+      width: calc(22px + 1rem);
+      height: calc(22px + 1rem);
     }
 
     &:hover .icon {
       color: rgba($almost_white, .85);
     }
+    &:hover .header-search-form .icon {
+      color: black;
+    }
   }
 
-
-  .search-overlay:not(.search-visible) {
+  &.search-visible .header-search-col > .row {
     display: none;
   }
 
-  .search-overlay {
-    position: absolute;
-    left: 0;
-    top: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: rgba($almost_black, .8);
-    width: 100vw;
-    height: 100vh;
+  &:not(.search-visible) .header-search-form, &:not(.search-visible) .mobile-search-form {
+    display: none;
   }
+
+.header-search-form {
+  position: absolute;
+  height: 100%;
+  left: -19rem;
+  width: 16rem;
+  top: .25rem;
+
+  .input-group-append {
+    height: calc(1.5em + 1.125rem + 2px);
+
+    .header-search-btn {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+
+  .icon {
+    color: unset;
+    padding: unset;
+    width: unset;
+    height: unset;
+  }
+}
+
 
 }
 
@@ -120,6 +150,11 @@ body.mobile-nav-open {
   width: 100%;
   height: 100vh;
   background-color: rgba(black, .4);
+
+  .btn-close-mobile-nav-overview {
+    margin-right: 20px;
+    margin-top: 1.25rem;
+  }
 
 
   .nav-container {
