@@ -7,18 +7,26 @@
             <div class="categories">
                 <h3>Kategorien</h3>
                 <div class="categories-list">
-                    <a href="#">Weißwein</a>
-                    <a href="#">Rotwein</a>
-                    <a href="#">Spritzer</a>
-                    <a href="#">Winzer</a>
+                    {% for treeItem in page.header.navigation.tree %}
+                        {% set category = treeItem.category %}
+                        {% set name = category.translated.name %}
+
+                        {# @deprecated tag:v6.5.0 - Use "category.id" directly instead. #}
+                        {% set categorId = category.id %}
+                        <a href="{{ category_url(category) }}"
+                           title="{{ name }}">
+                            {{ name }}
+                        </a>
+                    {% endfor %}
+                    <a href="#">Winzer</a> {# TODO winzerliste #}
                 </div>
             </div>
             <div class="justice">
                 <h3>Rechtliches</h3>
                 <div class="justice-list">
-                    <a href="#">AGBs</a>
-                    <a href="#">Datenschutzerklärung</a>
-                    <a href="#">Impressum</a>
+                    <a href="{{ path("frontend.legal.agb") }}">AGBs</a>
+                    <a href="{{ path("frontend.legal.datenschutz") }}">Datenschutzerklärung</a>
+                    <a href="{{ path("frontend.legal.impressum") }}">Impressum</a>
                 </div>
             </div>
             <div class="infos">

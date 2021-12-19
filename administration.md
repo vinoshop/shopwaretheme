@@ -19,6 +19,16 @@ field set: ``vs_winzer``
 
 assign to ``Manufactures``
 
+## create legal
+field set: ``vs_legal``
+
+assign to ``sales channels``
+
+custom fields:
+* ``vs_legal_agbs`` type ``text editor``
+* ``vs_legal_impressum`` type ``text editor``
+* ``vs_legal_datenschutz`` type ``text editor``
+
 custom fields:
 * ``vs_winzer_picture`` type ``media field``
 * ``vs_winzer_video`` type ``text field``
