@@ -21,6 +21,13 @@
                 <argument type="service" id="service_container"/>
             </call>
         </service>
+        <service id="VinoshopTheme\Storefront\Controller\LegalPagesController"  public="true">
+            <argument type="service" id="Shopware\Storefront\Page\Navigation\NavigationPageLoader"/>
+            <argument type="service" id="Shopware\Core\Content\Seo\SeoUrlPlaceholderHandlerInterface"/>
+            <call method="setContainer">
+                <argument type="service" id="service_container"/>
+            </call>
+        </service>
         <service id="VinoshopTheme\Storefront\Service\AddProductsToProductPage">
             <argument type="service" id="sales_channel.product.repository"/>
             <argument type="service" id="product_manufacturer.repository"/>
