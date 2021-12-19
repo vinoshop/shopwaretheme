@@ -4,7 +4,7 @@
 
     <div class="container my-4">
         <h1>{{ legalPageOptions.title }}</h1>
-        {{ legalPageOptions.content|sw_sanitize }}
+        {{ dump(legalPageOptions.content) }}
     </div>
 
 {% endblock %}

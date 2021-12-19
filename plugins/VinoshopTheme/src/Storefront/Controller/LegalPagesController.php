@@ -35,7 +35,7 @@ class LegalPagesController extends StorefrontController
     public function agbPage(Request $request, SalesChannelContext $context): ?Response
     {
         $page = $this->navigationPageLoader->load($request, $context);
-        $legalPageOptions = new LegalPageOptions("AGBs", $context->getSalesChannel()->getCustomFields()["vs_legal_agbs"]);
+        $legalPageOptions = new LegalPageOptions("AGBs", $context->getSalesChannel()->getCustomFields());
 
         return $this->renderStorefront('@VinoshopTheme/storefront/page/legal/index.html.twig',
             [
