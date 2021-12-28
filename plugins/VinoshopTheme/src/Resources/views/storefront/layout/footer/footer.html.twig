@@ -3,6 +3,57 @@
 
 {% block layout_footer_inner_container %}
     <div class="footer">
-        Demo footer
+        <div class="footer-inner">
+            <div class="categories">
+                <h3>Kategorien</h3>
+                <div class="categories-list">
+                    <a href="#">Weißwein</a>
+                    <a href="#">Rotwein</a>
+                    <a href="#">Spritzer</a>
+                    <a href="#">Winzer</a>
+                </div>
+            </div>
+            <div class="justice">
+                <h3>Rechtliches</h3>
+                <div class="justice-list">
+                    <a href="#">AGBs</a>
+                    <a href="#">Datenschutzerklärung</a>
+                    <a href="#">Impressum</a>
+                </div>
+            </div>
+            <div class="infos">
+                <div class="location">
+                    {% sw_icon 'map-marker-alt-solid' style {
+                        namespace: 'VinoshopTheme',
+                        pack: 'fontawesome'
+                    } %}
+                    <a href="#">1030 Wien<br>Media Quarter Marx 3.3</a>
+                </div>
+                <div class="email">
+                    {% sw_icon 'envelope-solid' style {
+                        namespace: 'VinoshopTheme',
+                        pack: 'fontawesome'
+                    } %}
+                    <a href="mailto:contact@vinoshop.at">contact@vinoshop.at</a>
+                </div>
+            </div>
+            <div class="more">
+                <img class="logo-textmarke" src="/bundles/vinoshoptheme/images/20211214_PVS_Logo_Wortmarke.svg"/>
+                <div class="quick-links">
+                    <a href="https://www.instagram.com/vinoshop.at/" target="_blank">{% sw_icon 'instagram-brands' style {
+                            namespace: 'VinoshopTheme',
+                            pack: 'fontawesome'
+                        } %}</a>
+                    <a href="https://www.youtube.com/channel/UC3E9S3Fu_9npjF5fe99sMoQ/" target="_blank">{% sw_icon 'facebook-square-brands' style {
+                            namespace: 'VinoshopTheme',
+                            pack: 'fontawesome'
+                        } %}</a>
+                    <a href="#" target="_blank">{% sw_icon 'youtube-brands' style {
+                            namespace: 'VinoshopTheme',
+                            pack: 'fontawesome'
+                        } %}</a>
+                </div>
+            </div>
+        </div>
     </div>
 {% endblock %}
