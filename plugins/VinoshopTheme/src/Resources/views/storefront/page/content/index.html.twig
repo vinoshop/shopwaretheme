@@ -2,11 +2,11 @@
 {% set large_header_margin = false %}
 {% block base_main_inner %}
     {% block page_content %}
-        <br><br><br><br><br>
-        {% set currentPath = path(app.request.attributes.get('_route'),
+
+        {#{% set currentPath = path(app.request.attributes.get('_route'),
             app.request.attributes.get('_route_params')) %}
         {{ currentPath }}
-        {{ dump(page.cmsPage) }}
+        {{ dump(page.cmsPage) }}#}
         {# {% for element in page.cmsPage.sections.elements %}
             {{ dump(element.blocks.elements) }}
             {% for block_element in element.blocks.elements %}
