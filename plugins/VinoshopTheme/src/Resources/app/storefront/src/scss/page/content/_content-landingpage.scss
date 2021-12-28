@@ -23,7 +23,7 @@
         color: $almost_white;
         font-weight: 400;
         font-family: $default_font_family;
-        text-shadow: 1px 1px 0 $almost_black,
+        /*text-shadow: 1px 1px 0 $almost_black,
         -1px 1px 0 $almost_black,
         1px -1px 0 $almost_black,
         -1px -1px 0 $almost_black,
@@ -46,7 +46,7 @@
         2px 1px 0 $almost_black,
         -2px 1px 0 $almost_black,
         2px -1px 0 $almost_black,
-        -2px -1px 0 $almost_black;
+        -2px -1px 0 $almost_black;*/
       }
 
       .landingpage-top-text-button {
@@ -82,7 +82,9 @@
   }
 
   .landingpage-products {
+    /*
     height: 60vh;
+    */
     margin-bottom: 5rem;
 
     .landingpage-products-flex {
@@ -113,6 +115,7 @@
       display: flex;
       flex-direction: row;
       justify-content: center;
+      flex-wrap: wrap;
     }
 
 
@@ -137,10 +140,13 @@
       .landingpage-products-header {
         margin-top: 3.75rem;
       }
-
+      .landingpage-products {
+        width: 60%;
+      }
       hr {
         width: 25%;
       }
+
     }
 
 
@@ -154,7 +160,6 @@
   }
 
   .landingpage-categories {
-    height: 50vh;
     display: flex;
     flex-direction: row;
     align-content: center;
@@ -168,16 +173,22 @@
       align-content: center;
       justify-content: center;
 
-      width: 50%;
+      max-width: 40rem;
+      width: 33.2%;
+      min-height: 13rem;
+      height: 15rem;
+
+
       font-family: $default_font_family;
       text-align: center;
       font-weight: 900;
       font-size: 2rem;
       color: $almost_white;
-      background-color: red;
+      /*background-color: red;*/
       background-repeat: no-repeat;
       background-size: cover;
       background-position: center;
+      padding: 5rem 2rem;
     }
 
     a {
@@ -291,6 +302,7 @@
       width: max-content;
       height: 45vh;
     }
+
     .landingpage-recommendation-winzer {
       height: 45vh;
       aspect-ratio: 3/3;
@@ -299,6 +311,7 @@
       background-position: center;
     }
   }
+
   .landingpage-recommendation-header {
     display: flex;
     flex-direction: row;
@@ -316,6 +329,7 @@
       width: 32%;
     }
   }
+
   .width {
     margin-left: 0;
     margin-right: 0;

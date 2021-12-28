@@ -2,13 +2,17 @@
 {% set large_header_margin = false %}
 {% block base_main_inner %}
     {% block page_content %}
-        {{ dump(page.cmsPage) }}
-        {#  {% for element in page.cmsPage.sections.elements %}
+        <br><br><br><br><br>
+        {% set currentPath = path(app.request.attributes.get('_route'),
+            app.request.attributes.get('_route_params')) %}
+        {{ currentPath }}
+       {# {{ dump(page.cmsPage) }}#}
+        {# {% for element in page.cmsPage.sections.elements %}
             {{ dump(element.blocks.elements) }}
             {% for block_element in element.blocks.elements %}
                 {{ dump(block_element.slots.elements) }}
             {% endfor %}
-        {% endfor %}#}
+        {% endfor %} #}
         {# {% block cms_breadcrumb %}
                 <div class="breadcrumb cms-breadcrumb container">
                     {% sw_include '@VinoshopTheme/storefront/layout/breadcrumb.html.twig' with {
@@ -20,97 +24,104 @@
         {% block cms_content %}
             {# {% sw_include "@VinoshopTheme/storefront/page/content/detail.html.twig" with {'cmsPage': page.cmsPage} %} #}
             <div class="cms-page">
-                {% block page_content_blocks %}
-                    <div class="landingpage container">
-                        {% for element in page.cmsPage.sections.elements %}
-                            {% for block_element in element.blocks.elements %}
-                                {% set name = block_element.name %}
-                                {# {{ dump(block_element.backgroundMedia.url) }} #}
+            {% block page_content_blocks %}
+                <div class="landingpage container">
+                {% for element in page.cmsPage.sections.elements %}
+                    {% for block_element in element.blocks.elements %}
+                        {% set name = block_element.name %}
+                        {# {{ dump(block_element.backgroundMedia.url) }} #}
 
-                                {% if name == "landingpage_top_bg_img" %}
-                                    <div style="background-image: url({{ block_element.backgroundMedia.url }})"
-                                         class="landingpage-top">
+                        {% if name == "landingpage_top_bg_img" %}
+                            <div style="background-image: url({{ block_element.backgroundMedia.url }})"
+                                 class="landingpage-top">
 
-                                        {% for text_element in page.cmsPage.sections.elements %}
-                                            {% for block_text_element in text_element.blocks.elements %}
-                                                {% set text_name = block_text_element.name %}
-                                                {% if text_name == "landingpage_top_header" %}
-                                                    {% for text in block_text_element.slots.elements %}
-                                                        <div class="landingpage-top-text container">
-                                                            {{ text.data.content | raw }}
+                                {% for text_element in page.cmsPage.sections.elements %}
+                                    {% for block_text_element in text_element.blocks.elements %}
+                                        {% set text_name = block_text_element.name %}
+                                        {% if text_name == "landingpage_top_header" %}
+                                            {% for text in block_text_element.slots.elements %}
+                                                <div class="landingpage-top-text container">
+                                                    {{ text.data.content | raw }}
 
-                                                            <div class="landingpage-top-text-button">
-                                                                <a href="#" class="display-5">Entdecken</a>
-                                                            </div>
-                                                        </div>
-                                                    {% endfor %}
-                                                {% endif %}
+                                                    <div class="landingpage-top-text-button">
+                                                        <a href="#" class="display-5">Entdecken</a>
+                                                    </div>
+                                                </div>
                                             {% endfor %}
-                                        {% endfor %}
-                                    </div>
-                                {% endif %}
-                            {% endfor %}
-                        {% endfor %}
-                        <div class="landingpage-products container">
-                            <div class="landingpage-products-flex">
-                                <hr>
-                                <h2 class="landingpage-products-header">Unsere Produkte</h2>
-                                <hr>
-                            </div>
-                            {# #}
-                            {#{{ dump(page.cmsPage.sections.elements) }}#}
-                            <div class="landingpage-products-helper">
-                                {% for section in page.cmsPage.sections.elements %}
-                                    {% if section.name == "landingpage_products" %}
-                                        {#{{ dump(section.blocks.elements|first.slots.elements) }}#}
-
-                                        {% if section.blocks.elements|first.slots.elements|length > 0 %}
-                                            {% for product_element in section.blocks.elements|first.slots.elements %}
-                                                {#{{ dump(product_element.data.product) }}#}
-                                                {% sw_include '@Storefront/storefront/component/product/card/box.html.twig' with {
-                                                    'product': product_element.data.product
-                                                } %}
-                                            {% endfor %}
-                                        {% else %}
-                                            <p>Keine weiteren Produkte vorhanden</p>
                                         {% endif %}
-                                    {% endif %}
+                                    {% endfor %}
                                 {% endfor %}
                             </div>
-                        </div>
+                        {% endif %}
+                    {% endfor %}
+                {% endfor %}
+                <div class="landingpage-products container">
+                    <div class="landingpage-products-flex">
+                        <hr>
+                        <h2 class="landingpage-products-header">Unsere Produkte</h2>
+                        <hr>
+                    </div>
+                    {# #}
+                    {# {{ dump(page.cmsPage.sections.elements) }} #}
+                    <div class="landingpage-products-helper">
+                        {% for section in page.cmsPage.sections.elements %}
+                            {% if section.name == "landingpage_products" %}
+                                {# {{ dump(section.blocks.elements|first.slots.elements) }} #}
 
-                        <div class="landingpage-categories">
-                            <!-- categories: Rotwein & Weißwein -->
-                            <div style="background-image: url('/bundles/vinoshoptheme/homepage/categories/category_rotwein.png');"
-                                 class="landingpage-categories-category"><a href="">Rotwein</a></div>
-                            <div style="background-image: url('/bundles/vinoshoptheme/homepage/categories/category_weisswein.png');"
-                                 class="landingpage-categories-category"><a href="">Weißwein</a></div>
-                            <div style="background-image: url('/bundles/vinoshoptheme/homepage/categories/category_schaumwein.jpg');"
-                                 class="landingpage-categories-category">
-                                <a href="">Schaumwein</a></div>
-                        </div>
-                        <div class="landingpage-newsletter container">
-                            <div class="landingpage-newsletter-input-div">
-                                <p id="landingpage-newsletter-subheader">Hol Dir unsere neuesten Weine zuerst</p>
-                                <div class="landingpage-newsletter-input">
-                                    <label>
-                                        <input id="landingpage-newsletter-input-field" type="text" alt="email"
-                                               value=""
-                                               placeholder="newsletter@vinoshop.at">
-                                    </label>
-                                    <button type="submit" id="landingpage-newsletter-input-button">Absenden</button>
+                                {% if section.blocks.elements|first.slots.elements|length > 0 %}
+                                    {% for product_element in section.blocks.elements|first.slots.elements %}
+                                        {# {{ dump(product_element.data.product) }} #}
+                                        {% sw_include '@Storefront/storefront/component/product/card/box.html.twig' with {
+                                            'product': product_element.data.product
+                                        } %}
+                                    {% endfor %}
+                                {% else %}
+                                    <p>Keine weiteren Produkte vorhanden</p>
+                                {% endif %}
+                            {% endif %}
+                        {% endfor %}
+                    </div>
+                </div>
+
+                <div class="landingpage-categories">
+                    <!-- categories: Rotwein & Weißwein -->
+                    {#{{ dump(page.cmsPage.sections.elements) }}#}
+                    {% for section_elem in page.cmsPage.sections.elements %}
+                        {% if section_elem.name == "landingpage_categories" %}
+                            {#{{ dump(section_elem.blocks.elements|first.slots.elements) }}#}
+                            {% for category in section_elem.blocks.elements|first.slots.elements %}
+                               {#{{ dump(category.data) }}#}
+                                <div style="background-image: url({{ category.data.media.url }});" 
+                                     class="landingpage-categories-category">
+                                    {% set cat_name = category.data.media.fileName|split('_')[1] %}
+                                    <a href="/{{ category.data.url }}/">{{ cat_name|capitalize }}</a>
                                 </div>
-                                <p id="landingpage-newsletter-header">... Virtueller Wein im Postfach</p>
+                            {% endfor %}
+                        {% endif %}
+                    {% endfor %}
+                    </div>
+                    <div class="landingpage-newsletter container">
+                        <div class="landingpage-newsletter-input-div">
+                            <p id="landingpage-newsletter-subheader">Hol Dir unsere neuesten Weine zuerst</p>
+                            <div class="landingpage-newsletter-input">
+                                <label>
+                                    <input id="landingpage-newsletter-input-field" type="text" alt="email"
+                                           value=""
+                                           placeholder="newsletter@vinoshop.at">
+                                </label>
+                                <button type="submit" id="landingpage-newsletter-input-button">Absenden</button>
                             </div>
+                            <p id="landingpage-newsletter-header">... Virtueller Wein im Postfach</p>
                         </div>
-                        <div class="landingpage-recommendation-header container">
-                            <hr>
-                            <h2 class="landingpage-recommendation-header-size">Max's Auswahl</h2>
-                            <hr>
-                        </div>
-                        <div class="landingpage-recommendation container">
-                            {{ dump(page) }}
-                            {# <!-- winzer -->
+                    </div>
+                    <div class="landingpage-recommendation-header container">
+                        <hr>
+                        <h2 class="landingpage-recommendation-header-size">Max's Auswahl</h2>
+                        <hr>
+                    </div>
+                    <div class="landingpage-recommendation container">
+                        {{ dump(page) }}
+                        {# <!-- winzer -->
             <div style="background-image: url('/bundles/vinoshoptheme/homepage/winzer/winzer.png');"
                  class="landingpage-recommendation-winzer"></div>
             <div class="landingpage-recommendation-products container">
@@ -155,9 +166,9 @@
                     </div>
                 </div>
             </div> #}
-                        </div>
                     </div>
-                {% endblock %}
+                </div>
+            {% endblock %}
             </div>
         {% endblock %}
     {% endblock %}
