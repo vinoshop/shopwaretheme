@@ -6,9 +6,6 @@
 {% block base_main_inner %}
     {% if activeRoute == "frontend.home.page" %}
                 <div class="cms-page">
-{#
-                        {% sw_include "@Storefront/storefront/page/content/detail.html.twig" with {'cmsPage': page.cmsPage} %}
-#}
                         <div class="landingpage container">
                             {% for element in page.cmsPage.sections.elements %}
                                 {% for block_element in element.blocks.elements %}
