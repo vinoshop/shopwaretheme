@@ -1,127 +1,111 @@
 {% sw_extends '@Storefront/storefront/base.html.twig' %}
-{% set large_header_margin = false %}
+{% if activeRoute == "frontend.home.page" %}
+    {% set large_header_margin = false %}
+{% endif %}
+
 {% block base_main_inner %}
-    {% block page_content %}
+    {% if activeRoute == "frontend.home.page" %}
+                <div class="cms-page">
+{#
+                        {% sw_include "@Storefront/storefront/page/content/detail.html.twig" with {'cmsPage': page.cmsPage} %}
+#}
+                        <div class="landingpage container">
+                            {% for element in page.cmsPage.sections.elements %}
+                                {% for block_element in element.blocks.elements %}
+                                    {% set name = block_element.name %}
+                                    {# {{ dump(block_element.backgroundMedia.url) }} #}
 
-        {#{% set currentPath = path(app.request.attributes.get('_route'),
-            app.request.attributes.get('_route_params')) %}
-        {{ currentPath }}
-        {{ dump(page.cmsPage) }}#}
-        {# {% for element in page.cmsPage.sections.elements %}
-            {{ dump(element.blocks.elements) }}
-            {% for block_element in element.blocks.elements %}
-                {{ dump(block_element.slots.elements) }}
-            {% endfor %}
-        {% endfor %} #}
-        {# {% block cms_breadcrumb %}
-                <div class="breadcrumb cms-breadcrumb container">
-                    {% sw_include '@VinoshopTheme/storefront/layout/breadcrumb.html.twig' with {
-                        context: context,
-                        category: page.header.navigation.active
-                    } only %}
-                </div>
-            {% endblock %} #}
-        {% block cms_content %}
-            {# {% sw_include "@VinoshopTheme/storefront/page/content/detail.html.twig" with {'cmsPage': page.cmsPage} %} #}
-            <div class="cms-page">
-            {% block page_content_blocks %}
-                <div class="landingpage container">
-                {% for element in page.cmsPage.sections.elements %}
-                    {% for block_element in element.blocks.elements %}
-                        {% set name = block_element.name %}
-                        {# {{ dump(block_element.backgroundMedia.url) }} #}
+                                    {% if name == "landingpage_top_bg_img" %}
+                                        <div style="background-image: url({{ block_element.backgroundMedia.url }})"
+                                             class="landingpage-top">
 
-                        {% if name == "landingpage_top_bg_img" %}
-                            <div style="background-image: url({{ block_element.backgroundMedia.url }})"
-                                 class="landingpage-top">
+                                            {% for text_element in page.cmsPage.sections.elements %}
+                                                {% for block_text_element in text_element.blocks.elements %}
+                                                    {% set text_name = block_text_element.name %}
+                                                    {% if text_name == "landingpage_top_header" %}
+                                                        {% for text in block_text_element.slots.elements %}
+                                                            <div class="landingpage-top-text container">
+                                                                {{ text.data.content | raw }}
 
-                                {% for text_element in page.cmsPage.sections.elements %}
-                                    {% for block_text_element in text_element.blocks.elements %}
-                                        {% set text_name = block_text_element.name %}
-                                        {% if text_name == "landingpage_top_header" %}
-                                            {% for text in block_text_element.slots.elements %}
-                                                <div class="landingpage-top-text container">
-                                                    {{ text.data.content | raw }}
-
-                                                    <div class="landingpage-top-text-button">
-                                                        <a href="#" class="display-5">Entdecken</a>
-                                                    </div>
-                                                </div>
+                                                                <div class="landingpage-top-text-button">
+                                                                    <a href="#" class="display-5">Entdecken</a>
+                                                                </div>
+                                                            </div>
+                                                        {% endfor %}
+                                                    {% endif %}
+                                                {% endfor %}
                                             {% endfor %}
+                                        </div>
+                                    {% endif %}
+                                {% endfor %}
+                            {% endfor %}
+                            <div class="landingpage-products container">
+                                <div class="landingpage-products-flex">
+                                    <hr>
+                                    <h2 class="landingpage-products-header">Unsere Produkte</h2>
+                                    <hr>
+                                </div>
+                                {# #}
+                                {# {{ dump(page.cmsPage.sections.elements) }} #}
+                                <div class="landingpage-products-helper">
+                                    {% for section in page.cmsPage.sections.elements %}
+                                        {% if section.name == "landingpage_products" %}
+                                            {# {{ dump(section.blocks.elements|first.slots.elements) }} #}
+
+                                            {% if section.blocks.elements|first.slots.elements|length > 0 %}
+                                                {% for product_element in section.blocks.elements|first.slots.elements %}
+                                                    {# {{ dump(product_element.data.product) }} #}
+                                                    {% sw_include '@Storefront/storefront/component/product/card/box.html.twig' with {
+                                                        'product': product_element.data.product
+                                                    } %}
+                                                {% endfor %}
+                                            {% else %}
+                                                <p>Keine weiteren Produkte vorhanden</p>
+                                            {% endif %}
                                         {% endif %}
                                     {% endfor %}
+                                </div>
+                            </div>
+
+                            <div class="landingpage-categories">
+                                <!-- categories: Rotwein & Weißwein -->
+                                {# {{ dump(page.cmsPage.sections.elements) }} #}
+                                {% for section_elem in page.cmsPage.sections.elements %}
+                                    {% if section_elem.name == "landingpage_categories" %}
+                                        {# {{ dump(section_elem.blocks.elements|first.slots.elements) }} #}
+                                        {% for category in section_elem.blocks.elements|first.slots.elements %}
+                                            {# {{ dump(category.data) }} #}
+                                            <div style="background-image: url({{ category.data.media.url }});"
+                                                 class="landingpage-categories-category">
+                                                {% set cat_name = category.data.media.fileName|split('_')[1] %}
+                                                <a href="/{{ category.data.url }}/">{{ cat_name|capitalize }}</a>
+                                            </div>
+                                        {% endfor %}
+                                    {% endif %}
                                 {% endfor %}
                             </div>
-                        {% endif %}
-                    {% endfor %}
-                {% endfor %}
-                <div class="landingpage-products container">
-                    <div class="landingpage-products-flex">
-                        <hr>
-                        <h2 class="landingpage-products-header">Unsere Produkte</h2>
-                        <hr>
-                    </div>
-                    {# #}
-                    {# {{ dump(page.cmsPage.sections.elements) }} #}
-                    <div class="landingpage-products-helper">
-                        {% for section in page.cmsPage.sections.elements %}
-                            {% if section.name == "landingpage_products" %}
-                                {# {{ dump(section.blocks.elements|first.slots.elements) }} #}
-
-                                {% if section.blocks.elements|first.slots.elements|length > 0 %}
-                                    {% for product_element in section.blocks.elements|first.slots.elements %}
-                                        {# {{ dump(product_element.data.product) }} #}
-                                        {% sw_include '@Storefront/storefront/component/product/card/box.html.twig' with {
-                                            'product': product_element.data.product
-                                        } %}
-                                    {% endfor %}
-                                {% else %}
-                                    <p>Keine weiteren Produkte vorhanden</p>
-                                {% endif %}
-                            {% endif %}
-                        {% endfor %}
-                    </div>
-                </div>
-
-                <div class="landingpage-categories">
-                    <!-- categories: Rotwein & Weißwein -->
-                    {#{{ dump(page.cmsPage.sections.elements) }}#}
-                    {% for section_elem in page.cmsPage.sections.elements %}
-                        {% if section_elem.name == "landingpage_categories" %}
-                            {#{{ dump(section_elem.blocks.elements|first.slots.elements) }}#}
-                            {% for category in section_elem.blocks.elements|first.slots.elements %}
-                               {#{{ dump(category.data) }}#}
-                                <div style="background-image: url({{ category.data.media.url }});" 
-                                     class="landingpage-categories-category">
-                                    {% set cat_name = category.data.media.fileName|split('_')[1] %}
-                                    <a href="/{{ category.data.url }}/">{{ cat_name|capitalize }}</a>
+                            <div class="landingpage-newsletter container">
+                                <div class="landingpage-newsletter-input-div">
+                                    <p id="landingpage-newsletter-subheader">Hol Dir unsere neuesten Weine zuerst</p>
+                                    <div class="landingpage-newsletter-input">
+                                        <label>
+                                            <input id="landingpage-newsletter-input-field" type="text" alt="email"
+                                                   value=""
+                                                   placeholder="newsletter@vinoshop.at">
+                                        </label>
+                                        <button type="submit" id="landingpage-newsletter-input-button">Absenden</button>
+                                    </div>
+                                    <p id="landingpage-newsletter-header">... Virtueller Wein im Postfach</p>
                                 </div>
-                            {% endfor %}
-                        {% endif %}
-                    {% endfor %}
-                    </div>
-                    <div class="landingpage-newsletter container">
-                        <div class="landingpage-newsletter-input-div">
-                            <p id="landingpage-newsletter-subheader">Hol Dir unsere neuesten Weine zuerst</p>
-                            <div class="landingpage-newsletter-input">
-                                <label>
-                                    <input id="landingpage-newsletter-input-field" type="text" alt="email"
-                                           value=""
-                                           placeholder="newsletter@vinoshop.at">
-                                </label>
-                                <button type="submit" id="landingpage-newsletter-input-button">Absenden</button>
                             </div>
-                            <p id="landingpage-newsletter-header">... Virtueller Wein im Postfach</p>
-                        </div>
-                    </div>
-                    <div class="landingpage-recommendation-header container">
-                        <hr>
-                        <h2 class="landingpage-recommendation-header-size">Max's Auswahl</h2>
-                        <hr>
-                    </div>
-                    <div class="landingpage-recommendation container">
-                        {{ dump(page) }}
-                        {# <!-- winzer -->
+                            <div class="landingpage-recommendation-header container">
+                                <hr>
+                                <h2 class="landingpage-recommendation-header-size">Max's Auswahl</h2>
+                                <hr>
+                            </div>
+                            <div class="landingpage-recommendation container">
+                                {{ dump(page) }}
+                                {# <!-- winzer -->
             <div style="background-image: url('/bundles/vinoshoptheme/homepage/winzer/winzer.png');"
                  class="landingpage-recommendation-winzer"></div>
             <div class="landingpage-recommendation-products container">
@@ -166,10 +150,30 @@
                     </div>
                 </div>
             </div> #}
-                    </div>
+                            </div>
+                        </div>
                 </div>
+    {% else %}
+        {% set large_header_margin = true %}
+        <div class="container-main">
+            {% block page_content %}
+                {% block cms_breadcrumb %}
+                    <div class="breadcrumb cms-breadcrumb container">
+                        {% sw_include '@Storefront/storefront/layout/breadcrumb.html.twig' with {
+                            context: context,
+                            category: page.header.navigation.active
+                        } only %}
+                    </div>
+                {% endblock %}
+
+                {% block cms_content %}
+                    <div class="cms-page">
+                        {% block page_content_blocks %}
+                            {% sw_include "@Storefront/storefront/page/content/detail.html.twig" with {'cmsPage': page.cmsPage} %}
+                        {% endblock %}
+                    </div>
+                {% endblock %}
             {% endblock %}
-            </div>
-        {% endblock %}
-    {% endblock %}
+        </div>
+    {% endif %}
 {% endblock %}
