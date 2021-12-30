@@ -31,6 +31,6 @@ jobs:
           sudo ssh ${{secrets.SSH_USER}}@${{secrets.HOST}} -i ssh-key -o UserKnownHostsFile=known_host "\
           cd /home/shopwaretheme/dev && \
           git pull && \
-          cd /home/docker/shop/dev && \
+          cd /home/docker/shopware/dev && \
           docker-compose exec -T shopware /bin/sh -c \"./bin/build-storefront.sh\" && \
           docker-compose exec -T shopware /bin/sh -c \"bin/console cache:clear\""
