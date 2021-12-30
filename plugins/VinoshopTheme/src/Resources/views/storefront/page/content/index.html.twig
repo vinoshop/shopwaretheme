@@ -1,5 +1,8 @@
 {% sw_extends '@Storefront/storefront/base.html.twig' %}
-{% set large_header_margin = false %}
+{% if activeRoute == "frontend.home.page" %}
+    {% set large_header_margin = false %}
+{% endif %}
+
 {% block base_main_inner %}
     {% if activeRoute == "frontend.home.page" %}
                 <div class="cms-page">
