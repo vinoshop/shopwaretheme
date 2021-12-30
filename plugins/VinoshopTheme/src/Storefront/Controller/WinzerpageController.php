@@ -20,6 +20,7 @@ class WinzerpageController extends StorefrontController
 {
     private NavigationPageLoaderInterface $navigationPageLoader;
     private MenuOffcanvasPageletLoaderInterface $offcanvasLoader;
+    private $manufacturerId;
 
     public function __construct(
         NavigationPageLoaderInterface       $navigationPageLoader,
@@ -31,14 +32,15 @@ class WinzerpageController extends StorefrontController
     }
 
     /**
-     * @Route("/winzer", name="frontend.winzer", options={"seo"="true"}, methods={"GET"})
+     * @Route("/winzer/{manufacturerId}", name="frontend.winzer", options={"seo"="true"}, methods={"GET"})
      */
-    public function renderWinzerpage(Request $request, SalesChannelContext $context): ?Response
+    public function renderWinzer(Request $request, SalesChannelContext $context,  $manufacturerId): ?Response
     {
+        $manufacturerId = $this->manufacturerId;
         $page = $this->navigationPageLoader->load($request, $context);
 
         return $this->renderStorefront('@VinoshopTheme/storefront/page/winzer/winzerpage.html.twig',
-            ['page' => $page],
+            ['page' => $page, 'manufacturerId' => $manufacturerId],
         );
     }
 }

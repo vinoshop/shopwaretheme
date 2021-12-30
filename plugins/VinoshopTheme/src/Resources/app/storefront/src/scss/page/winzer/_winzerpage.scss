@@ -35,6 +35,7 @@
     h1, p {
       text-align: center;
       color: $almost_white;
+      letter-spacing: 0.2rem;
     }
 
     p {
@@ -58,6 +59,8 @@
 
     .winzerpage-story-header {
       margin-bottom: 2.5rem;
+      font-size: 1.2rem;
+
     }
 
     .winzerpage-story-helper {
@@ -69,7 +72,7 @@
       max-width: 60rem;
       /*margin-left: 12rem;
       margin-right: 12rem;*/
-      font-size: 1.1rem;
+      font-size: 0.875rem;
       margin-bottom: 3.6rem;
     }
 
@@ -117,7 +120,7 @@
 
       .winzerpage-story-quote-header {
         font-weight: 300;
-        font-size: 2.5rem;
+        font-size: 2rem;
         font-style: italic;
         width: 100%;
         text-align: center;
@@ -125,7 +128,7 @@
 
       .winzerpage-story-quote-name {
         font-weight: 400;
-        font-size: 1.1rem;
+        font-size: 1rem;
         font-style: normal;
         width: 100%;
         text-align: right;
@@ -159,8 +162,8 @@
     }
 
     .winzerpage-media-header {
-      font-size: 1.25rem;
-      font-weight: 700;
+      font-size: 1.2rem;
+      font-weight: 600;
       margin-top: 5rem;
       margin-bottom: 4.6rem;
     }
@@ -171,7 +174,7 @@
       margin-top: 7rem;
 
       .winzerpage-media-video-size {
-        width: 70rem;
+        max-width: 60rem;
         aspect-ratio: 16/9;
       }
 
@@ -191,8 +194,8 @@
   .winzerpage-products {
 
     .winzerpage-products-header {
-      font-size: 1.25rem;
-      font-weight: 700;
+      font-size: 1.2rem;
+      font-weight: 600;
       margin: 5rem 0 4.6rem;
     }
 
