@@ -5,14 +5,6 @@
            xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
 
     <services>
-        <service id="VinoshopTheme\Storefront\Controller\HomepageController"  public="true">
-            <argument type="service" id="Shopware\Storefront\Page\Navigation\NavigationPageLoader"/>
-            <argument type="service" id="Shopware\Storefront\Pagelet\Menu\Offcanvas\MenuOffcanvasPageletLoader"/>
-            <argument type="service" id="Shopware\Core\Content\Seo\SeoUrlPlaceholderHandlerInterface"/>
-            <call method="setContainer">
-                <argument type="service" id="service_container"/>
-            </call>
-        </service>
         <service id="VinoshopTheme\Storefront\Controller\WinzerpageController"  public="true">
             <argument type="service" id="Shopware\Storefront\Page\Navigation\NavigationPageLoader"/>
             <argument type="service" id="Shopware\Storefront\Pagelet\Menu\Offcanvas\MenuOffcanvasPageletLoader"/>
@@ -22,6 +14,12 @@
             </call>
         </service>
         <service id="VinoshopTheme\Storefront\Service\AddProductsToProductPage">
+            <argument type="service" id="sales_channel.product.repository"/>
+            <argument type="service" id="product_manufacturer.repository"/>
+            <argument type="service" id="product_tag.repository"/>
+            <tag name="kernel.event_subscriber"/>
+        </service>
+        <service id="VinoshopTheme\Storefront\Service\AddWinzerToHomePage">
             <argument type="service" id="sales_channel.product.repository"/>
             <argument type="service" id="product_manufacturer.repository"/>
             <argument type="service" id="product_tag.repository"/>
