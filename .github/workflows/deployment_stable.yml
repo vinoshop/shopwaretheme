@@ -1,6 +1,6 @@
 # This is a basic workflow to help you get started with Actions
 
-name: deployment_dev
+name: deployment_stable
 
 # Controls when the workflow will run
 on:
