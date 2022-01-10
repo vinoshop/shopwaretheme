@@ -19,9 +19,8 @@
                                             {% for text in block_text_element.slots.elements %}
                                                 <div class="landingpage-top-text container">
                                                     {{ text.data.content | raw }}
-
                                                     <div class="landingpage-top-text-button">
-                                                        <a href="#" class="display-5">Entdecken</a>
+                                                        <a href="products" class="display-5">Entdecken</a>
                                                     </div>
                                                 </div>
                                             {% endfor %}
@@ -35,7 +34,7 @@
                 <div class="landingpage-products container">
                     <div class="landingpage-products-flex">
                         <hr>
-                        <h2 class="landingpage-products-header">Unsere Produkte</h2>
+                        <h2 id="products" class="landingpage-products-header">Unsere Produkte</h2>
                         <hr>
                     </div>
                     {# #}
@@ -47,9 +46,13 @@
 
                                 {% if section.blocks.elements|first.slots.elements|length > 0 %}
                                     {% for product_element in section.blocks.elements|first.slots.elements %}
-                                        {# {{ dump(product_element.data.product) }} #}
+{#
+                                         {{ dump(product_element.data.product) }}
+#}
+                                        {% set product = product_element.data.product %}
+                                        {% do product %}
                                         {% sw_include '@Storefront/storefront/component/product/card/box.html.twig' with {
-                                            'product': product_element.data.product
+                                            'product': product_element.data.product,
                                         } %}
                                     {% endfor %}
                                 {% else %}
@@ -82,7 +85,7 @@
                         {% endif %}
                     {% endfor %}
                 </div>
-                <div class="landingpage-newsletter container">
+                {#<div class="landingpage-newsletter container">
                     <div class="landingpage-newsletter-input-div">
                         <p id="landingpage-newsletter-subheader">Hol Dir unsere neuesten Weine zuerst</p>
                         <div class="landingpage-newsletter-input">
@@ -95,7 +98,7 @@
                         </div>
                         <p id="landingpage-newsletter-header">... Virtueller Wein im Postfach</p>
                     </div>
-                </div>
+                </div>#}
                 <div class="landingpage-recommendation-header container">
                     {% for section in cmsPage.sections.elements %}
                     {% if section.name == "landingpage_winzer" %}

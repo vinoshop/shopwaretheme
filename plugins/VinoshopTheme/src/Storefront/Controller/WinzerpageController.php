@@ -20,7 +20,7 @@ class WinzerpageController extends StorefrontController
 {
     private NavigationPageLoaderInterface $navigationPageLoader;
     private MenuOffcanvasPageletLoaderInterface $offcanvasLoader;
-    private $manufacturerId;
+    private string $manufacturerId;
 
     public function __construct(
         NavigationPageLoaderInterface       $navigationPageLoader,
@@ -34,9 +34,9 @@ class WinzerpageController extends StorefrontController
     /**
      * @Route("/winzer/{manufacturerId}", name="frontend.winzer", options={"seo"="true"}, methods={"GET"})
      */
-    public function renderWinzer(Request $request, SalesChannelContext $context,  $manufacturerId): ?Response
+    public function renderWinzer(Request $request, SalesChannelContext $context, string $manufacturerId): ?Response
     {
-        $manufacturerId = $this->manufacturerId;
+        $this->manufacturerId = $manufacturerId;
         $page = $this->navigationPageLoader->load($request, $context);
 
         return $this->renderStorefront('@VinoshopTheme/storefront/page/winzer/winzerpage.html.twig',
