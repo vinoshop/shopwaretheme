@@ -23,30 +23,6 @@
         color: $almost_white;
         font-weight: 400;
         font-family: $default_font_family;
-        /*text-shadow: 1px 1px 0 $almost_black,
-        -1px 1px 0 $almost_black,
-        1px -1px 0 $almost_black,
-        -1px -1px 0 $almost_black,
-        0px 1px 0 $almost_black,
-        0px -1px 0 $almost_black,
-        -1px 0px 0 $almost_black,
-        1px 0px 0 $almost_black,
-        2px 2px 0 $almost_black,
-        -2px 2px 0 $almost_black,
-        2px -2px 0 $almost_black,
-        -2px -2px 0 $almost_black,
-        0px 2px 0 $almost_black,
-        0px -2px 0 $almost_black,
-        -2px 0px 0 $almost_black,
-        2px 0px 0 $almost_black,
-        1px 2px 0 $almost_black,
-        -1px 2px 0 $almost_black,
-        1px -2px 0 $almost_black,
-        -1px -2px 0 $almost_black,
-        2px 1px 0 $almost_black,
-        -2px 1px 0 $almost_black,
-        2px -1px 0 $almost_black,
-        -2px -1px 0 $almost_black;*/
       }
 
       .landingpage-top-text-button {
@@ -165,19 +141,17 @@
     align-content: center;
     justify-content: center;
     flex-wrap: wrap;
-    margin-bottom: 20rem;
+    margin-bottom: 5rem;
 
     .landingpage-categories-category {
       display: flex;
       flex-direction: column;
       align-content: center;
       justify-content: center;
-
-      max-width: 40rem;
-      width: 33.2%;
-      min-height: 13rem;
+      width: 32%;
+      min-width: 20rem;
+      min-height: 18rem;
       height: 15rem;
-
 
       font-family: $default_font_family;
       text-align: center;
@@ -193,6 +167,32 @@
 
     a {
       color: $almost_white;
+      min-width: 13.75rem;
+    }
+  }
+
+  @media (max-width: 991.98px) {
+    .landingpage-categories {
+      display: flex;
+      flex-direction: column;
+
+      .landingpage-categories-category {
+        width: 60vw;
+        height: 10rem;
+        margin-bottom: 1rem;
+      }
+    }
+  }
+  @media (max-width: 767.98px) {
+    .landingpage-categories {
+      display: flex;
+      flex-direction: column;
+
+      .landingpage-categories-category {
+        width: 70vw;
+        height: 10rem;
+        margin-bottom: 1rem;
+      }
     }
   }
 
@@ -287,11 +287,7 @@
     display: flex;
     flex-direction: row;
     background-color: $light_gray;
-    height: 45vh;
     margin-bottom: 5rem;
-    padding-left: 0;
-    padding-right: 0;
-
 
     .landingpage-recommendation-products {
       display: flex;
@@ -306,10 +302,17 @@
 
     .landingpage-recommendation-winzer {
       height: 45vh;
-      aspect-ratio: 3/3;
+      aspect-ratio: 4/3;
       background-repeat: no-repeat;
       background-size: cover;
       background-position: center;
+    }
+  }
+
+  @media (max-width: 767.98px) {
+    .landingpage-recommendation {
+      display: flex;
+      flex-direction: column;
     }
   }
 
