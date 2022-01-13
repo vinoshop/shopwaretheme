@@ -63,7 +63,7 @@
                     </div>
                 </div>
 
-                <div class="landingpage-categories">
+                <div class="landingpage-categories container">
                     <!-- categories: Rotwein & Weißwein -->
                     {# {{ dump(page.cmsPage.sections.elements) }} #}
                     {% for section_elem in cmsPage.sections.elements %}
@@ -110,22 +110,24 @@
                 </div>
                 <div class="landingpage-recommendation container">
                     {% elseif winzer_elem.name == 'landingpage_winzer_pic' %}
-                    <div style="background-image: url('{{ winzer_elem.slots.elements|first.data.media.url }}');"
-                         class="landingpage-recommendation-winzer"></div>
-                    <div class="landingpage-recommendation-products container">
-                        {% elseif winzer_elem.name == 'landingpage_winzer_products' %}
-                            {% for winzer_product in winzer_elem.slots.elements|first.data.products.elements %}
+                    <div class="container landingpage-recommendation-graybg">
+                        <div style="background-image: url('{{ winzer_elem.slots.elements|first.data.media.url }}');"
+                             class="landingpage-recommendation-winzer"></div>
+                        <div class="landingpage-recommendation-products container">
+                            {% elseif winzer_elem.name == 'landingpage_winzer_products' %}
+                                {% for winzer_product in winzer_elem.slots.elements|first.data.products.elements %}
 
-                                {% sw_include '@Storefront/storefront/component/product/card/box.html.twig' with {
-                                    'product': winzer_product
-                                } %}
-                                {#{{ dump(winzer_product) }}#}
+                                    {% sw_include '@Storefront/storefront/component/product/card/box.html.twig' with {
+                                        'product': winzer_product
+                                    } %}
+                                    {#{{ dump(winzer_product) }}#}
+                                {% endfor %}
+                            {% endif %}
                             {% endfor %}
+                        </div>
                         {% endif %}
                         {% endfor %}
                     </div>
-                    {% endif %}
-                    {% endfor %}
                 </div>
             </div>
         </div>
