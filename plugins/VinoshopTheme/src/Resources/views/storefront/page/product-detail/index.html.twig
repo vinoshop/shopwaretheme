@@ -49,7 +49,7 @@
                         </ul>
                     </div>
 
-                    {% sw_include '@Storefront/storefront/page/product-detail/buy-widget-form.html.twig' %}
+                    {% sw_include '@Storefront/storefront/page/product-detail/buy-widget-form.html.twig' with { product: page.product } %}
                 </div>
             </div>
 

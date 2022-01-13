@@ -27,6 +27,7 @@
     > div {
       padding: .5rem;
       padding-top: 1rem;
+      width: calc(max(20%, 15rem));
     }
 
     .categories, .justice {
@@ -64,12 +65,15 @@
 
         > a {
           display: block;
+          color: darken($almost_white, 20%);
         }
       }
     }
 
     .more {
-      padding-top: .3rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
       .logo-textmarke {
         height: 3rem;
       }
