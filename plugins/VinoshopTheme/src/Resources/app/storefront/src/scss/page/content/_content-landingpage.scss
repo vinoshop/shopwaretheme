@@ -30,25 +30,26 @@
         padding: .5rem 3rem;
         width: min-content;
         background-color: $almost_black;
+        color: $almost_white;
+        text-align: center;
+        font-weight: 600;
+        font-size: 1.25rem;
 
         a {
-          text-align: center;
-          font-weight: 600;
-          font-size: 1.25rem;
-          background-color: $almost_black;
-          color: $almost_white;
+          border: none;
+          text-decoration: none;
+        }
+
+        a:target {
+          text-decoration: none;
+          border: none;
         }
       }
 
       .landingpage-top-text-button:hover {
         background-color: $almost_white;
         border: 0.25rem solid $almost_white;
-
-        a {
-          color: $almost_black;
-
-          background-color: $almost_white;
-        }
+        color: $almost_black;
 
         a:hover {
           text-decoration: none;
