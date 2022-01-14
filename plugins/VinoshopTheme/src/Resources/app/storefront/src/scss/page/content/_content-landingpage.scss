@@ -359,6 +359,11 @@
 
     .landingpage-recommendation-header-size {
       margin-bottom: 0;
+      .landingpage-recommendation-header-size:first-child {
+        font-size: 2rem;
+        background-color: red;
+      }
+
     }
 
     hr {
