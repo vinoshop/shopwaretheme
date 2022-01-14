@@ -304,25 +304,37 @@
       margin-top: 1rem;
     }
 
-    @media (min-width: 768px) and (max-width: 991.98px) {
-      .landingpage-recommendation-products {
-        display: flex;
-        flex-direction: column;
-        gap: 1rem;
-      }
-      .landingpage-recommendation-graybg {
-        display: flex;
-        flex-direction: column;
-      }
-    }
-
-
     .landingpage-recommendation-winzer {
       width: 33%;
       aspect-ratio: 16/9;
       background-repeat: no-repeat;
       background-size: cover;
       background-position: center;
+    }
+  }
+
+  @media (min-width: 768px) {
+    .landingpage-recommendation-products {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    .landingpage-recommendation-graybg {
+      display: flex;
+      flex-direction: column;
+    }
+    .landingpage-recommendation-winzer {
+      width: 70%;
+      display: flex;
+      justify-self: center;
+    }
+  }
+
+  @media (min-width: 768px) {
+    .landingpage-recommendation-winzer {
+      width: 70%;
+      display: flex;
+      justify-self: center;
     }
   }
 
@@ -359,11 +371,6 @@
 
     .landingpage-recommendation-header-size {
       margin-bottom: 0;
-      .landingpage-recommendation-header-size:first-child {
-        font-size: 2rem;
-        background-color: red;
-      }
-
     }
 
     hr {
