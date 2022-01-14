@@ -215,11 +215,6 @@
       }
     }
 
-    @media (max-width: 991.98px) {
-
-    }
-
-
     #landingpage-newsletter-subheader {
       margin-bottom: 1.25rem;
       font-size: 1.1rem;
@@ -306,6 +301,7 @@
 
     .landingpage-recommendation-winzer {
       width: 33%;
+      min-width: 250px;
       aspect-ratio: 16/9;
       background-repeat: no-repeat;
       background-size: cover;
@@ -323,14 +319,6 @@
       display: flex;
       flex-direction: column;
     }
-    .landingpage-recommendation-winzer {
-      width: 70%;
-      display: flex;
-      justify-self: center;
-    }
-  }
-
-  @media (min-width: 768px) {
     .landingpage-recommendation-winzer {
       width: 70%;
       display: flex;
@@ -357,7 +345,7 @@
       }
     }
   }
-  @media (min-width: 768px) and (max-width: 991.98px) {
+  @media (max-width: 991.98px) {
 
   }
 
