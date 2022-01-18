@@ -4,6 +4,15 @@ namespace VinoshopTheme\Storefront\Controller;
 
 use Shopware\Core\Framework\Routing\Annotation\RouteScope;
 use Shopware\Core\System\SalesChannel\SalesChannelContext;
+
+use Shopware\Core\Framework\DataAbstractionLayer\EntityRepositoryInterface;
+use Shopware\Core\Framework\Context;
+use Shopware\Core\Framework\DataAbstractionLayer\Search\Criteria;
+
+use Shopware\Core\System\SalesChannel\Entity\SalesChannelRepositoryInterface;
+use Symfony\Component\EventDispatcher\EventSubscriberInterface;
+use Shopware\Core\Framework\DataAbstractionLayer\EntityRepository;
+
 use Shopware\Storefront\Controller\StorefrontController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -21,6 +30,7 @@ class WinzerpageController extends StorefrontController
     private NavigationPageLoaderInterface $navigationPageLoader;
     private MenuOffcanvasPageletLoaderInterface $offcanvasLoader;
     private string $manufacturerId;
+    private string $manufacturerName;
 
     public function __construct(
         NavigationPageLoaderInterface       $navigationPageLoader,
@@ -32,9 +42,13 @@ class WinzerpageController extends StorefrontController
     }
 
     /**
-     * @Route("/winzer/{manufacturerId}", name="frontend.winzer", options={"seo"="true"}, methods={"GET"})
+     * @Route("/winzer/{manufacturerName}/{manufacturerId}", name="frontend.winzer.winzer", options={"seo"="true"}, methods={"GET"})
      */
-    public function renderWinzer(Request $request, SalesChannelContext $context, string $manufacturerId): ?Response
+    public function renderOneWinzer(Request             $request,
+                                    SalesChannelContext $context,
+                                    string              $manufacturerId,
+                                    string              $manufacturerName
+    ): ?Response
     {
         $this->manufacturerId = $manufacturerId;
         $page = $this->navigationPageLoader->load($request, $context);
@@ -43,4 +57,18 @@ class WinzerpageController extends StorefrontController
             ['page' => $page, 'manufacturerId' => $manufacturerId],
         );
     }
+
+    /**
+     * @Route("/winzer", name="frontend.winzer", options={"seo"="true"}, methods={"GET"})
+     */
+    public function renderAllWinzer(Request $request, SalesChannelContext $context): ?Response
+    {
+        $page = $this->navigationPageLoader->load($request, $context);
+
+        return $this->renderStorefront('@VinoshopTheme/storefront/page/winzer/allWinzer.html.twig',
+            ['page' => $page, 'manufacturerId' => null],
+        );
+    }
+
+
 }
