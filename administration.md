@@ -19,6 +19,14 @@ field set: ``vs_winzer``
 
 assign to ``Manufactures``
 
+custom fields:
+* ``vs_winzer_picture`` type ``media field``
+* ``vs_winzer_video`` type ``text field``
+* ``vs_winzer_quote`` type ``text field``
+* ``vs_winzer_story_header`` type ``text field``
+* ``vs_winzer_story_p1`` type ``text editor``
+* ``vs_winzer_story_p2`` type ``text editor``
+
 ## create legal
 field set: ``vs_legal``
 
@@ -29,10 +37,3 @@ custom fields:
 * ``vs_legal_impressum`` type ``text editor``
 * ``vs_legal_datenschutz`` type ``text editor``
 
-custom fields:
-* ``vs_winzer_picture`` type ``media field``
-* ``vs_winzer_video`` type ``text field``
-* ``vs_winzer_quote`` type ``text field``
-* ``vs_winzer_story_header`` type ``text field``
-* ``vs_winzer_story_p1`` type ``text editor``
-* ``vs_winzer_story_p2`` type ``text editor``
