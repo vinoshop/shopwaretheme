@@ -8,15 +8,10 @@
         <service id="VinoshopTheme\Storefront\Controller\WinzerpageController"  public="true">
             <argument type="service" id="Shopware\Storefront\Page\Navigation\NavigationPageLoader"/>
             <argument type="service" id="Shopware\Storefront\Pagelet\Menu\Offcanvas\MenuOffcanvasPageletLoader"/>
-            <argument type="service" id="Shopware\Core\Content\Seo\SeoUrlPlaceholderHandlerInterface"/>
             <call method="setContainer">
                 <argument type="service" id="service_container"/>
             </call>
-        </service>
-        <service id="VinoshopTheme\Storefront\Service\GetWinzerData"  public="true">
-            <call method="setContainer">
-                <argument type="service" id="service_container"/>
-            </call>
+            <argument type="service" id="product_manufacturer.repository"/>
         </service>
         <service id="VinoshopTheme\Storefront\Controller\LegalPagesController"  public="true">
             <argument type="service" id="Shopware\Storefront\Page\Navigation\NavigationPageLoader"/>

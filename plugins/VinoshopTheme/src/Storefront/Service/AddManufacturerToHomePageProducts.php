@@ -47,9 +47,7 @@ class AddManufacturerToHomePageProducts implements EventSubscriberInterface
 
     public function onProductsLoaded(EntityLoadedEvent $event)
     {
-        //$event->getCriteria()->addAssociation('manufacturer');
-        // var_dump($event->getIds()); 
-        // var_dump($event->getEntities());
+    
         foreach($event->getEntities() as $entity) {
             if ($entity->getManufacturerId() == null)
                 continue;
@@ -65,13 +63,7 @@ class AddManufacturerToHomePageProducts implements EventSubscriberInterface
             {
                 $entity->setManufacturer($currentManufacturer);
             }
-
-            //var_dump($entity->manufacturer);
-
         }
-
-        // var_dump($event->getEvents());
-        // die();
     }
 
 }

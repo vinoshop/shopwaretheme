@@ -5,26 +5,17 @@
         <div class="winzerpage-img container">
             <div class="winzerpage-name container">
                 {# Daten #}
-                <h1>Max Mustermann</h1>
-                <p>Burgenland</p>
+                <h1>{{ manufacturer.name }}</h1>
+                <p>{{ manufacturer.customFields['vs_winzer_bundesland'] }}</p>
             </div>
         </div>
         <div class="winzerpage-story container">
             {# beschreibung #}
-            {{ dump() }}
-            <h4 class="winzerpage-story-header">EINE EINZIGARTIGE GESCHICHTE</h4>
+            {# {{ dump(manufacturer.products.elements|first) }} #}
+            <h4 class="winzerpage-story-header">{{ manufacturer.customFields['vs_winzer_story_header']|raw }}</h4>
             <div class="winzerpage-story-helper">
                 <p class="winzerpage-story-content">
-                    ##################
-                    Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed
-                    diam nonumy eirmod tempor invidunt ut labore et dolore magna
-                    aliquyam erat, sed diam voluptua. At vero eos et accusam et
-                    justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea
-                    takimata sanctus est Lorem ipsum dolor sit amet.
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                    Accusamus aut cupiditate dolor dolore error ex excepturi illum iure laudantium magni natus
-                    necessitatibus,
-                    non, officia quaerat sequi, veritatis voluptatum!
+                    {{ manufacturer.customFields['vs_winzer_story_p1']|raw }}
                 </p>
             </div>
 
@@ -33,21 +24,15 @@
                 <div id="winzerpage-story-quote-img"></div>
                 <div id="winzerpage-story-quote-centerer">
                     <div id="winzerpage-story-quote-centerer-2">
-                        <p class="winzerpage-story-quote-header">"In Vino Veritas."</p>
-                        <p class="winzerpage-story-quote-name">-Marcus Aurelius, 100 n. Chr.</p>
+                        <p class="winzerpage-story-quote-header">"{{ manufacturer.customFields['vs_winzer_quote']|raw }}"</p>
+                        <p class="winzerpage-story-quote-name">-{{ manufacturer.customFields['vs_winzer_quote_name']|raw }}</p>
                     </div>
                 </div>
                 <div id="winzerpage-story-quote-img-2"></div>
             </div>
             <div class="winzerpage-story-helper">
                 <p class="winzerpage-story-content">
-                    At vero eos et accusam et justo duo dolores et ea rebum. Stet
-                    clita kasd gubergren, no sea takimata sanctus est Lorem ipsum
-                    dolor sit amet. Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                    Consectetur eligendi excepturi
-                    inventore labore magni nemo, odit quidem ut.
-                    Earum eligendi hic iure natus nulla numquam praesentium
-                    quis reprehenderit. Excepturi, quam.
+                    {{ manufacturer.customFields['vs_winzer_story_p2']|raw }}
                 </p>
             </div>
         </div>
@@ -62,7 +47,7 @@
                 </div>
                 {# Video #}
                 <div class="winzerpage-media-video">
-                    <iframe class="winzerpage-media-video-size" src="https://www.youtube.com/embed/KgM1n6c4hOs"
+                    <iframe class="winzerpage-media-video-size" src="{{ manufacturer.customFields['vs_winzer_video'] }}"
                             title="YouTube video player" frameborder="0"
                             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                             allowfullscreen></iframe>
@@ -74,9 +59,12 @@
             <p class="winzerpage-products-header">PRÄMIERTE WEINE VON MAX MUSTERMANN</p>
             <div class="winzerpage-products-flexbox">
                 {# produkte #}
-
+                {% for product in manufacturer.products.elements %}
+                    {% sw_include '@Storefront/storefront/component/product/card/box-standard.html.twig' with {
+                                            'product': product,
+                    } %}
+                {% endfor %}
             </div>
-            <button type="button" class="btn">Mehr Anzeigen</button>
         </div>
     </div>
 {% endblock %}
