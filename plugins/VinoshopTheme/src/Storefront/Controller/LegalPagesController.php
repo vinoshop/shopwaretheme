@@ -35,7 +35,7 @@ class LegalPagesController extends StorefrontController
     public function agbPage(Request $request, SalesChannelContext $context): ?Response
     {
         $page = $this->navigationPageLoader->load($request, $context);
-        $legalPageOptions = new LegalPageOptions("AGBs", $context->getSalesChannel()->getCustomFields());
+        $legalPageOptions = new LegalPageOptions("AGBs", "vs_legal_agbs");
 
         return $this->renderStorefront('@VinoshopTheme/storefront/page/legal/index.html.twig',
             [
@@ -51,7 +51,7 @@ class LegalPagesController extends StorefrontController
     public function datenschutzPage(Request $request, SalesChannelContext $context): ?Response
     {
         $page = $this->navigationPageLoader->load($request, $context);
-        $legalPageOptions = new LegalPageOptions("Datenschutz", $context->getSalesChannel()->getCustomFields()["vs_legal_datenschutz"]);
+        $legalPageOptions = new LegalPageOptions("Datenschutz", "vs_legal_datenschutz");
 
         return $this->renderStorefront('@VinoshopTheme/storefront/page/legal/index.html.twig',
             [
@@ -67,7 +67,7 @@ class LegalPagesController extends StorefrontController
     public function impressumPagePage(Request $request, SalesChannelContext $context): ?Response
     {
         $page = $this->navigationPageLoader->load($request, $context);
-        $legalPageOptions = new LegalPageOptions("Impressum", $context->getSalesChannel()->getCustomFields()["vs_legal_impressum"]);
+        $legalPageOptions = new LegalPageOptions("Impressum", "vs_legal_impressum");
 
         return $this->renderStorefront('@VinoshopTheme/storefront/page/legal/index.html.twig',
             [
@@ -87,21 +87,21 @@ class LegalPageOptions extends Struct {
     /**
      * @var string
      */
-    protected $content;
+    protected $fieldKey;
 
     /**
      * LegalPageOptions constructor.
      * @param $title
-     * @param $content
+     * @param $fieldKey
      */
-    public function __construct($title, $content)
+    public function __construct($title, $fieldKey)
     {
         $this->title = $title;
-        $this->content = $content;
+        $this->fieldKey = $fieldKey;
     }
 
     /**
-     * @return mixed
+     * @return string
      */
     public function getTitle()
     {
@@ -109,11 +109,11 @@ class LegalPageOptions extends Struct {
     }
 
     /**
-     * @return mixed
+     * @return string
      */
-    public function getContent()
+    public function getFieldKey()
     {
-        return $this->content;
+        return $this->fieldKey;
     }
 
 

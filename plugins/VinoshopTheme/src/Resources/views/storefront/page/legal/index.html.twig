@@ -4,8 +4,7 @@
 
     <div class="container my-4">
         <h1>{{ legalPageOptions.title }}</h1>
-        {{ dump(legalPageOptions.content) }}
-        {{ dump() }}
+        {{ context.salesChannel.translated.customFields[legalPageOptions.fieldKey] }}
     </div>
 
 {% endblock %}
