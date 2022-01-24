@@ -4,7 +4,7 @@
 
     <div class="container my-4">
         <h1>{{ legalPageOptions.title }}</h1>
-        {{ context.salesChannel.translated.customFields[legalPageOptions.fieldKey] }}
+        {{ context.salesChannel.translated.customFields[legalPageOptions.fieldKey]|sw_sanitize }}
     </div>
 
 {% endblock %}
