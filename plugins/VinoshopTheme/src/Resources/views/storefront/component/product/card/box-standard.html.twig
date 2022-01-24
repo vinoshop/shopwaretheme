@@ -23,10 +23,11 @@
                     {% endblock %}
 
                     {% set splitPrice = product.calculatedPrice.unitPrice|split(".") %}
-                    <p class="price">{{ "%0.2f"|format(product.calculatedPrice.unitPrice) }}</p>
-
-                    <p class="manufacturer">{{ product.manufacturer.name }}</p>
-                    <p class="name">{{ product.translated.name }}</p>
+                    <div class="card-info-text">
+                        <p class="manufacturer">{{ product.manufacturer.name }}</p>
+                        <p class="price">{{ "%0.2f"|format(product.calculatedPrice.unitPrice) }}</p>
+                        <p class="name">{{ product.translated.name }}</p>
+                    </div>
                 </div>
             {% endblock %}
         </div>
