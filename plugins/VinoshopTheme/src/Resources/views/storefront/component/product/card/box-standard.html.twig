@@ -24,7 +24,7 @@
 
                     {% set splitPrice = product.calculatedPrice.unitPrice|split(".") %}
                     <div class="card-info-text">
-                        <p class="manufacturer">{{ product.manufacturer.name }}</p>
+                        <p class="manufacturer"><a class="manufacturer" href="/winzer/{{ product.manufacturer.name|lower|replace({ ' ': '-' }) }}/{{ product.manufacturer.id }}">{{ product.manufacturer.name }}</a></p>
                         <p class="price">{{ "%0.2f"|format(product.calculatedPrice.unitPrice) }}</p>
                         <p class="name">{{ product.translated.name }}</p>
                     </div>
