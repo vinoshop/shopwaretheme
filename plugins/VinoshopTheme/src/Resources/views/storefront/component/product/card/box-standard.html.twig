@@ -21,12 +21,18 @@
                             </a>
                         </div>
                     {% endblock %}
-
                     {% set splitPrice = product.calculatedPrice.unitPrice|split(".") %}
                     <div class="card-info-text">
-                        <p class="manufacturer"><a class="manufacturer" href="/winzer/{{ product.manufacturer.name|lower|replace({ ' ': '-' }) }}/{{ product.manufacturer.id }}">{{ product.manufacturer.name }}</a></p>
-                        <p class="price">{{ "%0.2f"|format(product.calculatedPrice.unitPrice) }}</p>
-                        <p class="name">{{ product.translated.name }}</p>
+                        <p class="manufacturer"><a class="manufacturer"
+                                                   href="/winzer/{{ product.manufacturer.name|lower|replace({ ' ': '-' }) }}/{{ product.manufacturer.id }}">{{ product.manufacturer.name }}</a>
+                        </p>
+                        {% if product.calculatedPrice.unitPrice %}
+                            <p class="price">{{ "%0.2f"|format(product.calculatedPrice.unitPrice) }}</p>
+                        {% else %}
+                            <p class="price">{{ "%0.2f"|format(product.price.elements|first.gross) }}</p>
+                        {% endif %}
+
+                        <p class="name"><a class="name" href="/{{ product.translated.name|replace({ ' ': '-' }) }}/{{ product.productNumber }}">{{ product.translated.name }}</a></p>
                     </div>
                 </div>
             {% endblock %}
