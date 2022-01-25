@@ -6,8 +6,6 @@
                 {% for element in cmsPage.sections.elements %}
                     {% for block_element in element.blocks.elements %}
                         {% set name = block_element.name %}
-                        {# {{ dump(block_element.backgroundMedia.url) }} #}
-
                         {% if name == "landingpage_top_bg_img" %}
                             <div style="background-image: url({{ block_element.backgroundMedia.url }})"
                                  class="landingpage-top">
@@ -33,24 +31,17 @@
                         {% endif %}
                     {% endfor %}
                 {% endfor %}
-                {# dump() #}
                 <div class="landingpage-products container">
                     <div class="landingpage-products-flex">
                         <hr>
                         <h2 id="products" class="landingpage-products-header">Unsere Produkte</h2>
                         <hr>
                     </div>
-                    {# #}
-                    {{ dump() }} 
                     <div class="landingpage-products-helper">
                         {% for section in cmsPage.sections.elements %}
                             {% if section.name == "landingpage_products" %}
-                                {#{{ dump(section.blocks.elements|first.slots.elements) }}#}
-                                    
                                 {% if section.blocks.elements|first.slots.elements|length > 0 %}
                                     {% for product_element in section.blocks.elements|first.slots.elements %}
-                                        {#
-                                        #}
                                         {% set product = product_element.data.product %}
                                         {% do product %}
                                         {% sw_include '@Storefront/storefront/component/product/card/box-standard.html.twig' with {
@@ -66,8 +57,6 @@
                 </div>
 
                 <div class="landingpage-categories container">
-                    <!-- categories: Rotwein & Weißwein -->
-                    {# {{ dump(page.cmsPage.sections.elements) }} #}
                     {% for section_elem in cmsPage.sections.elements %}
                         {% if section_elem.name == "landingpage_categories" %}
                             {% for category in section_elem.blocks.elements|first.slots.elements %}
@@ -87,29 +76,28 @@
                         {% endif %}
                     {% endfor %}
                 </div>
-                {# <div class="landingpage-newsletter container">
-                    <div class="landingpage-newsletter-input-div">
-                        <p id="landingpage-newsletter-subheader">Hol Dir unsere neuesten Weine zuerst</p>
-                        <div class="landingpage-newsletter-input">
-                            <label>
-                                <input id="landingpage-newsletter-input-field" type="text" alt="email"
-                                       value=""
-                                       placeholder="newsletter@vinoshop.at">
-                            </label>
-                            <button type="submit" id="landingpage-newsletter-input-button">Absenden</button>
-                        </div>
-                        <p id="landingpage-newsletter-header">... Virtueller Wein im Postfach</p>
-                    </div>
-                </div> #}
                 <div class="landingpage-recommendation-header container">
+                    {% set winzer = "" %}
                     {% for section in cmsPage.sections.elements %}
                     {% if section.name == "landingpage_winzer" %}
                     {% for winzer_elem in section.blocks.elements %}
                     {% if winzer_elem.name == 'landingpage_winzer_name' %}
+                    {% for winzer_elem_product in section.blocks.elements %}
+                        {% if winzer_elem_product.name == 'landingpage_winzer_products' %}
+                            {% set winzer =
+                                {
+                                    name: winzer_elem_product.slots.elements|first.data.products.elements|first.manufacturer.name|lower|replace({ ' ': '-'}),
+                                    id: winzer_elem_product.slots.elements|first.data.products.elements|first.manufacturer.id
+                                } %}
+                        {% endif %}
+                    {% endfor %}
                     <hr>
-                    <h2 class="landingpage-recommendation-header-size">{{ winzer_elem.slots.elements|first.data.content|raw }}</h2>
+                    <h2 class="landingpage-recommendation-header-size"><a
+                                href="/winzer/{{ winzer.name }}/{{ winzer.id }}">{{ winzer_elem.slots.elements|first.data.content }}</a>
+                    </h2>
                     <hr>
                 </div>
+                {# {{ dump(winzer_elem) }} #}
                 <div class="landingpage-recommendation container">
                     {% elseif winzer_elem.name == 'landingpage_winzer_pic' %}
                     <div class="container landingpage-recommendation-graybg">
@@ -122,7 +110,6 @@
                                     {% sw_include '@Storefront/storefront/component/product/card/box.html.twig' with {
                                         'product': winzer_product
                                     } %}
-                                    {# {{ dump(winzer_product) }} #}
                                 {% endfor %}
                             {% endif %}
                             {% endfor %}
