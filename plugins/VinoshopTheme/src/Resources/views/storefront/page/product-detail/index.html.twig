@@ -33,7 +33,7 @@
                     {% if (page.product.translated.customFields.vs_product_is_bio == true) %}
                         <img class="product-tag" src="{{ asset('bundles/vinoshoptheme/images/bio_icon.svg', 'asset') }}"/>
                     {% endif %}
-                    <h3 class="product-detail-manufacturer">{{ page.product.manufacturer.translated.name }}</h3>
+                    <h3 class="product-detail-manufacturer"><a class="product-detail-manufacturer" href="/winzer/{{ page.product.manufacturer.translated.name|lower|replace({ ' ': '-' }) }}/{{ page.product.manufacturer.id }}">{{ page.product.manufacturer.translated.name }}</a></h3>
                     <h2 class="product-detail-name">{{ page.product.translated.name }}</h2>
                     <div class="product-detail-price">
                         <p class="product-detail-price-euros">{{ page.product.calculatedPrice.unitPrice|split('.')[0] }}</p>
