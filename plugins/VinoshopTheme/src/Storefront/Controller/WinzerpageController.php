@@ -64,7 +64,6 @@ class WinzerpageController extends StorefrontController
         $criteria->addAssociation('products');
         $criteria->addAssociation('media');
         $criteria->addAssociation('products.cover');
-        $criteria->addAssociation('products.prices');
 
         $winzer = $this->manufacturerRepository
             ->search($criteria, $context)
