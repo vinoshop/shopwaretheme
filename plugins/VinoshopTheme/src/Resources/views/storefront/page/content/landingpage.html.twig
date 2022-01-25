@@ -106,7 +106,6 @@
                         <div class="landingpage-recommendation-products container">
                             {% elseif winzer_elem.name == 'landingpage_winzer_products' %}
                                 {% for winzer_product in winzer_elem.slots.elements|first.data.products.elements %}
-
                                     {% sw_include '@Storefront/storefront/component/product/card/box.html.twig' with {
                                         'product': winzer_product
                                     } %}
