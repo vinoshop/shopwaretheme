@@ -7,18 +7,17 @@
 
         <div class="card product-box">
             {% block component_product_box_content %}
+            <a href="{{ seoUrl('frontend.detail.page', {'productId': id}) }}">
                 <div class="card-body">
 
                     {% block component_product_box_image %}
                         <div class="product-image-wrapper">
-                            <a href="{{ seoUrl('frontend.detail.page', {'productId': id}) }}">
                                 {% sw_thumbnails 'product-image-th' with {
                                     media: cover,
                                     attributes: {
                                         class: 'product-image'
                                     }
                                 } %}
-                            </a>
                         </div>
                     {% endblock %}
 
@@ -29,6 +28,7 @@
                         <p class="name">{{ product.translated.name }}</p>
                     </div>
                 </div>
+            </a>
             {% endblock %}
         </div>
     {% endif %}

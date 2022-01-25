@@ -7,6 +7,10 @@
     background-color: transparent;
   }
 
+  a:hover {
+    text-decoration: none;
+  }
+
   .card-info-text {
     display: flex;
     flex-wrap: wrap;
