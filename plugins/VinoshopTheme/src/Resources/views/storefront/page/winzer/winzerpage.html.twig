@@ -2,14 +2,14 @@
 {% set large_header_margin = false %}
 {% block base_main %}
     <div class="winzerpage container">
-        <div class="winzerpage-img container" style="background-image: url('{{ manufacturer.customFields['vs_winzer_main_img'] }}')">
+        <div class="winzerpage-img container"
+             style="background-image: url('{{ manufacturer.customFields['vs_winzer_main_img'] }}')">
             <div class="winzerpage-name container">
                 {# Daten #}
                 <h1>{{ manufacturer.name }}</h1>
                 <p>{{ manufacturer.customFields['vs_winzer_bundesland'] }}</p>
             </div>
         </div>
-        {{ dump(manufacturer.customFields) }}
         <div class="winzerpage-story container">
             {# beschreibung #}
             <h4 class="winzerpage-story-header">{{ manufacturer.customFields['vs_winzer_story_header']|raw }}</h4>
@@ -51,8 +51,8 @@
                 {# ImageSlider #}
                 {% set images = manufacturer.customFields['vs_winzer_media']|split(';') %}
                 {% set index = 0 %}
-                <div id="imageSlider" class="carousel slide container" data-ride="carousel">
-                    <ol class="carousel-indicators container">
+                <div id="imageSlider" class="carousel slide " data-ride="carousel">
+                    <ol class="carousel-indicators ">
                         {% for image in images %}
                             {% if loop.first %}
                                 <li data-target="#imageSlider" data-slide-to="{{ index }}" class="active"></li>
@@ -63,17 +63,21 @@
                             {% endif %}
                         {% endfor %}
                     </ol>
-                    <div class="carousel-inner">
+                    <div class="carousel-inner ">
                         {% set index = 0 %}
                         {% for image in images %}
                             {% if loop.first %}
-                                <div class="carousel-item active">
-                                    <img src="{{ image }}" class="d-block w-100" alt="{{ image }}">
+                                <div class="carousel-item active  ">
+                                    <!-- <img src="{{ image }}" class="d-block mx-auto"  alt="{{ image }}">-->
+                                    <div style="background-image: url('{{ image }}');"
+                                         class="d-block mx-auto carousel-divs carousel-item-max-height"></div>
                                 </div>
                                 {% set index = index + 1 %}
                             {% else %}
-                                <div class="carousel-item">
-                                    <img src="{{ image }}" class="d-block w-100" alt="{{ image }}">
+                                <div style="background-image: url('{{ image }}');"
+                                     class="carousel-item carousel-item-max-height carousel-divs">
+                                    <!--   <img  src="{{ image }}" class="d-block mx-auto"  alt="{{ image }}">-->
+
                                 </div>
                                 {% set index = index + 1 %}
                             {% endif %}
