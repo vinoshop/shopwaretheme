@@ -9,7 +9,6 @@
 
   .winzerpage-img {
     height: 80vh;
-    background-image: url("/bundles/vinoshoptheme/winzerpage/winzer_reben.jpg");
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
@@ -60,7 +59,7 @@
     .winzerpage-story-header {
       margin-bottom: 2.5rem;
       font-size: 1.2rem;
-
+      font-weight: 600;
     }
 
     .winzerpage-story-helper {
@@ -208,3 +207,12 @@
     }
   }
 }
+
+.carousel-item-max-height {
+  max-height: 40rem;
+  height: 40rem;
+
+
+} .carousel-divs {
+    background-repeat:  no-repeat; background-size: contain; background-position: center;
+  }

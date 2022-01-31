@@ -2,29 +2,20 @@
 {% set large_header_margin = false %}
 {% block base_main %}
     <div class="winzerpage container">
-        <div class="winzerpage-img container">
+        <div class="winzerpage-img container"
+             style="background-image: url('{{ manufacturer.customFields['vs_winzer_main_img'] }}')">
             <div class="winzerpage-name container">
                 {# Daten #}
-                <h1>Max Mustermann</h1>
-                <p>Burgenland</p>
+                <h1>{{ manufacturer.name }}</h1>
+                <p>{{ manufacturer.customFields['vs_winzer_bundesland'] }}</p>
             </div>
         </div>
         <div class="winzerpage-story container">
             {# beschreibung #}
-            {{ dump() }}
-            <h4 class="winzerpage-story-header">EINE EINZIGARTIGE GESCHICHTE</h4>
+            <h4 class="winzerpage-story-header">{{ manufacturer.customFields['vs_winzer_story_header']|raw }}</h4>
             <div class="winzerpage-story-helper">
                 <p class="winzerpage-story-content">
-                    ##################
-                    Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed
-                    diam nonumy eirmod tempor invidunt ut labore et dolore magna
-                    aliquyam erat, sed diam voluptua. At vero eos et accusam et
-                    justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea
-                    takimata sanctus est Lorem ipsum dolor sit amet.
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                    Accusamus aut cupiditate dolor dolore error ex excepturi illum iure laudantium magni natus
-                    necessitatibus,
-                    non, officia quaerat sequi, veritatis voluptatum!
+                    {{ manufacturer.customFields['vs_winzer_story_p1']|raw }}
                 </p>
             </div>
 
@@ -33,36 +24,78 @@
                 <div id="winzerpage-story-quote-img"></div>
                 <div id="winzerpage-story-quote-centerer">
                     <div id="winzerpage-story-quote-centerer-2">
-                        <p class="winzerpage-story-quote-header">"In Vino Veritas."</p>
-                        <p class="winzerpage-story-quote-name">-Marcus Aurelius, 100 n. Chr.</p>
+                        <p class="winzerpage-story-quote-header">"{{ manufacturer.customFields['vs_winzer_quote']|raw }}
+                            "</p>
+                        <p class="winzerpage-story-quote-name">
+                            -{{ manufacturer.customFields['vs_winzer_quote_name']|raw }}</p>
                     </div>
                 </div>
                 <div id="winzerpage-story-quote-img-2"></div>
             </div>
             <div class="winzerpage-story-helper">
                 <p class="winzerpage-story-content">
-                    At vero eos et accusam et justo duo dolores et ea rebum. Stet
-                    clita kasd gubergren, no sea takimata sanctus est Lorem ipsum
-                    dolor sit amet. Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                    Consectetur eligendi excepturi
-                    inventore labore magni nemo, odit quidem ut.
-                    Earum eligendi hic iure natus nulla numquam praesentium
-                    quis reprehenderit. Excepturi, quam.
+                    {{ manufacturer.customFields['vs_winzer_story_p2']|raw }}
                 </p>
             </div>
         </div>
         <div class="winzerpage-media container">
             {# Galerie #}
             <div class="winzerpage-media-helper">
-                <p class="winzerpage-media-header">ZU BESUCH BEI MAX MUSTERMANN</p>
-                <div class="winzerpage-media-images">
-                    <img src="{{ asset('bundles/vinoshoptheme/winzerpage/media/Bild 15.png', 'asset') }}" alt="">
-                    <img src="{{ asset('bundles/vinoshoptheme/winzerpage/media/Bild 16.png', 'asset') }}" alt="">
-                    <img src="{{ asset('bundles/vinoshoptheme/winzerpage/media/Bild 17.png', 'asset') }}" alt="">
+                <p class="winzerpage-media-header">
+                    {% if manufacturer.customFields['vs_winzer_imageGallery_header'] %}
+                        {{ manufacturer.customFields['vs_winzer_imageGallery_header'] }}
+                    {% else %}
+                        ZU BESUCH BEIM WINZERHOF
+                    {% endif %}
+                </p>
+                {# ImageSlider #}
+                {% set images = manufacturer.customFields['vs_winzer_media']|split(';') %}
+                {% set index = 0 %}
+                <div id="imageSlider" class="carousel slide " data-ride="carousel">
+                    <ol class="carousel-indicators ">
+                        {% for image in images %}
+                            {% if loop.first %}
+                                <li data-target="#imageSlider" data-slide-to="{{ index }}" class="active"></li>
+                                {% set index = index + 1 %}
+                            {% else %}
+                                <li data-target="#imageSlider" data-slide-to="{{ index }}"></li>
+                                {% set index = index + 1 %}
+                            {% endif %}
+                        {% endfor %}
+                    </ol>
+                    <div class="carousel-inner ">
+                        {% set index = 0 %}
+                        {% for image in images %}
+                            {% if loop.first %}
+                                <div class="carousel-item active  ">
+                                    <!-- <img src="{{ image }}" class="d-block mx-auto"  alt="{{ image }}">-->
+                                    <div style="background-image: url('{{ image }}');"
+                                         class="d-block mx-auto carousel-divs carousel-item-max-height"></div>
+                                </div>
+                                {% set index = index + 1 %}
+                            {% else %}
+                                <div style="background-image: url('{{ image }}');"
+                                     class="carousel-item carousel-item-max-height carousel-divs">
+                                    <!--   <img  src="{{ image }}" class="d-block mx-auto"  alt="{{ image }}">-->
+
+                                </div>
+                                {% set index = index + 1 %}
+                            {% endif %}
+                        {% endfor %}
+                    </div>
+                    <a class="carousel-control-prev" href="#imageSlider" role="button" data-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="carousel-control-next" href="#imageSlider" role="button" data-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
+                    </a>
                 </div>
+
                 {# Video #}
                 <div class="winzerpage-media-video">
-                    <iframe class="winzerpage-media-video-size" src="https://www.youtube.com/embed/KgM1n6c4hOs"
+                    <iframe class="winzerpage-media-video-size" src="{{ manufacturer.customFields['vs_winzer_video'] }}"
                             title="YouTube video player" frameborder="0"
                             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                             allowfullscreen></iframe>
@@ -71,12 +104,21 @@
         </div>
         <div class="winzerpage-products container">
             {# restliche Produkte #}
-            <p class="winzerpage-products-header">PRÄMIERTE WEINE VON MAX MUSTERMANN</p>
+            <p class="winzerpage-products-header">
+                {% if manufacturer.customFields['vs_winzer_products_header'] %}
+                    {{ manufacturer.customFields['vs_winzer_products_header'] }}
+                {% else %}
+                    PRÄMIERTE WEINE VON MAX MUSTERMANN
+                {% endif %}
+            </p>
             <div class="winzerpage-products-flexbox">
                 {# produkte #}
-
+                {% for product in manufacturer.products.elements %}
+                    {% sw_include '@Storefront/storefront/component/product/card/box-standard.html.twig' with {
+                        'product': product,
+                    } %}
+                {% endfor %}
             </div>
-            <button type="button" class="btn">Mehr Anzeigen</button>
         </div>
     </div>
 {% endblock %}
