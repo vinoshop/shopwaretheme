@@ -7,18 +7,6 @@
         {% endblock %}
     </button>
 
-    {% if context.salesChannel.translated.homeEnabled %}
-        {% set homeLabel = context.salesChannel.translated.homeName|default("general.homeLink"|trans) %}
-        <a class="mobile-nav-link{% if app.request.attributes.get("_route") == 'frontend.home.page' %} active{% endif %}"
-           href="{{ path('frontend.home.page') }}"
-           itemprop="url"
-           title="{{ homeLabel|striptags }}">
-            <div class="nav-link-text">
-                <span itemprop="name">{{ homeLabel|sw_sanitize }}</span>
-            </div>
-        </a>
-    {% endif %}
-
     {% for treeItem in page.header.navigation.tree %}
         {% set category = treeItem.category %}
         {% set name = category.translated.name %}
@@ -37,7 +25,7 @@
         {% sw_include '@Storefront/storefront/layout/header/mobile-search-form.html.twig' %}
     {% endblock %}
 
-    <div class="d-flex flex-column justify-content-end mt-auto pb-5">
+    <div class="action-icons d-flex flex-column justify-content-end mt-auto pb-5 mb-5">
         <div class="d-flex justify-content-around mt-auto">
             <div class="search-menu action">
                 {% sw_icon 'search' style {

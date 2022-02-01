@@ -27,10 +27,10 @@
     > div {
       padding: .5rem;
       padding-top: 1rem;
-      width: calc(max(20%, 15rem));
+      width: calc(13rem);
     }
 
-    .categories, .justice {
+    .categories, .justice, .infos {
 
       &-list {
         display: flex;
@@ -41,31 +41,6 @@
         > * {
           color: darken($almost_white, 20%);
           font-weight: 300;
-        }
-      }
-    }
-
-    .infos {
-      display: flex;
-      flex-direction: column;
-
-      > div {
-        display: flex;
-        flex-direction: row;
-
-        .icon,  {
-          display: block;
-          width: 2rem;
-          padding-right: .5rem;
-
-          svg {
-            position: unset;
-          }
-        }
-
-        > a {
-          display: block;
-          color: darken($almost_white, 20%);
         }
       }
     }

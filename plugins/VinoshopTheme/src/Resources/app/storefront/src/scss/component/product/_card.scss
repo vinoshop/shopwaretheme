@@ -64,6 +64,17 @@
     border-radius: 4px;
     height: auto;
     margin-bottom: .2rem;
+    position: relative;
+    
+    .product-tag {
+      position: absolute;
+      height: 2rem;
+      width: 3rem;
+      padding: .35rem;
+      background-color: $almost_black;
+      right: .35rem;
+      top: .35rem;
+    }
 
     .product-image {
       object-fit: cover;

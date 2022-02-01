@@ -143,6 +143,12 @@ body.mobile-nav-open {
   display: block;
 }
 
+.header-main.search-visible {
+  .action-icons {
+    margin-top: 3rem !important;
+  }
+}
+
 .header-mobile-nav-overlay {
   position: absolute;
   left: 0;
