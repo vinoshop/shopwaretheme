@@ -4,7 +4,10 @@
       "red_meat": "Rotes Fleisch",
       "light_meat": "Helles Fleisch",
       "vegetables": "Gemüse",
-      "cheese": "Käse"
+      "cheese": "Käse",
+      "steak": "Steak",
+      "wild": "Wild",
+      "salat": "Salat"
     }
   }
 }
