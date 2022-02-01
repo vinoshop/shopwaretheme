@@ -31,14 +31,15 @@ class WinzerpageController extends StorefrontController
     private NavigationPageLoaderInterface $navigationPageLoader;
     private MenuOffcanvasPageletLoaderInterface $offcanvasLoader;
     private EntityRepository $manufacturerRepository;
+    private EntityRepository $mediaRepository;
     private string $manufacturerId;
     private string $manufacturerName;
-   
+
 
     public function __construct(
         NavigationPageLoaderInterface       $navigationPageLoader,
         MenuOffcanvasPageletLoaderInterface $offcanvasLoader,
-        EntityRepository $manufacturerRepository
+        EntityRepository                    $manufacturerRepository
     )
     {
         $this->navigationPageLoader = $navigationPageLoader;
@@ -50,16 +51,16 @@ class WinzerpageController extends StorefrontController
      * @Route("/winzer/{manufacturerName}/{manufacturerId}", name="frontend.winzer.winzer", options={"seo"="true"}, methods={"GET"})
      */
     public function renderOneWinzer(Request             $request,
-                                    Context $context,
+                                    Context             $context,
                                     SalesChannelContext $salesChannelContext,
                                     string              $manufacturerId
     ): ?Response
     {
         $this->manufacturerId = $manufacturerId;
         $page = $this->navigationPageLoader->load($request, $salesChannelContext);
-        
+
         /** @var ProductManufacturerEntity $currentManufacturer */
-        
+
         $criteria = new Criteria([$manufacturerId]);
         $criteria->addAssociation('products');
         $criteria->addAssociation('media');
@@ -68,8 +69,8 @@ class WinzerpageController extends StorefrontController
         $winzer = $this->manufacturerRepository
             ->search($criteria, $context)
             ->get($manufacturerId);
-        
-        
+
+
         return $this->renderStorefront('@VinoshopTheme/storefront/page/winzer/winzerpage.html.twig',
             ['page' => $page, 'manufacturerId' => $manufacturerId, 'manufacturer' => $winzer],
         );
@@ -78,12 +79,19 @@ class WinzerpageController extends StorefrontController
     /**
      * @Route("/winzer", name="frontend.winzer", options={"seo"="true"}, methods={"GET"})
      */
-    public function renderAllWinzer(Request $request, SalesChannelContext $context): ?Response
+    public function renderAllWinzer(Request             $request,
+                                    SalesChannelContext $salesChannelContext, Context $context): ?Response
     {
-        $page = $this->navigationPageLoader->load($request, $context);
+        $page = $this->navigationPageLoader->load($request, $salesChannelContext);
+
+        /** @var ProductManufacturerEntity $currentManufacturer */
+
+        $criteria = new Criteria();
+        $criteria->addAssociation('media');
+        $currentManufacturer = $this->manufacturerRepository->search($criteria, $context);
 
         return $this->renderStorefront('@VinoshopTheme/storefront/page/winzer/allWinzer.html.twig',
-            ['page' => $page, 'manufacturerId' => null],
+            ['page' => $page, 'manufacturers' => $currentManufacturer],
         );
     }
 

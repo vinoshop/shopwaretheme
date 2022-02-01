@@ -1,0 +1,21 @@
+.allWinzer {
+  font-family: $default_font_family;
+  color: $almost_black;
+  background-color: $almost_white;
+
+  .manufacturer-card {
+    margin-top: 1rem;
+    min-width: 25rem;
+
+
+    img {
+      pointer-events: none;
+      user-select: none;
+      margin-right: 1rem;
+    }
+  }
+
+  .allWinzer-hyperlink:hover {
+    text-decoration: none;
+  }
+}
