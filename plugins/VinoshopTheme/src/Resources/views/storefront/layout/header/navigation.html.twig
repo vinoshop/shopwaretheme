@@ -1,19 +1,5 @@
 {% block layout_main_navigation %}
     <div class="navigation">
-        {% block layout_main_navigation_menu_home %}
-            {% if context.salesChannel.translated.homeEnabled %}
-                {% set homeLabel = context.salesChannel.translated.homeName|default("general.homeLink"|trans) %}
-                <a class="nav-link main-navigation-link{% if app.request.attributes.get("_route") == 'frontend.home.page' %} active{% endif %} home-link"
-                   href="{{ path('frontend.home.page') }}"
-                   itemprop="url"
-                   title="{{ homeLabel|striptags }}">
-                    <div class="main-navigation-link-text">
-                        <span itemprop="name">{{ homeLabel|sw_sanitize }}</span>
-                    </div>
-                </a>
-            {% endif %}
-        {% endblock %}
-
         {% for treeItem in page.header.navigation.tree %}
             {% set category = treeItem.category %}
             {% set name = category.translated.name %}
