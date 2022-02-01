@@ -1,9 +1,17 @@
-<html lang="de">
-<head>
-    <title>Winzer</title>
-</head>
-<body>
-<br><br><br><br>
-    <h1>Hier werden alle Winzer angezeigt.</h1>
-</body>
-</html>
+{% sw_extends '@Storefront/storefront/base.html.twig' %}
+{% block base_main %}
+    <div class="container allWinzer d-flex flex-wrap">
+        {% for manufacturer in manufacturers.entities.elements %}
+            <a class="allWinzer-hyperlink" href="/winzer/{{ manufacturer.name }}/{{ manufacturer.id }}">
+                <div class="d-flex manufacturer-card ">
+                    {% if manufacturer.media.url %}
+                        <img width="150" height="150" src="{{ manufacturer.media.url }}" alt="{{ manufacturer.name }} - Logo">
+                    {% else %}
+                        <img src="https://via.placeholder.com/150" alt="{{ manufacturer.name }} - Logo">
+                    {% endif %}
+                    <h4>{{ manufacturer.name }}</h4>
+                </div>
+            </a>
+        {% endfor %}
+    </div>
+{% endblock %}
