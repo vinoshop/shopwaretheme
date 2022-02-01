@@ -70,17 +70,20 @@
                     </div>
                 </div>
 
-                <div class="landingpage-categories container">
+                <div class="landingpage-categories container ">
                     {% for section_elem in cmsPage.sections.elements %}
                         {% if section_elem.name == "landingpage_categories" %}
                             {% for category in section_elem.blocks.elements|first.slots.elements %}
                                 {% if category.type == "image" %}
-                                    <div style="background-image: url({{ category.data.media.url }});"
-                                         class="landingpage-categories-category">
+                                    <div class="landingpage-categories-helper">
                                         {% for category2 in section_elem.blocks.elements|first.slots.elements %}
                                             {% if category2.type == "text" %}
+                                                {# {{ dump(category2) }} #}
                                                 {% if category2.slot|split("-")[0] == category.slot|split("-")[0] %}
-                                                    {{ category2.data.content|raw }}
+                                                    {% set text = category2.data.content %}
+                                                    <img src="{{ category.data.media.url }}"
+                                                         class="landingpage-categories-category img-hover-brightness">
+                                                    {{ text|raw }}
                                                 {% endif %}
                                             {% endif %}
                                         {% endfor %}

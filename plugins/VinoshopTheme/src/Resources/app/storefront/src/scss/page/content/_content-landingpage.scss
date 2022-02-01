@@ -45,6 +45,11 @@
           border: none;
         }
       }
+      @media (max-width: 575.98px) {
+        .landingpage-top-text-button {
+          padding: .5rem 1rem;
+        }
+      }
 
       .landingpage-top-text-button:hover {
         background-color: $almost_white;
@@ -140,34 +145,48 @@
     display: flex;
     flex-direction: row;
     align-content: center;
+    justify-content: center;
     flex-wrap: wrap;
     margin-bottom: 5rem;
 
+    /* Brightness Container */
+    .img-hover-brightness {
+      transition: transform 1s, filter 1s ease-in-out;
+      filter: brightness(100%);
+    }
+    .img-hover-brightness:hover {
+      filter: brightness(70%);
+    }
+
+
     .landingpage-categories-category {
-      display: flex;
-      flex-direction: column;
-      align-content: center;
-      justify-content: center;
-      width: 33.33%;
       min-width: 20rem;
       min-height: 18rem;
-      height: 15rem;
+      height: auto;
 
+      object-fit: cover;
+    }
+
+    .landingpage-categories-helper {
+      width: 33.33%;
+      position: relative;
+      display: flex;
+      justify-content: center;
+    }
+    .landingpage-categories-helper a {
+      color: $almost_white;
       font-family: $default_font_family;
       text-align: center;
       font-weight: 900;
       font-size: 2rem;
-      color: $almost_white;
-      /*background-color: red;*/
-      background-repeat: no-repeat;
-      background-size: cover;
-      background-position: center;
-      padding: 5rem 2rem;
-    }
 
-    a {
-      color: $almost_white;
-      min-width: 13.75rem;
+      position: absolute;
+      top: 38%; /* adjust accordingly to suit requirements */
+      padding: 10px;
+      box-sizing: border-box;
+      margin: 0;
+      display: flex;
+      justify-self: center;
     }
   }
 
@@ -176,9 +195,8 @@
       display: flex;
       flex-direction: column;
 
-      .landingpage-categories-category {
-        width: 60vw;
-        height: 10rem;
+      .landingpage-categories-helper {
+        width: 70vw;
         margin-bottom: 1rem;
       }
     }
@@ -188,9 +206,8 @@
       display: flex;
       flex-direction: column;
 
-      .landingpage-categories-category {
+      .landingpage-categories-helper {
         width: 70vw;
-        height: 10rem;
         margin-bottom: 1rem;
       }
     }
