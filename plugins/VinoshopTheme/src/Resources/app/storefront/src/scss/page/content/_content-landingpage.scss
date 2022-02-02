@@ -45,6 +45,7 @@
           border: none;
         }
       }
+
       @media (max-width: 575.98px) {
         .landingpage-top-text-button {
           padding: .5rem 1rem;
@@ -147,20 +148,21 @@
     align-content: center;
     justify-content: center;
     flex-wrap: wrap;
-    margin-bottom: 5rem;
+    margin-bottom: 9rem;
 
     /* Brightness Container */
     .img-hover-brightness {
       transition: transform 1s, filter 1s ease-in-out;
       filter: brightness(100%);
     }
+
     .img-hover-brightness:hover {
       filter: brightness(70%);
     }
 
 
     .landingpage-categories-category {
-      min-width: 20rem;
+      min-width: 18.75rem;
       min-height: 18rem;
       height: auto;
 
@@ -173,6 +175,7 @@
       display: flex;
       justify-content: center;
     }
+
     .landingpage-categories-helper a {
       color: $almost_white;
       font-family: $default_font_family;
@@ -296,6 +299,7 @@
   }
 
   .landingpage-recommendation {
+    margin-bottom: 4.25rem;
 
     .landingpage-recommendation-graybg {
       background-color: $light_gray;
@@ -304,23 +308,22 @@
 
       display: flex;
       flex-direction: row;
-      margin-bottom: 5rem;
     }
 
     .landingpage-recommendation-products {
       display: flex;
       flex-direction: row;
       gap: 1rem;
-      justify-content: space-around;
-      align-items: center;
-      width: max-content;
-      margin-top: 1rem;
+      justify-content: center;
+      height: max-content;
+      align-self: center;
+      margin-top: 3rem;
     }
 
     .landingpage-recommendation-winzer {
-      width: 33%;
+      height: 30rem;
       min-width: 250px;
-      aspect-ratio: 16/9;
+      aspect-ratio: 1;
       background-repeat: no-repeat;
       background-size: cover;
       background-position: center;
@@ -354,17 +357,35 @@
 
         .landingpage-recommendation-winzer {
           width: 100%;
+          min-width: 18.75rem;
         }
 
         .landingpage-recommendation-products {
           display: flex;
           flex-direction: column;
+          align-items: center;
         }
       }
     }
   }
-  @media (max-width: 991.98px) {
+  @media (max-width: 1199.98px) {
 
+    .landingpage-recommendation-graybg {
+      display: flex;
+      flex-direction: column !important;
+
+      .landingpage-recommendation-winzer {
+        display: flex;
+        align-self: center;
+        min-width: 38rem;
+      }
+    }
+
+    .landingpage-recommendation-products {
+      display: flex;
+      flex-direction: row;
+      align-content: center;
+    }
   }
 
   .landingpage-recommendation-header {
