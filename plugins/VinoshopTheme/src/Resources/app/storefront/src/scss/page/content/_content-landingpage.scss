@@ -176,7 +176,7 @@
       justify-content: center;
     }
 
-    .landingpage-categories-helper a {
+    .landingpage-categories-helper > a {
       color: $almost_white;
       font-family: $default_font_family;
       text-align: center;
@@ -190,7 +190,16 @@
       margin: 0;
       display: flex;
       justify-self: center;
+
+
+      text-decoration: underline solid transparent;
+      transition: text-decoration 1s ease;
+
+
     }
+    .landingpage-categories-helper > a:hover {
+        text-decoration: underline solid  #fbfbfb;
+      }
   }
 
   @media (max-width: 991.98px) {
@@ -202,6 +211,7 @@
         width: 70vw;
         margin-bottom: 1rem;
       }
+
     }
   }
   @media (max-width: 767.98px) {
