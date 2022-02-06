@@ -1,5 +1,8 @@
 # Shopware Vinoshop Theme
 
+[![deployment_stable](https://github.com/vinoshop/shopwaretheme/actions/workflows/deployment_stable.yml/badge.svg)](https://github.com/vinoshop/shopwaretheme/actions/workflows/deployment_stable.yml)
+[![deployment_dev](https://github.com/vinoshop/shopwaretheme/actions/workflows/deployment_dev.yml/badge.svg)](https://github.com/vinoshop/shopwaretheme/actions/workflows/deployment_dev.yml)
+
 To start: ``docker-compose up -d``
 
 ### Links
