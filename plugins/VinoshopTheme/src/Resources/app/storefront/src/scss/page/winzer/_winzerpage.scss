@@ -8,15 +8,15 @@
   }
 
   .winzerpage-img {
-    height: 80vh;
+    height: calc(100vh - 5rem);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
     max-width: 1920px;
-    position: relative;
-    margin-bottom: 11rem;
+    margin-bottom: 5rem;
     display: flex;
     justify-content: center;
+    align-items: flex-end;
   }
 
   @media (max-width: 576px) {
@@ -29,8 +29,6 @@
     background-color: $chianti_red;
     max-width: 70%;
     padding: 1.5rem 0 1.5rem 0;
-    position: absolute;
-    bottom: -7rem;
 
     h1, p {
       text-align: center;
@@ -72,8 +70,9 @@
       max-width: 60rem;
       /*margin-left: 12rem;
       margin-right: 12rem;*/
-      font-size: 0.875rem;
+      font-size: 1rem;
       margin-bottom: 3.6rem;
+      text-align: justify;
     }
 
     .winzerpage-story-quote {
@@ -187,6 +186,16 @@
       @media (min-width: 768px) {
         .winzerpage-media-video-size {
           width: 80%;
+        }
+      }
+      @media (max-width: 767.98px) {
+        .winzerpage-media-video-size {
+          width: 80%;
+        }
+      }
+      @media (max-width: 575.98px) {
+        .winzerpage-media-video-size {
+          width: 100%;
         }
       }
     }
