@@ -11,7 +11,7 @@ use Shopware\Core\Framework\DataAbstractionLayer\Search\Criteria;
 use Shopware\Core\System\SalesChannel\Entity\SalesChannelRepositoryInterface;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Shopware\Core\Framework\DataAbstractionLayer\EntityRepository;
-
+use Shopware\Core\Framework\DataAbstractionLayer\Search\Filter\EqualsFilter;
 use Shopware\Storefront\Controller\StorefrontController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -32,8 +32,7 @@ class WinzerpageController extends StorefrontController
     private MenuOffcanvasPageletLoaderInterface $offcanvasLoader;
     private EntityRepository $manufacturerRepository;
     private EntityRepository $mediaRepository;
-    private string $manufacturerId;
-    private string $manufacturerName;
+    private string $slug;
 
 
     public function __construct(
@@ -48,31 +47,30 @@ class WinzerpageController extends StorefrontController
     }
 
     /**
-     * @Route("/winzer/{manufacturerName}/{manufacturerId}", name="frontend.winzer.winzer", options={"seo"="true"}, methods={"GET"})
+     * @Route("/winzer/{slug}", name="frontend.winzer.winzer", options={"seo"="true"}, methods={"GET"})
      */
     public function renderOneWinzer(Request             $request,
                                     Context             $context,
                                     SalesChannelContext $salesChannelContext,
-                                    string              $manufacturerId
+                                    string              $slug
     ): ?Response
     {
-        $this->manufacturerId = $manufacturerId;
+        $this->slug = $slug;
         $page = $this->navigationPageLoader->load($request, $salesChannelContext);
 
         /** @var ProductManufacturerEntity $currentManufacturer */
 
-        $criteria = new Criteria([$manufacturerId]);
+        $criteria = new Criteria();
+        $criteria->addFilter(new EqualsFilter('customFields.vs_winzer_slug', $slug));
         $criteria->addAssociation('products');
         $criteria->addAssociation('media');
         $criteria->addAssociation('products.cover');
 
         $winzer = $this->manufacturerRepository
-            ->search($criteria, $context)
-            ->get($manufacturerId);
-
+            ->search($criteria, $context);
 
         return $this->renderStorefront('@VinoshopTheme/storefront/page/winzer/winzerpage.html.twig',
-            ['page' => $page, 'manufacturerId' => $manufacturerId, 'manufacturer' => $winzer],
+            ['page' => $page, 'manufacturer' => $winzer],
         );
     }
 
