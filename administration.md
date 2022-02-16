@@ -20,6 +20,11 @@ field set: ``vs_winzer``
 assign to ``Manufactures``
 
 custom fields:
+* ``vs_winzer_slug`` type ``text field``
+  * ``Position: `` 0
+  * ``Label: `` Slug
+  * ``Placeholder: `` winzer-poys
+
 * ``vs_winzer_main_img`` type ``text field``
   * ``Position: `` 0
   * ``Label: `` Startbild
