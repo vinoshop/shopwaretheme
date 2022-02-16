@@ -123,7 +123,23 @@
             </div>
         </div>
     {% else %}
-        <br><br><br>
-        <h1>Dieser Winzer existiert nicht!</h1>
+        <br>
+        <div style="height: 65vh; ">
+            <div class="container">
+                <div class="row">
+                    <div class="col">
+                        <button type="button" class="btn btn-outline-primary mt-5">
+                            <a href="/">Zurück zur Startseite</a>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="container d-flex justify-content-center">
+                <div class="mt-5 align-middle">
+                    <h1 class="text-center">404</h1>
+                    <p class="lead text-center">Die Seite wurde nicht gefunden.</p>
+                </div>
+            </div>
+        </div>
     {% endif %}
 {% endblock %}
