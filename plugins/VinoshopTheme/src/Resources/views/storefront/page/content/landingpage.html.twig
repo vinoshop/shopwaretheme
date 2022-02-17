@@ -104,17 +104,16 @@
                             {% set winzer =
                                 {
                                     name: winzer_elem_product.slots.elements|first.data.products.elements|first.manufacturer.name|lower|replace({ ' ': '-'}),
-                                    id: winzer_elem_product.slots.elements|first.data.products.elements|first.manufacturer.id
+                                    slug: winzer_elem_product.slots.elements|first.data.products.elements|first.manufacturer.customFields.vs_winzer_slug
                                 } %}
                         {% endif %}
                     {% endfor %}
                     <hr>
-                    <h2 class="landingpage-recommendation-header-size"><a
-                                href="/winzer/{{ winzer.name }}/{{ winzer.id }}">{{ winzer_elem.slots.elements|first.data.content }}</a>
+                    <h2 class="landingpage-recommendation-header-size">
+                        <a href="/winzer/{{ winzer.slug }}">{{ winzer_elem.slots.elements|first.data.content }} </a>
                     </h2>
                     <hr>
                 </div>
-                {# {{ dump(winzer_elem) }} #}
                 <div class="landingpage-recommendation container">
                     {% elseif winzer_elem.name == 'landingpage_winzer_pic' %}
                     <div class="container landingpage-recommendation-graybg">
