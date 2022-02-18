@@ -123,6 +123,6 @@
             </div>
         </div>
     {% else %}
-        {% exit 404 %}
+        {% sw_include '@Storefront/storefront/page/error/error-404.html.twig' %}
     {% endif %}
 {% endblock %}
