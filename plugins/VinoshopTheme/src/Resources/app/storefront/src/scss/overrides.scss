@@ -21,3 +21,8 @@ body {
 .container-main {
   min-height: unset;
 }
+
+.btn-light {
+  background-color: $light_gray;
+  border-color: $light_gray;
+}
