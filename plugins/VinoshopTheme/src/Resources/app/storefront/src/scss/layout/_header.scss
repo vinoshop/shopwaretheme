@@ -90,11 +90,15 @@
   }
 
   &.search-visible .header-search-col > .row {
-    display: none;
+    transition: opacity .2s ease;
+    opacity: 0;
+    pointer-events: none;
   }
 
   &:not(.search-visible) .header-search-form, &:not(.search-visible) .mobile-search-form {
-    display: none;
+    transition: opacity .2s ease;
+    opacity: 0;
+    pointer-events: none;
   }
 
 .header-search-form {
