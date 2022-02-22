@@ -89,14 +89,18 @@
     }
   }
 
-  &.search-visible .header-search-col > .row {
+  & .header-search-col > .row {
     transition: opacity .2s ease;
+  }
+  &.search-visible .header-search-col > .row {
     opacity: 0;
     pointer-events: none;
   }
 
-  &:not(.search-visible) .header-search-form, &:not(.search-visible) .mobile-search-form {
+  .header-search-form, .mobile-search-form {
     transition: opacity .2s ease;
+  }
+  &:not(.search-visible) .header-search-form, &:not(.search-visible) .mobile-search-form {
     opacity: 0;
     pointer-events: none;
   }
