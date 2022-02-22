@@ -26,3 +26,16 @@ body {
   background-color: $light_gray;
   border-color: $light_gray;
 }
+
+// product list page
+.cms-block.pos-0.cms-block-image-text {
+  display: none;
+}
+
+.breadcrumb.cms-breadcrumb.container {
+  padding-bottom: 0;
+
+  .breadcrumb-title {
+    font-size: 1.25rem;
+  }
+}
