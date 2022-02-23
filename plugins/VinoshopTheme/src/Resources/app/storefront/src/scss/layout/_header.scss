@@ -99,6 +99,10 @@
 
   .header-search-form, .mobile-search-form {
     transition: opacity .2s ease;
+    opacity: 1;
+  }
+  .mobile-search-form {
+    margin-bottom: 3rem;
   }
   &:not(.search-visible) .header-search-form, &:not(.search-visible) .mobile-search-form {
     opacity: 0;
@@ -161,12 +165,6 @@ body.mobile-nav-open {
 
   .nav-container {
     transform: translateX(0);
-  }
-}
-
-.header-main.search-visible {
-  .action-icons {
-    margin-top: 3rem !important;
   }
 }
 
