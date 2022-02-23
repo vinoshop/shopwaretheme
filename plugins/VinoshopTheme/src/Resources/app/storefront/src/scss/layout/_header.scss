@@ -145,10 +145,23 @@ body.mobile-nav-open {
 }
 
 .header-mobile-nav-overlay {
-  display: none;
+  transition: opacity .2s ease;
+  pointer-events: none;
+  opacity: 0;
+
+  .nav-container {
+    transition: transform .2s ease;
+    transform: translateX(100%);
+  }
 }
 .mobile-nav-open .header-mobile-nav-overlay {
   display: block;
+  opacity: 1;
+  pointer-events: all;
+
+  .nav-container {
+    transform: translateX(0);
+  }
 }
 
 .header-main.search-visible {
