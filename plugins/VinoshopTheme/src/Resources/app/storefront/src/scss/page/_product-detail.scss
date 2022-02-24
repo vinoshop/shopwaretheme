@@ -134,6 +134,12 @@
     }
   }
 
+
+
+  .not-available {
+    color: $red_wine_stain;
+  }
+
   &-action-section {
     display: flex;
     flex-wrap: wrap;
@@ -266,6 +272,10 @@
     &-products {
       display: flex;
       flex-wrap: wrap;
+
+      @media (max-width: 666px) {
+        justify-content: center;
+      }
 
       > div {
         flex-grow: 0;

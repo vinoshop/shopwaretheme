@@ -4,12 +4,29 @@
 {% endblock %}
 
 {% block page_product_detail_buy_quantity_container  %}
+
+    {% if product.maxPurchase != null %}
+        {% set maxVal = product.maxPurchase %}
+    {% else %}
+        {% set maxVal = product.availableStock %}
+    {% endif %}
+
+    {% set minVal = min(product.minPurchase, product.availableStock) %}
+
+    {% if not product.available or product.availableStock < product.minPurchase %}
+        {% set product_not_available = true %}
+        <p class="not-available">Produkt ist ausverkauft!</p>
+    {% endif %}
+
     <div class="product-detail-action-section">
         {% sw_include '@Storefront/storefront/element/cms_element_input.html.twig' with {
             classes: 'input-amount',
-            name: 'lineItems[' ~ product.id ~ '][quantity]'
+            name: 'lineItems[' ~ product.id ~ '][quantity]',
+            maxVal: maxVal,
+            minVal: minVal,
+            disabled: product_not_available
         } %}
-        <button class="c6 btn btn-secondary" type="submit" onclick="setTimeout(() => window.location.href = '/checkout/cart', 200)">Sofort kaufen</button>
-        <button class="c6 btn btn-primary" type="submit">In den Warenkorb</button>
+        <button class="c6 btn btn-secondary" type="submit" onclick="setTimeout(() => window.location.href = '/checkout/cart', 200)"{% if product_not_available %} disabled{% endif %}>Sofort kaufen</button>
+        <button class="c6 btn btn-primary" type="submit"{% if product_not_available %} disabled{% endif %}>In den Warenkorb</button>
     </div>
 {% endblock %}

@@ -1,0 +1,33 @@
+{% sw_extends '@Storefront/storefront/page/checkout/confirm/index.html.twig' %}
+
+{% block page_checkout_confirm_tos_control %}
+    <div class="custom-control custom-checkbox">
+        {% block page_checkout_confirm_tos_control_checkbox %}
+            <input type="checkbox"
+                   class="checkout-confirm-tos-checkbox custom-control-input{% if formViolations.getViolations('/tos') is not empty %} is-invalid{% endif %}"
+                   required="required"
+                   id="tos"
+                   form="confirmOrderForm"
+                   name="tos"/>
+        {% endblock %}
+        {% block page_checkout_confirm_tos_control_label %}
+            <label for="tos"
+                   class="checkout-confirm-tos-label custom-control-label">
+                {{ "checkout.confirmTerms"|trans({
+                    '%url%': path('frontend.cms.page',{ id: config('core.basicInformation.tosPage') })
+                })|raw }}
+            </label>
+        {% endblock %}
+    </div>
+    <div class="custom-control custom-checkbox">
+            <input type="checkbox"
+                   class="checkout-confirm-tos-checkbox custom-control-input"
+                   required="required"
+                   form="confirmOrderForm"
+                   id="age"/>
+            <label for="age"
+                   class="checkout-confirm-tos-label custom-control-label">
+                Ich bin mindestens 16 Jahre alt.
+            </label>
+    </div>
+{% endblock %}
