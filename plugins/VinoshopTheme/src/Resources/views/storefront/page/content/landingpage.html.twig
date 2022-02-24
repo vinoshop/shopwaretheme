@@ -2,6 +2,7 @@
 {% block landingpage %}
     {% if cmsPage %}
         <div class="cms-page">
+            <template data-landing-page-plugin></template>
             <div class="landingpage container">
                 {% for element in cmsPage.sections.elements %}
                     {% for block_element in element.blocks.elements %}
@@ -18,7 +19,7 @@
                                                 <div class="landingpage-top-text container">
                                                     {{ text.data.content | raw }}
                                                     <a href="#products" class="display-5">
-                                                        <button class="landingpage-top-text-button display-5">
+                                                        <button id="btn-entdecken" class="landingpage-top-text-button display-5">
                                                             Entdecken
                                                         </button>
                                                     </a>
