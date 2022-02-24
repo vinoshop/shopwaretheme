@@ -1,9 +1,9 @@
 {% set large_header_margin = false %}
 {% block landingpage %}
     {% if cmsPage %}
-        <div class="cms-page">
+        <div class="cms-page d-flex justify-content-center">
             <template data-landing-page-plugin></template>
-            <div class="landingpage container">
+            <div class="landingpage">
                 {% for element in cmsPage.sections.elements %}
                     {% for block_element in element.blocks.elements %}
                         {% set name = block_element.name %}
@@ -33,9 +33,10 @@
                     {% endfor %}
                 {% endfor %}
                 <div class="landingpage-products container">
+                    <span id="products"></span>
                     <div class="landingpage-products-flex">
                         <hr>
-                        <h2 id="products" class="landingpage-products-header">
+                        <h2 class="landingpage-products-header">
                             {% for section in cmsPage.sections.elements %}
                                 {% if section.name == "landingpage_products" %}
                                     {% for block in section.blocks.elements %}
@@ -115,7 +116,7 @@
                     </h2>
                     <hr>
                 </div>
-                <div class="landingpage-recommendation container">
+                <div class="landingpage-recommendation">
                     {% elseif winzer_elem.name == 'landingpage_winzer_pic' %}
                     <div class="container landingpage-recommendation-graybg">
                         <div style="background-image: url('{{ winzer_elem.slots.elements|first.data.media.url }}');"
