@@ -94,7 +94,7 @@
     .landingpage-products-helper {
       display: flex;
       flex-direction: row;
-      justify-content: center;
+      justify-content: space-between;
       flex-wrap: wrap;
     }
 
@@ -166,7 +166,7 @@
     }
 
     .landingpage-categories-helper {
-      width: 30%;
+      width: 33.33%;
       position: relative;
       display: flex;
       justify-content: center;
