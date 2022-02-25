@@ -27,6 +27,6 @@
             disabled: product_not_available
         } %}
         <button class="c6 btn btn-secondary" type="submit" onclick="setTimeout(() => window.location.href = '/checkout/cart', 200)"{% if product_not_available %} disabled{% endif %}>Sofort kaufen</button>
-        <button class="c6 btn btn-primary" type="submit"{% if product_not_available %} disabled{% endif %}>In den Warenkorb</button>
+        <button class="c6 btn btn-primary"{% if product_not_available %} disabled{% endif %}>In den Warenkorb</button>
     </div>
 {% endblock %}

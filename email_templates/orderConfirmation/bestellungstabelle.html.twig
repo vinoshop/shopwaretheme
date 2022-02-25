@@ -1,0 +1,40 @@
+<div style="font-family:Arial, sans-serif">
+    <table style="mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;border-spacing:0px;width:100%;background-color:#eeeeee;margin:0 auto 0 auto">
+        <tr style="background-color:#FBFBFB">
+            <td style="padding:0;Margin:0"></td>
+            <td style="padding:0;Margin:0;text-align:right" colspan="2">Bestellnummer: {{ order.orderNumber }}</td>
+        </tr>
+        <tr>
+            <td style="padding:5px 0 5px 2px;Margin:0;font-size:15px;width:100px">Stück</td>
+            <td style="padding:5px 0 5px 0;Margin:0;font-size:15px">Produkt</td>
+            <td style="padding:5px 0 5px 0;Margin:0;font-size:15px;width:200px">Gesamtpreis</td>
+        </tr>
+
+        {% for lineItem in order.nestedLineItems %}
+            {% set nestingLevel = 0 %}
+            {% set nestedItem = lineItem %}
+            {% block lineItem %}
+                <tr style="border-top:1px solid #1a1818">
+                    <td style="padding:10px;Margin:0; text-align: center">{{ nestedItem.quantity }}</td>
+                    <td style="padding:10px 10px 10px 0;Margin:0">{{ nestedItem.label|u.wordwrap(80) }}</td>
+                    <td style="padding:10px 10px 10px 0;Margin:0">{{ nestedItem.totalPrice|currency(currencyIsoCode) }} </td>
+                </tr>
+            {% endblock %}
+        {% endfor %}
+        <tr style="border-top:2px solid #B20038">
+            <td style="padding:10px;Margin:0"></td>
+            <td style="padding:10px 10px 10px 0;Margin:0;font-size:15px">Zwischensumme</td>
+            <td style="padding:10px 10px 10px 0;Margin:0">{% set zwischen_summe = (order.price.totalPrice - order.deliveries.first.shippingCosts.totalPrice) %} {{ zwischen_summe|number_format(2) }} {{ currencyIsoCode|currency_symbol }}</td>
+        </tr>
+        <tr style="border-top:1px solid #1a1818">
+            <td style="padding:10px;Margin:0"></td>
+            <td style="padding:10px 10px 10px 0;Margin:0;font-size:15px">Versandkosten</td>
+            <td style="padding:10px 10px 10px 0;Margin:0">{{ order.deliveries.first.shippingCosts.totalPrice|currency(currencyIsoCode) }}</td>
+        </tr>
+        <tr style="border-top:1px solid #1a1818">
+            <td style="padding:10px;Margin:0"></td>
+            <td style="padding:10px 10px 10px 0;Margin:0;font-size:17px;font-weight:bold">Gesamtsumme</td>
+            <td style="padding:10px 10px 10px 0;Margin:0;font-size:17px;font-weight:bold">{{ order.price.totalPrice|currency(currencyIsoCode) }}</td>
+        </tr>
+    </table>
+</div>

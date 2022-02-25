@@ -7,7 +7,13 @@
                     {% for block_element in element.blocks.elements %}
                         {% set name = block_element.name %}
                         {% if name == "landingpage_top_bg_img" %}
-                            <div style="background-image: url({{ block_element.backgroundMedia.url }})"
+                            {% set url = "" %}
+                            {% for img in block_element.slots.elements|first.data.media.thumbnails.elements %}
+                                {% if img.width == 1920 %}
+                                    {% set url = img.url %}
+                                {% endif %}
+                            {% endfor %}
+                            <div style="background-image: url({{ url }})"
                                  class="landingpage-top">
 
                                 {% for text_element in cmsPage.sections.elements %}
@@ -75,13 +81,20 @@
                         {% if section_elem.name == "landingpage_categories" %}
                             {% for category in section_elem.blocks.elements|first.slots.elements %}
                                 {% if category.type == "image" %}
+                                    {% set url = ccategory_img_url.url %}
+                                    {% for category_img_url in category.data.media.thumbnails.elements %}
+                                        {% if category_img_url.width == 800 %}
+                                            {% set url = category_img_url.url %}
+                                        {% endif %}
+
+                                    {% endfor %}
                                     <div class="landingpage-categories-helper">
                                         {% for category2 in section_elem.blocks.elements|first.slots.elements %}
                                             {% if category2.type == "text" %}
-                                                {# {{ dump(category2) }} #}
                                                 {% if category2.slot|split("-")[0] == category.slot|split("-")[0] %}
                                                     {% set text = category2.data.content %}
-                                                    <img src="{{ category.data.media.url }}"
+
+                                                    <img src="{{ url }}"
                                                          class="landingpage-categories-category img-hover-brightness">
                                                     {{ text|raw }}
                                                 {% endif %}
@@ -137,5 +150,4 @@
         </div>
     {% endif %}
 {% endblock %}
-
 
