@@ -8,28 +8,32 @@
                     {% for block_element in element.blocks.elements %}
                         {% set name = block_element.name %}
                         {% if name == "landingpage_top_bg_img" %}
-                            <div style="background-image: url({{ block_element.backgroundMedia.url }})"
-                                 class="landingpage-top">
+                            {% for start_img in block_element.backgroundMedia.thumbnails.elements %}
+                                {% if start_img.width == 1920 %}
+                                    <div style="background-image: url({{ start_img.url }})"
+                                         class="landingpage-top">
 
-                                {% for text_element in cmsPage.sections.elements %}
-                                    {% for block_text_element in text_element.blocks.elements %}
-                                        {% set text_name = block_text_element.name %}
-                                        {% if text_name == "landingpage_top_header" %}
-                                            {% for text in block_text_element.slots.elements %}
-                                                <div class="landingpage-top-text container">
-                                                    {{ text.data.content | raw }}
-                                                    <a href="#products" class="display-5">
-                                                        <button id="btn-entdecken"
-                                                                class="landingpage-top-text-button display-5">
-                                                            Entdecken
-                                                        </button>
-                                                    </a>
-                                                </div>
+                                        {% for text_element in cmsPage.sections.elements %}
+                                            {% for block_text_element in text_element.blocks.elements %}
+                                                {% set text_name = block_text_element.name %}
+                                                {% if text_name == "landingpage_top_header" %}
+                                                    {% for text in block_text_element.slots.elements %}
+                                                        <div class="landingpage-top-text container">
+                                                            {{ text.data.content | raw }}
+                                                            <a href="#products" class="display-5">
+                                                                <button id="btn-entdecken"
+                                                                        class="landingpage-top-text-button display-5">
+                                                                    Entdecken
+                                                                </button>
+                                                            </a>
+                                                        </div>
+                                                    {% endfor %}
+                                                {% endif %}
                                             {% endfor %}
-                                        {% endif %}
-                                    {% endfor %}
-                                {% endfor %}
-                            </div>
+                                        {% endfor %}
+                                    </div>
+                                {% endif %}
+                            {% endfor %}
                         {% endif %}
                     {% endfor %}
                 {% endfor %}
@@ -93,14 +97,19 @@
                 {% if section_elem.name == "landingpage_categories" %}
                     {% for category in section_elem.blocks.elements|first.slots.elements %}
                         {% if category.type == "image" %}
-                            <div class="landingpage-categories-helper">
+                            <div class="landingpage-categories-helper d-flex justify-content-center">
                                 {% for category2 in section_elem.blocks.elements|first.slots.elements %}
                                     {% if category2.type == "text" %}
-                                        {# {{ dump(category2) }} #}
                                         {% if category2.slot|split("-")[0] == category.slot|split("-")[0] %}
                                             {% set text = category2.data.content %}
-                                            <img src="{{ category.data.media.url }}"
-                                                 class="landingpage-categories-category img-hover-brightness">
+                                            {% for category_img_url in category.data.media.thumbnails.elements %}
+                                                {% if category_img_url.width == 800 %}
+                                                    <img src="{{ category_img_url.url }}"
+                                                         class="landingpage-categories-category img-hover-brightness">
+                                                {% endif %}
+
+                                            {% endfor %}
+
                                             {{ text|raw }}
                                         {% endif %}
                                     {% endif %}

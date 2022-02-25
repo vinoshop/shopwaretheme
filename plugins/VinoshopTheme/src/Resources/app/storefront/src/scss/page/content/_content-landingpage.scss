@@ -185,18 +185,11 @@
       padding: 10px;
       box-sizing: border-box;
       margin: 0;
-      display: flex;
-      justify-self: center;
-
-
-      text-decoration: underline solid transparent;
-      transition: text-decoration 1s ease;
-
-
     }
-    .landingpage-categories-helper > a:hover {
-        text-decoration: underline solid  #fbfbfb;
-      }
+
+    .landingpage-categories-helper > a  {
+      text-decoration: none;
+    }
   }
 
   @media (max-width: 991.98px) {
