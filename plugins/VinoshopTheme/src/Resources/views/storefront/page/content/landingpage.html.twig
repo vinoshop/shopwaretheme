@@ -68,7 +68,6 @@
                             } %}
                             {% set i = i + 1 %}
                                 {% if loop.last %}
-                                    peeeepeeee
                                      </div>
                                 {% endif %}
                         {% else %}
@@ -133,7 +132,7 @@
                         </h2>
                         <hr>
                         </div>
-                        <div class="landingpage-recommendation">
+                        <div class="landingpage-recommendation container">
                     {% elseif winzer_elem.name == 'landingpage_winzer_pic' %}
                         <div class="container landingpage-recommendation-graybg">
                         <div style="background-image: url('{{ winzer_elem.slots.elements|first.data.media.url }}');"
