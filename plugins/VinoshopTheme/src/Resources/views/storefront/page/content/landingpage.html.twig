@@ -88,6 +88,7 @@
                                                     {% set text = category2.data.content %}
                                                     {% for category_img_url in category.data.media.thumbnails.elements %}
                                                         {% if category_img_url.width == 800 %}
+                                                            {{ dump(category_img_url) }}
                                                             <img src="{{ category_img_url.url }}"
                                                                  class="landingpage-categories-category img-hover-brightness">
                                                         {% endif %}
