@@ -37,7 +37,7 @@
                     <h2 class="product-detail-name">{{ page.product.translated.name }}</h2>
                     <div class="product-detail-price">
                         <p class="product-detail-price-euros">{{ page.product.calculatedPrice.unitPrice|split('.')[0] }}</p>
-                        <p class="product-detail-price-cents">{{ "%0.2f"|format(page.product.calculatedPrice.unitPrice)|split('.')[1]|default("") }}</p>
+{#                        <p class="product-detail-price-cents">{{ "%0.2f"|format(page.product.calculatedPrice.unitPrice)|split('.')[1]|default("") }}</p>#}
                     </div>
 
                     <div class="product-detail-good-with">
