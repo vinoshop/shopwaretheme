@@ -127,10 +127,10 @@
       margin-bottom: 0;
     }
 
-    &::after {
+    &:before {
       content: '€';
       font-size: 2rem;
-      padding-left: .25rem;
+      padding-right: .25rem;
     }
   }
 
