@@ -1,6 +1,7 @@
 .landingpage {
   max-width: 1920px;
-  width: 1920px;
+  padding-left: 0;
+  padding-right: 0;
 
   p {
     margin-bottom: 0;
@@ -90,6 +91,14 @@
       text-align: center;
     }
 
+    .landingpage-products-helper {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+
     // Medium devices (tablets, 768px and up)
     @media (min-width: 768px) {
       hr {
@@ -154,14 +163,6 @@
       min-height: 18rem;
       height: auto;
       object-fit: cover;
-
-      user-drag: none;
-      -webkit-user-drag: none;
-
-      user-select: none;
-      -moz-user-select: none;
-      -webkit-user-select: none;
-      -ms-user-select: none;
     }
 
     .landingpage-categories-helper {
@@ -169,8 +170,6 @@
       position: relative;
       display: flex;
       justify-content: center;
-      margin-left: 0.5rem;
-      margin-right: 0.5rem;
     }
 
     .landingpage-categories-helper > a {
@@ -215,6 +214,88 @@
       }
     }
   }
+
+  /*.landingpage-newsletter {
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    margin-bottom: 20rem;
+
+    .landingpage-newsletter-input-div {
+      max-width: 36.375rem;
+    }
+
+    @media (max-width: 575.98px) {
+      .landingpage-newsletter-input-div {
+        max-width: 30rem;
+      }
+
+      #landingpage-newsletter-input-field {
+        max-width: 70%;
+      }
+    }
+
+    #landingpage-newsletter-subheader {
+      margin-bottom: 1.25rem;
+      font-size: 1.1rem;
+      text-align: left;
+      font-weight: 600;
+    }
+
+    .landingpage-newsletter-input {
+      display: flex;
+      flex-direction: row;
+      align-content: center;
+      justify-content: left;
+
+      ::placeholder {
+        color: $gray;
+      }
+
+      #landingpage-newsletter-input-field {
+        margin-right: 0.8rem;
+        font-size: 1.4rem;
+        font-weight: 600;
+        font-family: $default_font_family;
+        color: $gray;
+        background-color: $light_gray;
+        max-width: 20rem;
+        border: none;
+        padding-left: .2rem;
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+        max-height: 3rem;
+      }
+
+      #landingpage-newsletter-input-field:focus {
+        outline: none !important;
+      }
+
+      #landingpage-newsletter-input-button {
+        width: 30%;
+        background-color: $red_wine_stain;
+        font-size: 1.25rem;
+        text-align: center;
+        height: 3rem;
+        color: $almost_white;
+        outline: none !important;
+        border: none;
+        padding-right: 1rem;
+        padding-left: 1rem;
+      }
+
+      #landingpage-newsletter-input-button:focus {
+        outline: $chianti_red !important;
+      }
+    }
+
+    #landingpage-newsletter-header {
+      font-size: 1.8rem;
+      text-align: right;
+      font-weight: 800;
+      margin-top: 1.2rem;
+    }
+  }*/
 
   .landingpage-recommendation {
     margin-bottom: 4rem;
