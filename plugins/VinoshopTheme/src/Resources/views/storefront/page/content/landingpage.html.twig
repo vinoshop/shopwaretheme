@@ -81,20 +81,21 @@
                         {% if section_elem.name == "landingpage_categories" %}
                             {% for category in section_elem.blocks.elements|first.slots.elements %}
                                 {% if category.type == "image" %}
+                                    {% set url = ccategory_img_url.url %}
+                                    {% for category_img_url in category.data.media.thumbnails.elements %}
+                                        {% if category_img_url.width == 800 %}
+                                            {% set url = category_img_url.url %}
+                                        {% endif %}
+
+                                    {% endfor %}
                                     <div class="landingpage-categories-helper">
                                         {% for category2 in section_elem.blocks.elements|first.slots.elements %}
                                             {% if category2.type == "text" %}
-                                                {{ dump(category2) }}
                                                 {% if category2.slot|split("-")[0] == category.slot|split("-")[0] %}
                                                     {% set text = category2.data.content %}
-                                                    {% for category_img_url in category.data.media.thumbnails.elements %}
-                                                        {% if category_img_url.width == 800 %}
-                                                            <img src="{{ category_img_url.url }}"
-                                                                 class="landingpage-categories-category img-hover-brightness">
-                                                        {% endif %}
 
-                                                    {% endfor %}
-
+                                                    <img src="{{ url }}"
+                                                         class="landingpage-categories-category img-hover-brightness">
                                                     {{ text|raw }}
                                                 {% endif %}
                                             {% endif %}
