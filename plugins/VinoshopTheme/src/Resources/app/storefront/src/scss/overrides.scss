@@ -36,6 +36,18 @@ body {
   display: none;
 }
 
+.cms-element-product-listing-actions {
+  justify-content: start !important;
+  
+  > .col-md-auto:first-child {
+    display: none;
+  }
+  > .col-md-auto {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+
 
 nav.breadcrumb .breadcrumb-title {
   font-size: 1.25rem;
