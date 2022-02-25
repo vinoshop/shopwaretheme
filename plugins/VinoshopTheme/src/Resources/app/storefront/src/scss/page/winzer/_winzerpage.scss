@@ -54,12 +54,20 @@
 
 
   .winzerpage-story {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 
     .winzerpage-story-header {
       margin-bottom: 2.5rem;
       margin-top: 6.5vh;
       font-size: 1.2rem;
       font-weight: 600;
+    }
+
+    .winzerpage-story-helper {
+      display: flex;
+      justify-content: center;
     }
 
     .winzerpage-story-content {
@@ -72,6 +80,9 @@
     }
 
     .winzerpage-story-quote {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
       max-width: 55rem;
 
       #winzerpage-story-quote-img {
@@ -131,6 +142,15 @@
         font-style: normal;
         width: 100%;
         text-align: right;
+      }
+
+      #winzerpage-story-quote-centerer {
+        display: flex;
+        justify-content: center;
+
+        #winzerpage-story-quote-centerer-2 {
+          width: fit-content;
+        }
       }
     }
   }

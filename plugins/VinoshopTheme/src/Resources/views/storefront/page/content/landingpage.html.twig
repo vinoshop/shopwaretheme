@@ -1,85 +1,87 @@
 {% set large_header_margin = false %}
 {% block landingpage %}
     {% if cmsPage %}
-        <div class="cms-page d-flex justify-content-center">
-            <template data-landing-page-plugin></template>
-            <div class="landingpage">
+        <div class="cms-page">
+            <div class="landingpage container">
                 {% for element in cmsPage.sections.elements %}
                     {% for block_element in element.blocks.elements %}
                         {% set name = block_element.name %}
                         {% if name == "landingpage_top_bg_img" %}
-                            {% for start_img in block_element.backgroundMedia.thumbnails.elements %}
-                                {% if start_img.width == 1920 %}
-                                    <div style="background-image: url({{ start_img.url }})"
-                                         class="landingpage-top">
-
-                                        {% for text_element in cmsPage.sections.elements %}
-                                            {% for block_text_element in text_element.blocks.elements %}
-                                                {% set text_name = block_text_element.name %}
-                                                {% if text_name == "landingpage_top_header" %}
-                                                    {% for text in block_text_element.slots.elements %}
-                                                        <div class="landingpage-top-text container">
-                                                            {{ text.data.content | raw }}
-                                                            <a href="#products" class="display-5">
-                                                                <button id="btn-entdecken"
-                                                                        class="landingpage-top-text-button display-5">
-                                                                    Entdecken
-                                                                </button>
-                                                            </a>
-                                                        </div>
-                                                    {% endfor %}
-                                                {% endif %}
-                                            {% endfor %}
-                                        {% endfor %}
-                                    </div>
+                            {% set url = "" %}
+                            {% for img in block_element.slots.elements|first.data.media.thumbnails.elements %}
+                                {% if img.width == 1920 %}
+                                    {% set url = img.url %}
                                 {% endif %}
                             {% endfor %}
+                            <div style="background-image: url({{ url }})"
+                                 class="landingpage-top">
+
+                                {% for text_element in cmsPage.sections.elements %}
+                                    {% for block_text_element in text_element.blocks.elements %}
+                                        {% set text_name = block_text_element.name %}
+                                        {% if text_name == "landingpage_top_header" %}
+                                            {% for text in block_text_element.slots.elements %}
+                                                <div class="landingpage-top-text container">
+                                                    {{ text.data.content | raw }}
+                                                    <a href="#products" class="display-5">
+                                                        <button class="landingpage-top-text-button display-5">
+                                                            Entdecken
+                                                        </button>
+                                                    </a>
+                                                </div>
+                                            {% endfor %}
+                                        {% endif %}
+                                    {% endfor %}
+                                {% endfor %}
+                            </div>
                         {% endif %}
                     {% endfor %}
                 {% endfor %}
                 <div class="landingpage-products container">
-                <span id="products"></span>
-                <div class="landingpage-products-flex">
-                    <hr>
-                    <h2 class="landingpage-products-header">
+                    <div class="landingpage-products-flex">
+                        <hr>
+                        <h2 id="products" class="landingpage-products-header">
+                            {% for section in cmsPage.sections.elements %}
+                                {% if section.name == "landingpage_products" %}
+                                    {% for block in section.blocks.elements %}
+                                        {% if block.type == "text" %}
+                                            {{ block.slots.elements|first.data.content }}
+                                        {% endif %}
+                                    {% endfor %}
+                                {% endif %}
+                            {% endfor %}
+                        </h2>
+                        <hr>
+                    </div>
+                    <div class="landingpage-products-helper">
                         {% for section in cmsPage.sections.elements %}
                             {% if section.name == "landingpage_products" %}
                                 {% for block in section.blocks.elements %}
-                                    {% if block.type == "text" %}
-                                        {{ block.slots.elements|first.data.content }}
+                                    {% if block.type == "product-slider" %}
+                                        {% if block.slots.elements|first.data.products.elements|length > 0 %}
+                                            {% for product_element in block.slots.elements|first.data.products.elements %}
+                                                {% set product = product_element.data.product %}
+                                                {% do product %}
+                                                {% sw_include '@Storefront/storefront/component/product/card/box-standard.html.twig' with {
+                                                    'product': product_element,
+                                                } %}
+                                            {% endfor %}
+                                        {% else %}
+                                            <p>Keine weiteren Produkte vorhanden</p>
+                                        {% endif %}
                                     {% endif %}
                                 {% endfor %}
                             {% endif %}
                         {% endfor %}
-                    </h2>
-                    <hr>
+                    </div>
                 </div>
-                <div class="d-flex justify-content-center flex-row flex-wrap">
-                    {% for section in cmsPage.sections.elements %}
-                        {% if section.name == "landingpage_products" %}
-                            {% for block in section.blocks.elements %}
-                                {% if block.type == "product-slider" %}
-                                    {% if block.slots.elements|first.data.products.elements|length > 0 %}
-                                        {% for product_element in block.slots.elements|first.data.products.elements %}
-                                            {% set product = product_element.data.product %}
-                                            {% do product %}
-                                            {% sw_include '@Storefront/storefront/component/product/card/box-standard.html.twig' with {
-                                                'product': product_element,
-                                            } %}
-                                        {% endfor %}
-                                    {% endif %}
-                                {% endif %}
-                            {% endfor %}
-                        {% endif %}
-                    {% endfor %}
-                </div>
-            <div>
+
                 <div class="landingpage-categories container ">
                     {% for section_elem in cmsPage.sections.elements %}
                         {% if section_elem.name == "landingpage_categories" %}
                             {% for category in section_elem.blocks.elements|first.slots.elements %}
                                 {% if category.type == "image" %}
-                                    <div class="landingpage-categories-helper d-flex justify-content-center">
+                                    <div class="landingpage-categories-helper">
                                         {% for category2 in section_elem.blocks.elements|first.slots.elements %}
                                             {% if category2.type == "text" %}
                                                 {% if category2.slot|split("-")[0] == category.slot|split("-")[0] %}
@@ -146,5 +148,4 @@
         </div>
     {% endif %}
 {% endblock %}
-
 
