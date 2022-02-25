@@ -17,13 +17,13 @@
   }
 
   .price {
-    font-weight: 600;
-    font-size: 1.25rem;
+    //font-weight: 600;
+    font-size: 1.1rem;
     text-align: right;
     margin-bottom: 0;
 
-    &::after {
-      content: ' €';
+    &::before {
+      content: '€ ';
 
     }
   }
