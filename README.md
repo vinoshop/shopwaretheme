@@ -45,9 +45,9 @@ bin/console theme:change
 bin/console cache:clear
 ```
 
-###Password for admin
+### Password for admin
 ```
-Shopware
+shopware
 ```
 
 ### Password for MySQL
