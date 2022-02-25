@@ -1,14 +1,13 @@
 .winzerpage {
   max-width: 1920px;
-  padding-left: 0;
-  padding-right: 0;
+  width: 1920px;
 
   p {
     margin-bottom: 0;
   }
 
   .winzerpage-img {
-    height: calc(100vh - 5rem);
+    height: 80vh;
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
@@ -21,7 +20,7 @@
 
   @media (max-width: 576px) {
     .winzerpage-img {
-      height: 40vh;
+      height: 70vh;
     }
   }
 
@@ -29,6 +28,8 @@
     background-color: $chianti_red;
     max-width: 70%;
     padding: 1.5rem 0 1.5rem 0;
+
+
 
     h1, p {
       text-align: center;
@@ -76,9 +77,6 @@
     }
 
     .winzerpage-story-quote {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
       max-width: 55rem;
 
       #winzerpage-story-quote-img {
@@ -219,15 +217,6 @@
   }
 }
 
-.carousel-item-max-height {
-  max-height: 40rem;
-  height: 40rem;
-
-
-}
-
-.carousel-divs {
-  background-repeat: no-repeat;
-  background-size: contain;
-  background-position: center;
+.item-width {
+  max-width: 75%;
 }
