@@ -83,8 +83,8 @@
                                 {% if category.type == "image" %}
                                     <div class="landingpage-categories-helper">
                                         {% for category2 in section_elem.blocks.elements|first.slots.elements %}
-                                            {{ dump(category2) }}
                                             {% if category2.type == "text" %}
+                                                {{ dump(category2) }}
                                                 {% if category2.slot|split("-")[0] == category.slot|split("-")[0] %}
                                                     {% set text = category2.data.content %}
                                                     {% for category_img_url in category.data.media.thumbnails.elements %}
