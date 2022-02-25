@@ -19,7 +19,8 @@
                                                 <div class="landingpage-top-text container">
                                                     {{ text.data.content | raw }}
                                                     <a href="#products" class="display-5">
-                                                        <button id="btn-entdecken" class="landingpage-top-text-button display-5">
+                                                        <button id="btn-entdecken"
+                                                                class="landingpage-top-text-button display-5">
                                                             Entdecken
                                                         </button>
                                                     </a>
@@ -49,93 +50,109 @@
                         </h2>
                         <hr>
                     </div>
-                    <div class="landingpage-products-helper">
+                    <div class="d-flex justify-content-center flex-row flex-wrap">
                         {% for section in cmsPage.sections.elements %}
-                            {% if section.name == "landingpage_products" %}
-                                {% for block in section.blocks.elements %}
-                                    {% if block.type == "product-slider" %}
-                                        {% if block.slots.elements|first.data.products.elements|length > 0 %}
-                                            {% for product_element in block.slots.elements|first.data.products.elements %}
-                                                {% set product = product_element.data.product %}
-                                                {% do product %}
-                                                {% sw_include '@Storefront/storefront/component/product/card/box-standard.html.twig' with {
-                                                    'product': product_element,
-                                                } %}
-                                            {% endfor %}
-                                        {% else %}
-                                            <p>Keine weiteren Produkte vorhanden</p>
+                        {% if section.name == "landingpage_products" %}
+                        {% for block in section.blocks.elements %}
+                        {% if block.type == "product-slider" %}
+                        {% if block.slots.elements|first.data.products.elements|length > 0 %}
+                        {% set i = 1 %}
+                            {% for product_element in block.slots.elements|first.data.products.elements %}
+                            {% set product = product_element.data.product %}
+                            {% do product %}
+
+                            {% if i % 2 == 1 %}
+                            <div class="d-flex flex-row justify-content-center">
+                            {% sw_include '@Storefront/storefront/component/product/card/box-standard.html.twig' with {
+                                'product': product_element,
+                            } %}
+                            {% set i = i + 1 %}
+                                {% if loop.last %}
+                                    peeeepeeee
+                                     </div>
+                                {% endif %}
+                        {% else %}
+                            {% sw_include '@Storefront/storefront/component/product/card/box-standard.html.twig' with {
+                                'product': product_element,
+                            } %}
+                            {% set i = i + 1 %}
+                            </div>
+                    {% endif %}
+                    {% endfor %}
+            {% else %}
+                <p>Keine weiteren Produkte vorhanden</p>
+                {% endif %}
+                {% endif %}
+                {% endfor %}
+                {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+
+        <div class="landingpage-categories container ">
+            {% for section_elem in cmsPage.sections.elements %}
+                {% if section_elem.name == "landingpage_categories" %}
+                    {% for category in section_elem.blocks.elements|first.slots.elements %}
+                        {% if category.type == "image" %}
+                            <div class="landingpage-categories-helper">
+                                {% for category2 in section_elem.blocks.elements|first.slots.elements %}
+                                    {% if category2.type == "text" %}
+                                        {# {{ dump(category2) }} #}
+                                        {% if category2.slot|split("-")[0] == category.slot|split("-")[0] %}
+                                            {% set text = category2.data.content %}
+                                            <img src="{{ category.data.media.url }}"
+                                                 class="landingpage-categories-category img-hover-brightness">
+                                            {{ text|raw }}
                                         {% endif %}
                                     {% endif %}
                                 {% endfor %}
+                            </div>
+                        {% endif %}
+                    {% endfor %}
+                {% endif %}
+            {% endfor %}
+        </div>
+        <div class="landingpage-recommendation-header container">
+        {% set winzer = "" %}
+        {% for section in cmsPage.sections.elements %}
+            {% if section.name == "landingpage_winzer" %}
+                {% for winzer_elem in section.blocks.elements %}
+                    {% if winzer_elem.name == 'landingpage_winzer_name' %}
+                        {% for winzer_elem_product in section.blocks.elements %}
+                            {% if winzer_elem_product.name == 'landingpage_winzer_products' %}
+                                {% set winzer =
+                                    {
+                                        name: winzer_elem_product.slots.elements|first.data.products.elements|first.manufacturer.name|lower|replace({ ' ': '-'}),
+                                        slug: winzer_elem_product.slots.elements|first.data.products.elements|first.manufacturer.customFields.vs_winzer_slug
+                                    } %}
                             {% endif %}
                         {% endfor %}
-                    </div>
-                </div>
-
-                <div class="landingpage-categories container ">
-                    {% for section_elem in cmsPage.sections.elements %}
-                        {% if section_elem.name == "landingpage_categories" %}
-                            {% for category in section_elem.blocks.elements|first.slots.elements %}
-                                {% if category.type == "image" %}
-                                    <div class="landingpage-categories-helper">
-                                        {% for category2 in section_elem.blocks.elements|first.slots.elements %}
-                                            {% if category2.type == "text" %}
-                                                {# {{ dump(category2) }} #}
-                                                {% if category2.slot|split("-")[0] == category.slot|split("-")[0] %}
-                                                    {% set text = category2.data.content %}
-                                                    <img src="{{ category.data.media.url }}"
-                                                         class="landingpage-categories-category img-hover-brightness">
-                                                    {{ text|raw }}
-                                                {% endif %}
-                                            {% endif %}
-                                        {% endfor %}
-                                    </div>
-                                {% endif %}
-                            {% endfor %}
-                        {% endif %}
-                    {% endfor %}
-                </div>
-                <div class="landingpage-recommendation-header container">
-                    {% set winzer = "" %}
-                    {% for section in cmsPage.sections.elements %}
-                    {% if section.name == "landingpage_winzer" %}
-                    {% for winzer_elem in section.blocks.elements %}
-                    {% if winzer_elem.name == 'landingpage_winzer_name' %}
-                    {% for winzer_elem_product in section.blocks.elements %}
-                        {% if winzer_elem_product.name == 'landingpage_winzer_products' %}
-                            {% set winzer =
-                                {
-                                    name: winzer_elem_product.slots.elements|first.data.products.elements|first.manufacturer.name|lower|replace({ ' ': '-'}),
-                                    slug: winzer_elem_product.slots.elements|first.data.products.elements|first.manufacturer.customFields.vs_winzer_slug
-                                } %}
-                        {% endif %}
-                    {% endfor %}
-                    <hr>
-                    <h2 class="landingpage-recommendation-header-size">
-                        <a href="/winzer/{{ winzer.slug }}">{{ winzer_elem.slots.elements|first.data.content }} </a>
-                    </h2>
-                    <hr>
-                </div>
-                <div class="landingpage-recommendation">
+                        <hr>
+                        <h2 class="landingpage-recommendation-header-size">
+                            <a href="/winzer/{{ winzer.slug }}">{{ winzer_elem.slots.elements|first.data.content }} </a>
+                        </h2>
+                        <hr>
+                        </div>
+                        <div class="landingpage-recommendation">
                     {% elseif winzer_elem.name == 'landingpage_winzer_pic' %}
-                    <div class="container landingpage-recommendation-graybg">
+                        <div class="container landingpage-recommendation-graybg">
                         <div style="background-image: url('{{ winzer_elem.slots.elements|first.data.media.url }}');"
                              class="landingpage-recommendation-winzer"></div>
                         <div class="landingpage-recommendation-products container">
-                            {% elseif winzer_elem.name == 'landingpage_winzer_products' %}
-                                {% for winzer_product in winzer_elem.slots.elements|first.data.products.elements %}
-                                    {% sw_include '@Storefront/storefront/component/product/card/box.html.twig' with {
-                                        'product': winzer_product
-                                    } %}
-                                {% endfor %}
-                            {% endif %}
-                            {% endfor %}
-                        </div>
-                        {% endif %}
+                    {% elseif winzer_elem.name == 'landingpage_winzer_products' %}
+                        {% for winzer_product in winzer_elem.slots.elements|first.data.products.elements %}
+                            {% sw_include '@Storefront/storefront/component/product/card/box.html.twig' with {
+                                'product': winzer_product
+                            } %}
                         {% endfor %}
-                    </div>
+                    {% endif %}
+                {% endfor %}
                 </div>
-            </div>
+            {% endif %}
+        {% endfor %}
+        </div>
+        </div>
+        </div>
         </div>
     {% endif %}
 {% endblock %}
