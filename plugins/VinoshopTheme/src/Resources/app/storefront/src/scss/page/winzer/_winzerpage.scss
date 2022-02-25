@@ -30,7 +30,6 @@
     padding: 1.5rem 0 1.5rem 0;
 
 
-
     h1, p {
       text-align: center;
       color: $almost_white;
@@ -52,9 +51,6 @@
 
 
   .winzerpage-story {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
 
     .winzerpage-story-header {
       margin-bottom: 2.5rem;
@@ -62,17 +58,12 @@
       font-weight: 600;
     }
 
-    .winzerpage-story-helper {
-      display: flex;
-      justify-content: center;
-    }
-
     .winzerpage-story-content {
       max-width: 60rem;
       /*margin-left: 12rem;
       margin-right: 12rem;*/
       font-size: 1rem;
-      margin-bottom: 3.6rem;
+      margin-bottom: 1.5rem;
       text-align: justify;
     }
 
@@ -84,8 +75,7 @@
         background-repeat: no-repeat;
         background-position: center;
         background-size: cover;
-        margin-bottom: 1rem;
-        max-width: 55rem;
+        width: 100%;
         min-height: 7rem;
       }
 
@@ -100,18 +90,14 @@
         }
       }
 
-      @media (max-width: 768px) {
-
-      }
-
       #winzerpage-story-quote-img-2 {
         background-image: url("/bundles/vinoshoptheme/winzerpage/20211123_PVS_Weinblatt_Citation_Line_v4.svg");
         background-repeat: no-repeat;
         background-position: center;
         background-size: cover;
-        margin-bottom: 3.6rem;
-        margin-top: 2.25rem;
-        max-width: 55rem;
+        margin-bottom: 3rem;
+        margin-top: 2rem;
+        width: 100%;
         min-height: 2rem;
       }
 
@@ -121,6 +107,7 @@
         font-style: italic;
         width: 100%;
         text-align: center;
+        margin-top: 1rem;
       }
 
       .winzerpage-story-quote-name {
@@ -130,20 +117,7 @@
         width: 100%;
         text-align: right;
       }
-
-      #winzerpage-story-quote-centerer {
-        display: flex;
-        justify-content: center;
-
-        #winzerpage-story-quote-centerer-2 {
-          width: fit-content;
-        }
-      }
     }
-  }
-
-  @media (min-width: 576px) {
-
   }
 
   .winzerpage-media {
@@ -162,14 +136,14 @@
     .winzerpage-media-header {
       font-size: 1.2rem;
       font-weight: 600;
-      margin-top: 5rem;
-      margin-bottom: 4.6rem;
+      margin-top: 2.5rem;
+      margin-bottom: 2.5rem;
     }
 
     .winzerpage-media-video {
       display: flex;
       justify-content: center;
-      margin-top: 7rem;
+      margin-top: 4rem;
 
       .winzerpage-media-video-size {
         max-width: 60rem;
@@ -204,7 +178,8 @@
     .winzerpage-products-header {
       font-size: 1.2rem;
       font-weight: 600;
-      margin: 5rem 0 4.6rem;
+      margin-top: 4rem;
+      margin-bottom: 2.5rem;
     }
 
     .winzerpage-products-flexbox {
@@ -213,6 +188,7 @@
       flex-wrap: wrap;
       margin-left: 2rem;
       margin-right: 2rem;
+      margin-bottom: 4rem;
     }
   }
 }

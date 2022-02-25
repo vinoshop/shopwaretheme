@@ -14,17 +14,17 @@
                     </div>
                 </div>
 
-                <div class="winzerpage-story container">
+                <div class="winzerpage-story container d-flex justify-content-center flex-column">
                     {# beschreibung #}
                     <h4 class="winzerpage-story-header">{{ manufacturer.customFields['vs_winzer_story_header']|raw }}</h4>
-                    <div class="winzerpage-story-helper">
+                    <div class="d-flex justify-content-center">
                         <p class="winzerpage-story-content">
                             {{ manufacturer.customFields['vs_winzer_story_p1']|raw }}
                         </p>
                     </div>
 
                     {# Quote #}
-                    <div class="winzerpage-story-quote d-flex align-self-center">
+                    <div class="winzerpage-story-quote d-flex align-self-center flex-column">
                         <div id="winzerpage-story-quote-img"></div>
                         <div id="winzerpage-story-quote-centerer">
                             <div id="winzerpage-story-quote-centerer-2">
@@ -36,7 +36,7 @@
                         </div>
                         <div id="winzerpage-story-quote-img-2"></div>
                     </div>
-                    <div class="winzerpage-story-helper">
+                    <div class="d-flex justify-content-center">
                         <p class="winzerpage-story-content">
                             {{ manufacturer.customFields['vs_winzer_story_p2']|raw }}
                         </p>
