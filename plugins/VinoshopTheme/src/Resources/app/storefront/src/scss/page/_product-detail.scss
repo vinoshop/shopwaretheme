@@ -207,10 +207,10 @@
       padding: 1rem;
       display: block;
       position: relative;
-      height: 10rem;
+      height: 19rem;
 
       @media (max-width: 540px) {
-        height: calc(20rem - 50vw + 10rem);
+        height: calc(20rem - 50vw + 15rem);
       }
 
       &-description {
