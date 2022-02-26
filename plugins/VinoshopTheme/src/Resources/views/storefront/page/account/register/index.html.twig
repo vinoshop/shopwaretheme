@@ -96,9 +96,9 @@
                                             {% endblock %}
                                         </div>
 
-                                        <div class="login-submit">
+                                        <div class="login-submit d-flex justify-content-center">
                                             <button type="submit"
-                                                    class="btn btn-primary login-btn-width d-flex justify-content-center">
+                                                    class="btn btn-primary login-btn-width ">
                                                 {{ "account.loginSubmit"|trans|sw_sanitize }}
                                             </button>
                                         </div>
@@ -106,7 +106,7 @@
                                 {% endblock %}
 
                                 <hr>
-                                <form action="{{ path('frontend.account.register.page') }}"
+                                <form class="d-flex justify-content-center" action="{{ path('frontend.account.register.page') }}"
                                       method="get">
 
                                     <input type="hidden"
@@ -117,7 +117,7 @@
                                            name="redirectParameters"
                                            value="{{ redirectParameters }}">
 
-                                    <button class="btn btn-secondary login-btn-width d-flex justify-content-center" type="submit">
+                                    <button class="btn btn-secondary login-btn-width" type="submit">
                                         Neuen Account erstellen
                                     </button>
                                 </form>
