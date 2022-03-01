@@ -33,13 +33,13 @@
     top: 6vh;
 
 
-    h1, p {
+    h1, h2 {
       text-align: center;
       color: $almost_white;
       letter-spacing: 0.2rem;
     }
 
-    p {
+    h2 {
       font-size: 1.25rem;
       font-weight: lighter;
       margin-bottom: 0;
@@ -75,7 +75,6 @@
       /*margin-left: 12rem;
       margin-right: 12rem;*/
       font-size: 1rem;
-      margin-bottom: 1.5rem;
       text-align: justify;
     }
 
@@ -92,6 +91,7 @@
         background-size: cover;
         width: 100%;
         min-height: 7rem;
+        margin-top: 1.5rem;
       }
 
       @media (max-width: 576px) {
@@ -171,7 +171,7 @@
     .winzerpage-media-header {
       font-size: 1.2rem;
       font-weight: 600;
-      margin-top: 2.5rem;
+      margin-top: 4rem;
       margin-bottom: 2.5rem;
     }
 

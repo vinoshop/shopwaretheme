@@ -10,13 +10,13 @@
                     <div class="winzerpage-name container d-flex flex-column justify-content-center">
                         {# Daten #}
                         <h1>{{ manufacturer.name }}</h1>
-                        <p>{{ manufacturer.customFields['vs_winzer_bundesland'] }}</p>
+                        <h2>{{ manufacturer.customFields['vs_winzer_bundesland'] }}</h2>
                     </div>
                 </div>
 
                 <div class="winzerpage-story container d-flex justify-content-center flex-column">
                     {# beschreibung #}
-                    <h4 class="winzerpage-story-header">{{ manufacturer.customFields['vs_winzer_story_header']|raw }}</h4>
+                    <h3 class="winzerpage-story-header">{{ manufacturer.customFields['vs_winzer_story_header']|raw }}</h3>
                     <div class="d-flex justify-content-center">
                         <p class="winzerpage-story-content">
                             {{ manufacturer.customFields['vs_winzer_story_p1']|raw }}
@@ -42,89 +42,99 @@
                         </p>
                     </div>
                 </div>
-                <div class="winzerpage-media container">
-                    {# Galerie #}
-                    <div class="winzerpage-media-helper">
-                        <p class="winzerpage-media-header">
-                            {% if manufacturer.customFields['vs_winzer_imageGallery_header'] %}
-                                {{ manufacturer.customFields['vs_winzer_imageGallery_header'] }}
-                            {% else %}
-                                ZU BESUCH BEIM WINZERHOF
-                            {% endif %}
-                        </p>
-                        {# ImageSlider #}
-                        {% set images = manufacturer.customFields['vs_winzer_media']|split(';') %}
-                        {% set index = 0 %}
-                        <div id="imageSlider" class="carousel slide w-100" data-ride="carousel">
-                            <ol class="carousel-indicators ">
-                                {% for image in images %}
-                                    {% if loop.first %}
-                                        <li data-target="#imageSlider" data-slide-to="{{ index }}" class="active"></li>
-                                        {% set index = index + 1 %}
+
+                {% if manufacturer.customFields['vs_winzer_media'] or manufacturer.customFields['vs_winzer_video'] %}
+                    <div class="winzerpage-media container">
+                        {# Galerie #}
+                        <div class="winzerpage-media-helper">
+                            {% if manufacturer.customFields["vs_winzer_imageGallery_header"] %}
+                                <h3 class="winzerpage-media-header">
+                                    {% if manufacturer.customFields['vs_winzer_imageGallery_header'] %}
+                                        {{ manufacturer.customFields['vs_winzer_imageGallery_header'] }}
                                     {% else %}
-                                        <li data-target="#imageSlider" data-slide-to="{{ index }}"></li>
-                                        {% set index = index + 1 %}
+                                        ZU BESUCH BEIM WINZERHOF
                                     {% endif %}
-                                {% endfor %}
-                            </ol>
-                            <div class="carousel-inner ">
+                                </h3>
+                            {% endif %}
+                            {# ImageSlider #}
+                            {% if  manufacturer.customFields["vs_winzer_media"] %}
+                                {% set images = manufacturer.customFields['vs_winzer_media']|split(';') %}
                                 {% set index = 0 %}
-                                {% for image in images %}
-                                    {% if loop.first %}
-                                        <div class="carousel-item active  ">
-                                            <img class="d-block mx-auto item-width" src="{{ image }}" class="d-block mx-auto"  alt="{{ image }}">
-                                            {#<div style="background-image: url('{{ image }}');"
+                                <div id="imageSlider" class="carousel slide w-100" data-ride="carousel">
+                                    <ol class="carousel-indicators ">
+                                        {% for image in images %}
+                                            {% if loop.first %}
+                                                <li data-target="#imageSlider" data-slide-to="{{ index }}" class="active"></li>
+                                                {% set index = index + 1 %}
+                                            {% else %}
+                                                <li data-target="#imageSlider" data-slide-to="{{ index }}"></li>
+                                                {% set index = index + 1 %}
+                                            {% endif %}
+                                        {% endfor %}
+                                    </ol>
+                                    <div class="carousel-inner ">
+                                        {% set index = 0 %}
+                                        {% for image in images %}
+                                            {% if loop.first %}
+                                                <div class="carousel-item active  ">
+                                                    <img class="d-block mx-auto item-width" src="{{ image }}" class="d-block mx-auto"  alt="{{ image }}">
+                                                    {#<div style="background-image: url('{{ image }}');"
                                                  class="d-block mx-auto carousel-divs carousel-item-max-height"></div>#}
-                                        </div>
-                                        {% set index = index + 1 %}
-                                    {% else %}
-                                        <div class="carousel-item">
-                                            {#<div style="background-image: url('{{ image }}');"
+                                                </div>
+                                                {% set index = index + 1 %}
+                                            {% else %}
+                                                <div class="carousel-item">
+                                                    {#<div style="background-image: url('{{ image }}');"
                                                  class=" carousel-item-max-height carousel-divs">
                                             </div>#}
-                                           <img class="d-block mx-auto item-width" src="{{ image }}" alt="{{ image }}">
-                                        </div>
-                                        {% set index = index + 1 %}
-                                    {% endif %}
-                                {% endfor %}
-                            </div>
-                            <a class="carousel-control-prev" href="#imageSlider" role="button" data-slide="prev">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="#1a1818"
-                                     class="bi bi-chevron-left" viewBox="0 0 16 16">
-                                    <path fill-rule="evenodd"
-                                          d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z"/>
-                                </svg>
-                                <span class="sr-only">Previous</span>
-                            </a>
-                            <a class="carousel-control-next" href="#imageSlider" role="button" data-slide="next">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="#1a1818"
-                                     class="bi bi-chevron-right" viewBox="0 0 16 16">
-                                    <path fill-rule="evenodd"
-                                          d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
-                                </svg>
-                                <span class="sr-only">Next</span>
-                            </a>
-                        </div>
+                                                    <img class="d-block mx-auto item-width" src="{{ image }}" alt="{{ image }}">
+                                                </div>
+                                                {% set index = index + 1 %}
+                                            {% endif %}
+                                        {% endfor %}
+                                    </div>
+                                    <a class="carousel-control-prev" href="#imageSlider" role="button" data-slide="prev">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="#1a1818"
+                                             class="bi bi-chevron-left" viewBox="0 0 16 16">
+                                            <path fill-rule="evenodd"
+                                                  d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z"/>
+                                        </svg>
+                                        <span class="sr-only">Previous</span>
+                                    </a>
+                                    <a class="carousel-control-next" href="#imageSlider" role="button" data-slide="next">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="#1a1818"
+                                             class="bi bi-chevron-right" viewBox="0 0 16 16">
+                                            <path fill-rule="evenodd"
+                                                  d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
+                                        </svg>
+                                        <span class="sr-only">Next</span>
+                                    </a>
+                                </div>
+                            {% endif %}
 
-                        {# Video #}
-                        <div class="winzerpage-media-video">
-                            <iframe class="winzerpage-media-video-size"
-                                    src="{{ manufacturer.customFields['vs_winzer_video'] }}"
-                                    title="YouTube video player" frameborder="0"
-                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                                    allowfullscreen></iframe>
+                            {# Video #}
+                            {% if manufacturer.customFields['vs_winzer_video'] %}
+                                <div class="winzerpage-media-video">
+                                    <iframe class="winzerpage-media-video-size"
+                                            src="{{ manufacturer.customFields['vs_winzer_video'] }}"
+                                            title="YouTube video player" frameborder="0"
+                                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                            allowfullscreen></iframe>
+                                </div>
+                            {% endif %}
                         </div>
                     </div>
-                </div>
+                {% endif %}
+
                 <div class="winzerpage-products container">
                     {# restliche Produkte #}
-                    <p class="winzerpage-products-header">
+                    <h3 class="winzerpage-products-header">
                         {% if manufacturer.customFields['vs_winzer_products_header'] %}
                             {{ manufacturer.customFields['vs_winzer_products_header'] }}
                         {% else %}
                             PRÄMIERTE WEINE VON MAX MUSTERMANN
                         {% endif %}
-                    </p>
+                    </h3>
                     <div class="winzerpage-products-flexbox">
                         {# produkte #}
                         {% for product in manufacturer.products.elements %}
