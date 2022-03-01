@@ -168,6 +168,10 @@
       }
     }
 
+    #imageSlider {
+      margin-bottom: 2.5rem;
+    }
+
     .winzerpage-media-header {
       font-size: 1.2rem;
       font-weight: 600;
@@ -178,7 +182,6 @@
     .winzerpage-media-video {
       display: flex;
       justify-content: center;
-      margin-top: 4rem;
 
       .winzerpage-media-video-size {
         max-width: 60rem;
