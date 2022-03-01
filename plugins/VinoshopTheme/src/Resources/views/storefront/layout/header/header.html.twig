@@ -1,3 +1,5 @@
+{% sw_extends '@Storefront/storefront/layout/header/header.html.twig' %}
+
 {% block layout_header %}
     {% block layout_header_navigation %}
         <div class="row align-items-center header-row bg-black">
@@ -49,7 +51,7 @@
                         </div>
                         <div class="col-auto">
                             <div class="cart-menu action"
-                                 data-offcanvas-cart="true">
+                                 data-offcanvas-menu="true">
                                 {% sw_icon 'shopping-bag' style {
                                     namespace: 'VinoshopTheme',
                                     pack: 'fontawesome'
