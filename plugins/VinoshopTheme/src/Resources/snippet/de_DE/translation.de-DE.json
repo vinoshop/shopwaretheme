@@ -8,6 +8,17 @@
       "steak": "Steak",
       "wild": "Wild",
       "salat": "Salat"
+    },
+    "vs_winzer_bundesland": {
+      "vienna" : "Wien",
+      "lower_austria" : "Niederösterreich",
+      "upper_austria" : "Oberösterreich",
+      "styria" : "Steiermark",
+      "carinthia" : "Kärnten",
+      "tyrol" : "Tirol",
+      "salzburg" : "Salzburg",
+      "burgenland" : "burgenland",
+      "vorarlberg" : "vorarlberg"
     }
   }
 }
