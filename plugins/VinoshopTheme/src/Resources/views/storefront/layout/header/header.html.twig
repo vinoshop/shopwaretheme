@@ -50,13 +50,13 @@
                             </div>
                         </div>
                         <div class="col-auto">
-                            <div class="cart-menu action"
-                                 data-offcanvas-menu="true">
+                            <a class="cart-menu action"
+                                 href="{{ path("frontend.checkout.cart.page") }}">
                                 {% sw_icon 'shopping-bag' style {
                                     namespace: 'VinoshopTheme',
                                     pack: 'fontawesome'
                                 } %}
-                            </div>
+                            </a>
                         </div>
                         <div class="col-auto">
                             <div class="account-menu action">
