@@ -41,7 +41,16 @@ custom fields:
 * ``vs_winzer_bundesland`` type ``Select field``
   * ``Position: `` 2
   * ``Label: `` Bundesland
-  * Bundeslandname : Bundeslandname 9x
+  * (Bundeslandname : Bundeslandname 9x)
+  * vienna : Wien
+  * lower_austria : Niederösterreich
+  * upper_austria : Oberösterreich
+  * styria : Steiermark
+  * carinthia : Kärnten
+  * tyrol : Tirol
+  * salzburg: Salzburg
+  * burgenland : burgenland
+  * vorarlberg : vorarlberg
 
 
 * ``vs_winzer_story_header`` type ``text field``
