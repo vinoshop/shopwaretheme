@@ -1,3 +1,12 @@
+.allWinzer-header {
+  padding: 0.75rem 0;
+  margin-bottom: 1rem;
+  margin-top: 2rem;
+  font-weight: bolder;
+  font-size: 1.25rem;
+  color: #B20038;
+}
+
 .allWinzer {
   font-family: $default_font_family;
   color: $almost_black;
@@ -32,6 +41,7 @@
     border: 1px $light_gray solid;
     max-height: 12rem;
   }
+
   .allWinzer-hyperlink:hover {
     text-decoration: none;
   }
