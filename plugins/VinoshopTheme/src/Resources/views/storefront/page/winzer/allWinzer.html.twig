@@ -1,6 +1,6 @@
 {% sw_extends '@Storefront/storefront/base.html.twig' %}
 {% block base_main %}
-    <div class="container allWinzer d-flex flex-wrap justify-content-center">
+    <div class="container allWinzer d-flex flex-wrap justify-content-center align-content-start">
         {% for manufacturer in manufacturers.entities.elements %}
             <a class="allWinzer-hyperlink" href="{{ path('frontend.winzer.winzer', { 'slug' : manufacturer.customFields.vs_winzer_slug }) }}">
                 <div class="d-flex manufacturer-card">
