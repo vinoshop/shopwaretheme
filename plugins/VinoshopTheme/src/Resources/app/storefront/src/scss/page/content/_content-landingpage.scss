@@ -1,7 +1,7 @@
 .landingpage {
   max-width: 1920px;
-  padding-left: 0;
-  padding-right: 0;
+  margin-left: auto;
+  margin-right: auto;
 
   p {
     margin-bottom: 0;
@@ -217,14 +217,16 @@
 
   .landingpage-recommendation {
     margin-bottom: 4rem;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
 
-    .landingpage-recommendation-graybg {
+    .landingpage-recommendation-gray {
       background-color: $light_gray;
-      padding-left: 0;
-      padding-right: 0;
-
+      width: inherit;
       display: flex;
       flex-direction: row;
+      flex-wrap: wrap;
     }
 
     .landingpage-recommendation-products {
@@ -235,20 +237,26 @@
       height: max-content;
       align-self: center;
       margin-top: 3rem;
+      width: fit-content;
+      flex-wrap: wrap;
+      margin-left: auto;
+      margin-right: auto;
     }
 
     .landingpage-recommendation-winzer {
       height: 30rem;
-      width: 70%;
       min-width: 250px;
-      aspect-ratio: 1;
-      background-repeat: no-repeat;
-      background-size: cover;
-      background-position: center;
+    }
+
+    @media (max-width: 1199.98px) {
+      .landingpage-recommendation-winzer {
+        width: 100%;
+        object-fit: cover;
+      }
     }
   }
 
-  @media (max-width: 767.98px) {
+  /*@media (max-width: 767.98px) {
     .landingpage-recommendation {
 
       .landingpage-recommendation-graybg {
@@ -285,7 +293,7 @@
       flex-direction: row;
       align-content: center;
     }
-  }
+  }*/
 
   .landingpage-recommendation-header {
     display: flex;

@@ -2,7 +2,7 @@
 {% block landingpage %}
     {% if cmsPage %}
         <div class="cms-page">
-            <div class="landingpage container">
+            <div class="landingpage">
                 {% for element in cmsPage.sections.elements %}
                     {% for block_element in element.blocks.elements %}
                         {% set name = block_element.name %}
@@ -75,28 +75,30 @@
                         {% endfor %}
                     </div>
                 </div>
-
+                {#{{ dump() }}#}
                 <div class="landingpage-categories container ">
                     {% for section_elem in cmsPage.sections.elements %}
                         {% if section_elem.name == "landingpage_categories" %}
                             {% for category in section_elem.blocks.elements|first.slots.elements %}
                                 {% if category.type == "image" %}
-                                    {% set url = ccategory_img_url.url %}
-                                    {% for category_img_url in category.data.media.thumbnails.elements %}
-                                        {% if category_img_url.width == 800 %}
-                                            {% set url = category_img_url.url %}
-                                        {% endif %}
-
-                                    {% endfor %}
                                     <div class="landingpage-categories-helper">
                                         {% for category2 in section_elem.blocks.elements|first.slots.elements %}
                                             {% if category2.type == "text" %}
                                                 {% if category2.slot|split("-")[0] == category.slot|split("-")[0] %}
                                                     {% set text = category2.data.content %}
-
-                                                    <img src="{{ url }}"
-                                                         class="landingpage-categories-category img-hover-brightness">
+                                                    {% sw_thumbnails 'category-th' with {
+                                                        media: category.data.media,
+                                                        attributes: {
+                                                            class: 'landingpage-categories-category img-hover-brightness'
+                                                        },
+                                                        sizes: {
+                                                            'default': '300px'
+                                                        }
+                                                    } %}
                                                     {{ text|raw }}
+
+                                                   {# <a href="{{ path('frontend.navigation.page', { 'navigationId' : '83554a0d395f494ab9b7f2a62f5c3258'}) }}">adfadsfasdf</a>#}
+
                                                 {% endif %}
                                             {% endif %}
                                         {% endfor %}
@@ -123,16 +125,23 @@
                     {% endfor %}
                     <hr>
                     <h2 class="landingpage-recommendation-header-size">
-                        <a href="/winzer/{{ winzer.slug }}">{{ winzer_elem.slots.elements|first.data.content }} </a>
+                        <a href="{{ path('frontend.winzer.winzer', { 'slug' : winzer.slug }) }}">{{ winzer_elem.slots.elements|first.data.content }}</a>
                     </h2>
                     <hr>
                 </div>
                 <div class="landingpage-recommendation container">
                     {% elseif winzer_elem.name == 'landingpage_winzer_pic' %}
-                    <div class="container landingpage-recommendation-graybg">
-                        <div style="background-image: url('{{ winzer_elem.slots.elements|first.data.media.url }}');"
-                             class="landingpage-recommendation-winzer"></div>
-                        <div class="landingpage-recommendation-products container">
+                    <div class="landingpage-recommendation-gray">
+                        {% sw_thumbnails 'recommended-winzer-th' with {
+                            media: winzer_elem.slots.elements|first.data.media,
+                            attributes: {
+                                class: 'landingpage-recommendation-winzer'
+                            },
+                            sizes: {
+                                'default': '800px'
+                            }
+                        } %}
+                        <div class="landingpage-recommendation-products">
                             {% elseif winzer_elem.name == 'landingpage_winzer_products' %}
                                 {% for winzer_product in winzer_elem.slots.elements|first.data.products.elements %}
                                     {% sw_include '@Storefront/storefront/component/product/card/box.html.twig' with {

@@ -2,20 +2,36 @@
   font-family: $default_font_family;
   color: $almost_black;
   background-color: $almost_white;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  gap: 1rem;
 
   .manufacturer-card {
-    margin-top: 1rem;
-    min-width: 25rem;
+    margin: 1rem;
+    max-width: 30rem;
+    width: 30rem;
 
+    div {
+      max-width: 20rem;
+      color: $gray;
+    }
 
     img {
       pointer-events: none;
       user-select: none;
       margin-right: 1rem;
+      float: left;
+      max-height: 150px;
+      max-width: 150px;
+      min-width: 150px;
     }
   }
 
+  .allWinzer-hyperlink {
+    border: 1px $light_gray solid;
+  }
   .allWinzer-hyperlink:hover {
     text-decoration: none;
   }
+
 }
