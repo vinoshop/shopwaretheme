@@ -5,6 +5,7 @@
   margin-top: 1rem;
   margin-bottom: 1rem;
   gap: 1rem;
+  min-height: 65vh;
 
   .manufacturer-card {
     margin: 1rem;
@@ -29,6 +30,7 @@
 
   .allWinzer-hyperlink {
     border: 1px $light_gray solid;
+    max-height: 12rem;
   }
   .allWinzer-hyperlink:hover {
     text-decoration: none;
