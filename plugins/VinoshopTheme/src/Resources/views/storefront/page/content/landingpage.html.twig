@@ -75,19 +75,12 @@
                         {% endfor %}
                     </div>
                 </div>
-
+                {#{{ dump() }}#}
                 <div class="landingpage-categories container ">
                     {% for section_elem in cmsPage.sections.elements %}
                         {% if section_elem.name == "landingpage_categories" %}
                             {% for category in section_elem.blocks.elements|first.slots.elements %}
                                 {% if category.type == "image" %}
-                                    {% set url = null %}
-                                    {% for category_img_url in category.data.media.thumbnails.elements %}
-                                        {% if category_img_url.width == 800 %}
-                                            {% set url = category_img_url.url %}
-                                        {% endif %}
-
-                                    {% endfor %}
                                     <div class="landingpage-categories-helper">
                                         {% for category2 in section_elem.blocks.elements|first.slots.elements %}
                                             {% if category2.type == "text" %}
@@ -102,9 +95,10 @@
                                                             'default': '300px'
                                                         }
                                                     } %}
-                                                   {# <img src="{{ url }}"
-                                                         class="landingpage-categories-category img-hover-brightness">#}
                                                     {{ text|raw }}
+
+                                                   {# <a href="{{ path('frontend.navigation.page', { 'navigationId' : '83554a0d395f494ab9b7f2a62f5c3258'}) }}">adfadsfasdf</a>#}
+
                                                 {% endif %}
                                             {% endif %}
                                         {% endfor %}
@@ -131,7 +125,7 @@
                     {% endfor %}
                     <hr>
                     <h2 class="landingpage-recommendation-header-size">
-                        <a href="/winzer/{{ winzer.slug }}">{{ winzer_elem.slots.elements|first.data.content }} </a>
+                        <a href="{{ path('frontend.winzer.winzer', { 'slug' : winzer.slug }) }}">{{ winzer_elem.slots.elements|first.data.content }}</a>
                     </h2>
                     <hr>
                 </div>
