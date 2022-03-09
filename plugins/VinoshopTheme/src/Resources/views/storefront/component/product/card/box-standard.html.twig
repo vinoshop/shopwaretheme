@@ -24,9 +24,10 @@
                         </div>
                     {% endblock %}
                     {% set splitPrice = product.calculatedPrice.unitPrice|split(".") %}
+                    {% set winzerSlug = product.manufacturer.customFields.vs_winzer_slug %}
                     <div class="card-info-text">
-                        <p class="manufacturer"><a class="manufacturer"
-                                                   href="/winzer/{{ product.manufacturer.customFields.vs_winzer_slug }}">{{ product.manufacturer.name }}</a>
+                        <p class="manufacturer">
+                            <a class="manufacturer" href="{% if winzerSlug %}{{ path('frontend.winzer.winzer', { 'slug' : winzerSlug }) }}{% endif %}">{{ product.manufacturer.name }}</a>
                         </p>
                         {% if product.calculatedPrice.unitPrice %}
                             <p class="price">{{ product.calculatedPrice.unitPrice }}</p>

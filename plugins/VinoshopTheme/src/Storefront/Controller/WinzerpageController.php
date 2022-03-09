@@ -74,24 +74,25 @@ class WinzerpageController extends StorefrontController
         );
     }
 
-    ///**
-    // * @Route("/winzer", name="frontend.winzer", options={"seo"="true"}, methods={"GET"})
-    // */
-    //public function renderAllWinzer(Request             $request,
-    //                                SalesChannelContext $salesChannelContext, Context $context): ?Response
-    //{
-    //    $page = $this->navigationPageLoader->load($request, $salesChannelContext);
-//
-    //    /** @var ProductManufacturerEntity $currentManufacturer */
-//
-    //    $criteria = new Criteria();
-    //    $criteria->addAssociation('media');
-    //    $currentManufacturer = $this->manufacturerRepository->search($criteria, $context);
-//
-    //    return $this->renderStorefront('@VinoshopTheme/storefront/page/winzer/allWinzer.html.twig',
-    //        ['page' => $page, 'manufacturers' => $currentManufacturer],
-    //    );
-    //}
+    /**
+     * @Route("/winzer", name="frontend.winzer", options={"seo"="true"}, methods={"GET"})
+     */
+    public function renderAllWinzer(Request             $request,
+                                    SalesChannelContext $salesChannelContext, Context $context): ?Response
+    {
+        $page = $this->navigationPageLoader->load($request, $salesChannelContext);
+
+        /** @var ProductManufacturerEntity $currentManufacturer */
+
+        $criteria = new Criteria();
+        $criteria->addAssociation('media');
+        $criteria->addAssociation('customFields');
+        $currentManufacturer = $this->manufacturerRepository->search($criteria, $context);
+
+        return $this->renderStorefront('@Vinoshopheme/storefront/page/winzer/allWinzer.html.twig',
+            ['page' => $page, 'manufacturers' => $currentManufacturer],
+        );
+    }
 
 
 }
