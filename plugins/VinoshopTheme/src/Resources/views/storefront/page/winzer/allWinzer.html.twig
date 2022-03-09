@@ -1,15 +1,24 @@
 {% sw_extends '@Storefront/storefront/base.html.twig' %}
 {% block base_main %}
-    <div class="container allWinzer d-flex flex-wrap">
+    {{ dump(manufacturers) }}
+    <div class="container allWinzer d-flex flex-wrap justify-content-center">
         {% for manufacturer in manufacturers.entities.elements %}
-            <a class="allWinzer-hyperlink" href="/winzer/{{ manufacturer.name }}/{{ manufacturer.id }}">
-                <div class="d-flex manufacturer-card ">
-                    {% if manufacturer.media.url %}
-                        <img width="150" height="150" src="{{ manufacturer.media.url }}" alt="{{ manufacturer.name }} - Logo">
+            <a class="allWinzer-hyperlink" href="{{ path('frontend.winzer.winzer', { 'slug' : manufacturer.customFields.vs_winzer_slug }) }}">
+                <div class="d-flex manufacturer-card">
+                    {% if manufacturer.media %}
+                        {% sw_thumbnails 'winzer-logo-th' with {
+                            media: manufacturer.media,
+                            sizes: {
+                                'default': '150px'
+                            }
+                        } %}
                     {% else %}
                         <img src="https://via.placeholder.com/150" alt="{{ manufacturer.name }} - Logo">
                     {% endif %}
-                    <h4>{{ manufacturer.name }}</h4>
+                    <div>
+                        <h4>{{ manufacturer.name }}</h4>
+                        <p>{{ manufacturer.description|raw }}</p>
+                    </div>
                 </div>
             </a>
         {% endfor %}
