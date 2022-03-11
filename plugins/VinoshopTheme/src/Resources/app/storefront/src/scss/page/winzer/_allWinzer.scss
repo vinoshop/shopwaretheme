@@ -15,11 +15,17 @@
   margin-bottom: 1rem;
   gap: 1rem;
   min-height: 65vh;
+  @media (max-width: 575.98px) {
+    .manufacturer-card {
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1rem;
+    }
+  }
 
   .manufacturer-card {
     margin: 1rem;
     max-width: 30rem;
-    width: 30rem;
 
     div {
       max-width: 20rem;
@@ -39,7 +45,6 @@
 
   .allWinzer-hyperlink {
     border: 1px $light_gray solid;
-    max-height: 12rem;
   }
 
   .allWinzer-hyperlink:hover {
