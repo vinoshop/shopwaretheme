@@ -51,6 +51,9 @@
       overflow: hidden;
       text-overflow: ellipsis;
       color: $dark_gray;
+      p {
+        color: $dark_gray;
+      }
     }
   }
 
