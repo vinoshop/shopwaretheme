@@ -75,7 +75,7 @@
                         {% endfor %}
                     </div>
                 </div>
-                {#{{ dump() }}#}
+                {# {{ dump() }} #}
                 <div class="landingpage-categories container ">
                     {% for section_elem in cmsPage.sections.elements %}
                         {% if section_elem.name == "landingpage_categories" %}
@@ -97,7 +97,7 @@
                                                     } %}
                                                     {{ text|raw }}
 
-                                                   {# <a href="{{ path('frontend.navigation.page', { 'navigationId' : '83554a0d395f494ab9b7f2a62f5c3258'}) }}">adfadsfasdf</a>#}
+                                                    {# <a href="{{ path('frontend.navigation.page', { 'navigationId' : '83554a0d395f494ab9b7f2a62f5c3258'}) }}">adfadsfasdf</a> #}
 
                                                 {% endif %}
                                             {% endif %}
@@ -144,9 +144,16 @@
                         <div class="landingpage-recommendation-products">
                             {% elseif winzer_elem.name == 'landingpage_winzer_products' %}
                                 {% for winzer_product in winzer_elem.slots.elements|first.data.products.elements %}
-                                    {% sw_include '@Storefront/storefront/component/product/card/box.html.twig' with {
-                                        'product': winzer_product
-                                    } %}
+                                    {% if loop.first %}
+                                        {% sw_include '@Storefront/storefront/component/product/card/box.html.twig' with {
+                                            'product': winzer_product
+                                        } %}
+                                        <div class="landingpage-recommendation-products-line"></div>
+                                    {% else %}
+                                        {% sw_include '@Storefront/storefront/component/product/card/box.html.twig' with {
+                                            'product': winzer_product
+                                        } %}
+                                    {% endif %}
                                 {% endfor %}
                             {% endif %}
                             {% endfor %}
