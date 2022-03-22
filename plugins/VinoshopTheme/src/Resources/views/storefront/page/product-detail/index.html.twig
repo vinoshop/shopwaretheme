@@ -17,14 +17,14 @@
                     <div class="product-detail-images-small d-none d-lg-flex flex-column">
                         {% for media in page.product.media.elements %}
                             <img class="{% if media == page.product.media.elements|first %}active{% endif %}"
-                                 src="{{ media.media.url }}">
+                                 src="{{ media.media.url }}" alt="Vergrößertes Bild des Produktes">
                         {% endfor %}
                     </div>
                     <img class="product-detail-image-big w-auto" src="{{ (page.product.media.elements|first).media.url }}">
                     <div class="product-detail-images-small d-flex flex-row d-lg-none mb-3">
                         {% for media in page.product.media.elements %}
                             <img class="{% if media == page.product.media.elements|first %}active{% endif %}"
-                                 src="{{ media.media.url }}">
+                                 src="{{ media.media.url }}" alt="Kleines Bild des Produktes">
                         {% endfor %}
                     </div>
                 </div>
