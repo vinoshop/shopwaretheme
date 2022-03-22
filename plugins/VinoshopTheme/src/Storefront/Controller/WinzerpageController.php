@@ -31,7 +31,6 @@ class WinzerpageController extends StorefrontController
     private NavigationPageLoaderInterface $navigationPageLoader;
     private MenuOffcanvasPageletLoaderInterface $offcanvasLoader;
     private EntityRepository $manufacturerRepository;
-    private EntityRepository $mediaRepository;
     private string $slug;
 
 
@@ -58,35 +57,36 @@ class WinzerpageController extends StorefrontController
         $this->slug = $slug;
         $page = $this->navigationPageLoader->load($request, $salesChannelContext);
 
-        /** @var ProductManufacturerEntity $currentManufacturer */
-
         $criteria = new Criteria();
         $criteria->addFilter(new EqualsFilter('customFields.vs_winzer_slug', $slug));
         $criteria->addAssociation('products');
         $criteria->addAssociation('media');
         $criteria->addAssociation('products.cover');
 
-        $winzer = $this->manufacturerRepository
+        /** @var ProductManufacturerEntity $currentManufacturer */
+        $currentManufacturer = $this->manufacturerRepository
             ->search($criteria, $context);
 
         return $this->renderStorefront('@VinoshopTheme/storefront/page/winzer/winzerpage.html.twig',
-            ['page' => $page, 'manufacturer' => $winzer],
+            ['page' => $page, 'manufacturer' => $currentManufacturer],
         );
     }
 
     /**
-     * @Route("/winzer", name="frontend.winzer", options={"seo"="true"}, methods={"GET"})
+     * @Route("/winzer", name="frontend.winzer",
+     *     options={"seo"="true"}, methods={"GET"})
      */
     public function renderAllWinzer(Request             $request,
                                     SalesChannelContext $salesChannelContext, Context $context): ?Response
     {
-        $page = $this->navigationPageLoader->load($request, $salesChannelContext);
-
-        /** @var ProductManufacturerEntity $currentManufacturer */
+        $page = $this->navigationPageLoader
+            ->load($request, $salesChannelContext);
 
         $criteria = new Criteria();
         $criteria->addAssociation('media');
         $criteria->addAssociation('customFields');
+
+        /** @var ProductManufacturerEntity $currentManufacturer */
         $currentManufacturer = $this->manufacturerRepository->search($criteria, $context);
 
         return $this->renderStorefront('@Vinoshopheme/storefront/page/winzer/allWinzer.html.twig',

@@ -1,3 +1,12 @@
+.allWinzer-header {
+  padding: 0.75rem 0;
+  margin-bottom: 1rem;
+  margin-top: 2rem;
+  font-weight: bolder;
+  font-size: 1.25rem;
+  color: #B20038;
+}
+
 .allWinzer {
   font-family: $default_font_family;
   color: $almost_black;
@@ -5,11 +14,18 @@
   margin-top: 1rem;
   margin-bottom: 1rem;
   gap: 1rem;
+  min-height: 65vh;
+  @media (max-width: 575.98px) {
+    .manufacturer-card {
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1rem;
+    }
+  }
 
   .manufacturer-card {
     margin: 1rem;
     max-width: 30rem;
-    width: 30rem;
 
     div {
       max-width: 20rem;
@@ -30,6 +46,7 @@
   .allWinzer-hyperlink {
     border: 1px $light_gray solid;
   }
+
   .allWinzer-hyperlink:hover {
     text-decoration: none;
   }

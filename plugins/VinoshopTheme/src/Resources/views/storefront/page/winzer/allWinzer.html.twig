@@ -1,26 +1,28 @@
 {% sw_extends '@Storefront/storefront/base.html.twig' %}
 {% block base_main %}
-    {{ dump(manufacturers) }}
-    <div class="container allWinzer d-flex flex-wrap justify-content-center">
-        {% for manufacturer in manufacturers.entities.elements %}
-            <a class="allWinzer-hyperlink" href="{{ path('frontend.winzer.winzer', { 'slug' : manufacturer.customFields.vs_winzer_slug }) }}">
-                <div class="d-flex manufacturer-card">
-                    {% if manufacturer.media %}
-                        {% sw_thumbnails 'winzer-logo-th' with {
-                            media: manufacturer.media,
-                            sizes: {
-                                'default': '150px'
-                            }
-                        } %}
-                    {% else %}
-                        <img src="https://via.placeholder.com/150" alt="{{ manufacturer.name }} - Logo">
-                    {% endif %}
-                    <div>
-                        <h4>{{ manufacturer.name }}</h4>
-                        <p>{{ manufacturer.description|raw }}</p>
+    <div class="container">
+        <h1 class="allWinzer-header">Unsere Winzer</h1>
+        <div class="allWinzer d-flex flex-wrap justify-content-center align-content-start">
+            {% for manufacturer in manufacturers.entities.elements %}
+                <a class="allWinzer-hyperlink" href="{{ path('frontend.winzer.winzer', { 'slug' : manufacturer.customFields.vs_winzer_slug }) }}">
+                    <div class="d-flex manufacturer-card">
+                        {% if manufacturer.media %}
+                            {% sw_thumbnails 'winzer-logo-th' with {
+                                media: manufacturer.media,
+                                sizes: {
+                                    'default': '150px'
+                                }
+                            } %}
+                        {% else %}
+                            <img src="https://via.placeholder.com/150" alt="{{ manufacturer.name }} - Logo">
+                        {% endif %}
+                        <div>
+                            <h4>{{ manufacturer.name }}</h4>
+                            <p>{{ manufacturer.description|raw }}</p>
+                        </div>
                     </div>
-                </div>
-            </a>
-        {% endfor %}
+                </a>
+            {% endfor %}
+        </div>
     </div>
 {% endblock %}
