@@ -19,8 +19,10 @@
     {% endif %}
 
     <div class="product-detail-action-section">
+        <label for="amount" class="d-none">Anzahl an Flaschen</label>
         {% sw_include '@Storefront/storefront/element/cms_element_input.html.twig' with {
             classes: 'input-amount',
+            id: 'amount',
             name: 'lineItems[' ~ product.id ~ '][quantity]',
             maxVal: maxVal,
             minVal: minVal,
