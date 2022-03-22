@@ -7,7 +7,7 @@
 
         <div class="card product-box">
             {% block component_product_box_content %}
-            <a href="{{ seoUrl('frontend.detail.page', {'productId': id}) }}">
+            <a href="{{ seoUrl('frontend.detail.page', {'productId': id}) }}" title="Link zur Produktseite von {{ name }}">
                 <div class="card-body">
 
                     {% block component_product_box_image %}
