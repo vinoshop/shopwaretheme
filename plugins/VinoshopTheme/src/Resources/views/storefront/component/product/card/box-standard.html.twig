@@ -13,7 +13,7 @@
                     {% block component_product_box_image %}
                         <div class="product-image-wrapper">
                             {% if (product.translated.customFields.vs_product_is_bio == true) %}
-                                <img class="product-tag" src="{{ asset('bundles/vinoshoptheme/images/bio_icon.svg', 'asset') }}"/>
+                                <img class="product-tag" src="{{ asset('bundles/vinoshoptheme/images/bio_icon.svg', 'asset') }}" alt="Produkt ist Bio"/>
                             {% endif %}
                                 {% sw_thumbnails 'product-image-th' with {
                                     media: cover,
