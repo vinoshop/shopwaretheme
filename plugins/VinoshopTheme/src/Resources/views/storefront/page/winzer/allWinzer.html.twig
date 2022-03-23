@@ -9,6 +9,9 @@
                         {% if manufacturer.media %}
                             {% sw_thumbnails 'winzer-logo-th' with {
                                 media: manufacturer.media,
+                                attributes: {
+                                    alt: 'Logo von ' ~ manufacturer.name
+                                },
                                 sizes: {
                                     'default': '150px'
                                 }
@@ -18,7 +21,7 @@
                         {% endif %}
                         <div>
                             <h4>{{ manufacturer.name }}</h4>
-                            <p>{{ manufacturer.description|raw }}</p>
+                            <div class="description">{{ manufacturer.customFields['vs_winzer_story_p1']|raw }}</div>
                         </div>
                     </div>
                 </a>

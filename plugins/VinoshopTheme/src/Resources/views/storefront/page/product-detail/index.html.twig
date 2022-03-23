@@ -17,21 +17,21 @@
                     <div class="product-detail-images-small d-none d-lg-flex flex-column">
                         {% for media in page.product.media.elements %}
                             <img class="{% if media == page.product.media.elements|first %}active{% endif %}"
-                                 src="{{ media.media.url }}">
+                                 src="{{ media.media.url }}" alt="Kleines Bild des Produktes">
                         {% endfor %}
                     </div>
-                    <img class="product-detail-image-big w-auto" src="{{ (page.product.media.elements|first).media.url }}">
+                    <img class="product-detail-image-big w-auto" src="{{ (page.product.media.elements|first).media.url }}" alt="Vergrößertes Bild des Produktes">
                     <div class="product-detail-images-small d-flex flex-row d-lg-none mb-3">
                         {% for media in page.product.media.elements %}
                             <img class="{% if media == page.product.media.elements|first %}active{% endif %}"
-                                 src="{{ media.media.url }}">
+                                 src="{{ media.media.url }}" alt="Kleines Bild des Produktes">
                         {% endfor %}
                     </div>
                 </div>
 
                 <div class="col-lg-6 product-detail-infos mx-auto">
                     {% if (page.product.translated.customFields.vs_product_is_bio == true) %}
-                        <img class="product-tag" src="{{ asset('bundles/vinoshoptheme/images/bio_icon.svg', 'asset') }}"/>
+                        <img class="product-tag" src="{{ asset('bundles/vinoshoptheme/images/bio_icon.svg', 'asset') }}" title="Bio-Logo"/>
                     {% endif %}
                     <h3 class="product-detail-manufacturer"><a class="product-detail-manufacturer" href="/winzer/{{ page.product.manufacturer.customFields.vs_winzer_slug }}">{{ page.product.manufacturer.translated.name }}</a></h3>
                     <h2 class="product-detail-name">{{ page.product.translated.name }}</h2>

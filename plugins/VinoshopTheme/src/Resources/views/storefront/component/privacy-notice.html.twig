@@ -28,12 +28,16 @@
             {% else %}
                 <div class="data-protection-information">
                     {% block component_privacy_label %}
-                        <label>
-                            {{ "general.privacyNotice"|trans({
-                                '%privacyUrl%': path('frontend.legal.datenschutz'),
-                                '%tosUrl%': path('frontend.legal.agb')
-                            })|raw }}
-                        </label>
+                        <div class="custom-control custom-checkbox data-protection-information">
+                            <input type="checkbox"
+                                   class="custom-control-input"
+                                   id="acceptedDataProtection"
+                                   required="required">
+
+                            <label class="custom-control-label" for="acceptedDataProtection">
+                                Ich habe die <a data-toggle="modal" data-url="/legal/datenschutz" href="/legal/datenschutz" title="Datenschutzbestimmungen">Datenschutzbestimmungen</a> zur Kenntnis genommen und bin mit ihnen einverstanden.
+                            </label>
+                        </div>
                     {% endblock %}
                 </div>
             {% endif %}

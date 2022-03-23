@@ -89,7 +89,8 @@
                                                     {% sw_thumbnails 'category-th' with {
                                                         media: category.data.media,
                                                         attributes: {
-                                                            class: 'landingpage-categories-category img-hover-brightness'
+                                                            class: 'landingpage-categories-category img-hover-brightness',
+                                                            alt: 'Hintergrundbild der Kategorie ' ~ text
                                                         },
                                                         sizes: {
                                                             'default': '300px'
@@ -135,7 +136,8 @@
                         {% sw_thumbnails 'recommended-winzer-th' with {
                             media: winzer_elem.slots.elements|first.data.media,
                             attributes: {
-                                class: 'landingpage-recommendation-winzer'
+                                class: 'landingpage-recommendation-winzer',
+                                alt: 'Bild des vorgestellten Winzers'
                             },
                             sizes: {
                                 'default': '800px'

@@ -7,7 +7,10 @@
       "cheese": "Käse",
       "steak": "Steak",
       "wild": "Wild",
-      "salat": "Salat"
+      "salad": "Salat",
+      "pizza": "Pizza",
+      "pasta": "Pasta",
+      "austrian_cuisine": "Österreichische Cuisine"
     },
     "vs_winzer_bundesland": {
       "vienna" : "Wien",
@@ -17,8 +20,8 @@
       "carinthia" : "Kärnten",
       "tyrol" : "Tirol",
       "salzburg" : "Salzburg",
-      "burgenland" : "burgenland",
-      "vorarlberg" : "vorarlberg"
+      "burgenland" : "Burgenland",
+      "vorarlberg" : "Vorarlberg"
     }
   }
 }

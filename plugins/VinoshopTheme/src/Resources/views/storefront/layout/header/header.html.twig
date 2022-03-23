@@ -1,3 +1,5 @@
+{% sw_extends '@Storefront/storefront/layout/header/header.html.twig' %}
+
 {% block layout_header %}
     {% block layout_header_navigation %}
         <div class="row align-items-center header-row bg-black">
@@ -48,17 +50,18 @@
                             </div>
                         </div>
                         <div class="col-auto">
-                            <div class="cart-menu action"
-                                 data-offcanvas-cart="true">
+                            <a class="cart-menu action"
+                               title="Gehe zum Warenkorb"
+                                 href="{{ path("frontend.checkout.cart.page") }}">
                                 {% sw_icon 'shopping-bag' style {
                                     namespace: 'VinoshopTheme',
                                     pack: 'fontawesome'
                                 } %}
-                            </div>
+                            </a>
                         </div>
                         <div class="col-auto">
                             <div class="account-menu action">
-                                <a href="{{ path("frontend.account.home.page") }}">
+                                <a href="{{ path("frontend.account.home.page") }}" title="Gehe zur Accountseite">
                                     {% sw_icon 'user' style {
                                         namespace: 'VinoshopTheme',
                                         pack: 'fontawesome'
