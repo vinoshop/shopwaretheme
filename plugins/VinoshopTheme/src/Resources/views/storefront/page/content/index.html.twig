@@ -4,11 +4,11 @@
 {% endif %}
 
 {% block base_main_inner %}
-    {% if activeRoute == "frontend.home.page" %}
+    {#{% if activeRoute == "frontend.home.page" %}
         {% sw_include '@VinoshopTheme/storefront/page/content/landingpage.html.twig' with {
             cmsPage: page.cmsPage
         } only %}
-    {% else %}
+    {% else %}#}
         {% set large_header_margin = true %}
         <div class="container-main">
             {% block page_content %}
@@ -30,5 +30,5 @@
                 {% endblock %}
             {% endblock %}
         </div>
-    {% endif %}
+    {#{% endif %}#}
 {% endblock %}
