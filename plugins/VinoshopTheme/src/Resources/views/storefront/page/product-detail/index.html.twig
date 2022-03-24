@@ -34,7 +34,7 @@
                         <img class="product-tag" src="{{ asset('bundles/vinoshoptheme/images/bio_icon.svg', 'asset') }}" title="Bio-Logo"/>
                     {% endif %}
                     <h3 class="product-detail-manufacturer"><a class="product-detail-manufacturer" href="/winzer/{{ page.product.manufacturer.customFields.vs_winzer_slug }}">{{ page.product.manufacturer.translated.name }}</a></h3>
-                    <h2 class="product-detail-name">{{ page.product.translated.name }}</h2>
+                    <h1 class="product-detail-name">{{ page.product.translated.name }}</h1>
                     <div class="product-detail-price">
                         <p class="product-detail-price-euros">{{ page.product.calculatedPrice.unitPrice|split('.')[0] }}</p>
 {#                        <p class="product-detail-price-cents">{{ "%0.2f"|format(page.product.calculatedPrice.unitPrice)|split('.')[1]|default("") }}</p>#}
