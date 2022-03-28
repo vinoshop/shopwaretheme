@@ -24,17 +24,12 @@ use Shopware\Core\Framework\DataAbstractionLayer\Event\EntityLoadedEvent;
 class AddManufacturerToHomePageProducts implements EventSubscriberInterface
 {
     /**
-     * @var SalesChannelRepositoryInterface
-     */
-    private $productRepository;
-    /**
      * @var EntityRepository
      */
     private $manufacturerRepository;
 
-    public function __construct(SalesChannelRepositoryInterface $productRepository, EntityRepository $manufacturerRepository)
+    public function __construct(EntityRepository $manufacturerRepository)
     {
-        $this->productRepository = $productRepository;
         $this->manufacturerRepository = $manufacturerRepository;
     }
 
@@ -45,9 +40,7 @@ class AddManufacturerToHomePageProducts implements EventSubscriberInterface
         ];
     }
 
-    public function onProductsLoaded(EntityLoadedEvent $event)
-    {
-    
+    public function onProductsLoaded(EntityLoadedEvent $event) {
         foreach($event->getEntities() as $entity) {
             if ($entity->getManufacturerId() == null)
                 continue;
@@ -60,10 +53,7 @@ class AddManufacturerToHomePageProducts implements EventSubscriberInterface
                 ->get($entity->getManufacturerId());
 
             if ($currentManufacturer != null)
-            {
                 $entity->setManufacturer($currentManufacturer);
-            }
         }
     }
-
 }

@@ -8,21 +8,11 @@
       "VinoshopTheme\\": "src/"
     }
   },
-  "require": {
-    "netinventors/next-cms-element-builder": ">=4"
-  },
   "extra": {
     "shopware-plugin-class": "VinoshopTheme\\VinoshopTheme",
     "label": {
       "de-DE": "Theme VinoshopTheme plugin",
       "en-GB": "Theme VinoshopTheme plugin"
-    },
-    "netinventors": {
-      "NetiNextCmsElementBuilder": {
-        "config": {
-          "writeAccess": true
-        }
-      }
     }
   }
 }
