@@ -1,0 +1,41 @@
+{% block landingpagePrdoducts %}
+    {% if landingpage_products %}
+        {% set header_block = '' %}
+        {% set products_block = '' %}
+
+        {% for block in landingpage_products.blocks.elements %}
+            {% if block.name == 'landingpage_products_header' %}
+                {% set header_block = block %}
+            {% elseif block.name == 'landingpage_products' %}
+                {% set products_block = block %}
+            {% endif %}
+        {% endfor %}
+
+        <div class="landingpage-products container">
+            {% if header_block %}
+                <div class="landingpage-products-flex">
+                    <hr>
+                    <h2 class="landingpage-products-header">
+                        {{ header_block.slots.elements|first.data.content }}
+                    </h2>
+                    <hr>
+                </div>
+            {% endif %}
+            {% if products_block %}
+                <div class="landingpage-products-helper">
+                    {% if products_block.slots.elements|first.data.products.elements|length > 0 %}
+                        {% for product_element in products_block.slots.elements|first.data.products.elements %}
+                            {% set product = product_element.data.product %}
+                            {% do product %}
+                            {% sw_include '@Storefront/storefront/component/product/card/box-standard.html.twig' with {
+                                'product': product_element,
+                            } %}
+                        {% endfor %}
+                    {% else %}
+                        <p>Keine weiteren Produkte vorhanden</p>
+                    {% endif %}
+                </div>
+            {% endif %}
+        </div>
+    {% endif %}
+{% endblock %}

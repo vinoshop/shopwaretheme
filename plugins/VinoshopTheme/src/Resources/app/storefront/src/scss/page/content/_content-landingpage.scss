@@ -257,21 +257,6 @@
         width: 100%;
         object-fit: cover;
       }
-      .landingpage-recommendation-products {
-        gap: 4rem;
-      }
-    }
-    @media (min-width: 768px) {
-      .landingpage-recommendation-products {
-        gap: 1rem;
-      }
-      .landingpage-recommendation-products-line {
-        border-left: #a1a1a161 2px solid;
-        height: 23rem;
-      }
-    }
-    @media (max-width: 767.98px) {
-
     }
   }
 
