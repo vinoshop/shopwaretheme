@@ -5,6 +5,17 @@
 
 To start: ``docker-compose up -d``
 
+## Setup
+How to install shopware: https://developer.shopware.com/docs/guides/installation/overview
+
+How to install a theme in shopware: https://docs.shopware.com/en/shopware-6-en/extensions/myextensions
+
+Next, create all the custom fields specified in [administration.md](administration.md).
+
+Then you can start filling in all the custom fields. Their location is specified in [administration.md](administration.md).
+
+TODO @JakobMatijasevic how to setup landing page
+
 ### Links
 * https://developer.shopware.com/docs/guides/plugins/themes/create-a-theme
 * https://developer.shopware.com/docs/guides/plugins/plugins/storefront/customize-templates
