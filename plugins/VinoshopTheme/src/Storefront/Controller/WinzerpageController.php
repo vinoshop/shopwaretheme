@@ -45,6 +45,7 @@ class WinzerpageController extends StorefrontController
         $this->manufacturerRepository = $manufacturerRepository;
     }
 
+    //der slug wird in der Administration festgelegt
     /**
      * @Route("/winzer/{slug}", name="frontend.winzer.winzer", options={"seo"="true"}, methods={"GET"})
      */
@@ -59,6 +60,7 @@ class WinzerpageController extends StorefrontController
         $this->slug = $slug;
         $page = $this->navigationPageLoader->load($request, $salesChannelContext);
 
+        //Relationen werden hinzugefügt, dass ein manufacturer die restlichen benötigten sachen bekommt
         $criteria = new Criteria();
         $criteria->addFilter(new EqualsFilter('customFields.vs_winzer_slug', $slug));
         $criteria->addAssociation('products');
@@ -74,6 +76,7 @@ class WinzerpageController extends StorefrontController
         );
     }
 
+    //wenn kein spez. winzer angezeigt werden soll
     /**
      * @Route("/winzer", name="frontend.winzer",
      *     options={"seo"="true"}, methods={"GET"})
