@@ -24,46 +24,39 @@ use Shopware\Core\Framework\DataAbstractionLayer\Event\EntityLoadedEvent;
 class AddManufacturerToHomePageProducts implements EventSubscriberInterface
 {
     /**
-     * @var SalesChannelRepositoryInterface
-     */
-    private $productRepository;
-    /**
      * @var EntityRepository
      */
-    private $manufacturerRepository;
+    private $manufacturerRepository; //manufacturer Repository, mit dem auf die Datenbank Tabelle vom Winzer zugegriffen wird
 
-    public function __construct(SalesChannelRepositoryInterface $productRepository, EntityRepository $manufacturerRepository)
+    public function __construct(EntityRepository $manufacturerRepository)
     {
-        $this->productRepository = $productRepository;
         $this->manufacturerRepository = $manufacturerRepository;
     }
 
     public static function getSubscribedEvents(): array
     {
         return [
-            ProductEvents::PRODUCT_LOADED_EVENT => 'onProductsLoaded'
+            ProductEvents::PRODUCT_LOADED_EVENT => 'onProductsLoaded'  //das verwendete Event, wenn ein Produkt geladen wird
         ];
     }
 
-    public function onProductsLoaded(EntityLoadedEvent $event)
-    {
-    
+    //sobald das Produkt geladen wurde, wird diese methode ausgeführt
+    public function onProductsLoaded(EntityLoadedEvent $event) {
         foreach($event->getEntities() as $entity) {
             if ($entity->getManufacturerId() == null)
                 continue;
-
+            //search criteria
             $criteria = new Criteria([$entity->getManufacturerId()]);
 
+            //manufacturer wird gesucht
             /** @var ProductManufacturerEntity $currentManufacturer */
             $currentManufacturer = $this->manufacturerRepository
                 ->search($criteria, $event->getContext())
                 ->get($entity->getManufacturerId());
 
+            //wenn der manufacturer nicht null ist wird dem produkt der manufacturer hinzugefügt
             if ($currentManufacturer != null)
-            {
                 $entity->setManufacturer($currentManufacturer);
-            }
         }
     }
-
 }

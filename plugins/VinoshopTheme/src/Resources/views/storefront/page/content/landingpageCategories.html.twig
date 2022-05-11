@@ -1,0 +1,85 @@
+{% block landingpageCategories %}
+    {% if landingpage_categories %}
+        {% set category_slots = landingpage_categories.blocks.elements|first.slots.elements %}
+        {% set category_text_center = '' %}
+        {% set category_text_right = '' %}
+        {% set category_text_left = '' %}
+        {% set category_img_left = '' %}
+        {% set category_img_right = '' %}
+        {% set category_img_center = '' %}
+
+        {% for category_slot in category_slots %}
+            {% if category_slot.slot == 'center-text' %}
+                {% set category_text_center = category_slot %}
+
+            {% elseif category_slot.slot == 'right-text' %}
+                {% set category_text_right = category_slot %}
+
+            {% elseif category_slot.slot == 'left-text' %}
+                {% set category_text_left = category_slot %}
+
+            {% elseif category_slot.slot == 'left-image' %}
+                {% set category_img_left = category_slot %}
+
+            {% elseif category_slot.slot == 'right-image' %}
+                {% set category_img_right = category_slot %}
+
+            {% elseif category_slot.slot == 'center-image' %}
+                {% set category_img_center = category_slot %}
+            {% endif %}
+        {% endfor %}
+
+        {% if category_slots %}
+            <div class="landingpage-categories container">
+                {% if category_text_left and category_img_left %}
+                    <div class="landingpage-categories-helper">
+                        {% set text = category_text_left.data.content %}
+                        {% sw_thumbnails 'category-th' with {
+                            media: category_img_left.data.media,
+                            attributes: {
+                                class: 'landingpage-categories-category img-hover-brightness',
+                                alt: 'Hintergrundbild der Kategorie ' ~ text
+                            },
+                            sizes: {
+                                'default': '300px'
+                            }
+                        } %}
+                        {{ text|raw }}
+                    </div>
+                {% endif %}
+                {% if category_text_center and category_img_center %}
+                    <div class="landingpage-categories-helper">
+                        {% set text = category_text_center.data.content %}
+                        {% sw_thumbnails 'category-th' with {
+                            media: category_img_center.data.media,
+                            attributes: {
+                                class: 'landingpage-categories-category img-hover-brightness',
+                                alt: 'Hintergrundbild der Kategorie ' ~ text
+                            },
+                            sizes: {
+                                'default': '300px'
+                            }
+                        } %}
+                        {{ text|raw }}
+                    </div>
+                {% endif %}
+                {% if category_text_right and category_img_right %}
+                    <div class="landingpage-categories-helper">
+                        {% set text = category_text_right.data.content %}
+                        {% sw_thumbnails 'category-th' with {
+                            media: category_img_right.data.media,
+                            attributes: {
+                                class: 'landingpage-categories-category img-hover-brightness',
+                                alt: 'Hintergrundbild der Kategorie ' ~ text
+                            },
+                            sizes: {
+                                'default': '300px'
+                            }
+                        } %}
+                        {{ text|raw }}
+                    </div>
+                {% endif %}
+            </div>
+        {% endif %}
+    {% endif %}
+{% endblock %}

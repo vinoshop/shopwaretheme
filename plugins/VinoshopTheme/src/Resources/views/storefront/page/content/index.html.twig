@@ -1,9 +1,11 @@
 {% sw_extends '@Storefront/storefront/base.html.twig' %}
 {% if activeRoute == "frontend.home.page" %}
+    {# entfernt header margin #}
     {% set large_header_margin = false %}
 {% endif %}
 
 {% block base_main_inner %}
+    {# wenn die aktive route frontend.home.page ist, dann wird die landingpage geladen, ansonsten die anderen sites #}
     {% if activeRoute == "frontend.home.page" %}
         {% sw_include '@VinoshopTheme/storefront/page/content/landingpage.html.twig' with {
             cmsPage: page.cmsPage
