@@ -54,6 +54,8 @@ class WinzerpageController extends StorefrontController
                                     string              $slug
     ): ?Response
     {
+
+
         $this->slug = $slug;
         $page = $this->navigationPageLoader->load($request, $salesChannelContext);
 
