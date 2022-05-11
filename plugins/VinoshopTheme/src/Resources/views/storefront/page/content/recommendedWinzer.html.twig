@@ -1,0 +1,56 @@
+{% block recommendedWinzer %}
+    {% if landingpage_winzer %}
+        <div class="landingpage-recommendation-header container">
+            {% set landingpage_winzer_header = "" %}
+            {% set winzer_slug = "" %}
+            {% set landingpage_winzer_pic = {} %}
+            {% set landingpage_winzer_products = {} %}
+            {% for winzer_elem in landingpage_winzer.blocks.elements %}
+                {% if winzer_elem.name == "landingpage_winzer_name" %}
+                    {% set landingpage_winzer_header = winzer_elem.slots.elements|first.data.content %}
+                {% elseif winzer_elem.name == "landingpage_winzer_products" %}
+                    {% set landingpage_winzer_products = winzer_elem.slots.elements|first.data.products.elements %}
+                    {% set winzer_slug = landingpage_winzer_products|first.manufacturer.customFields.vs_winzer_slug %}
+                {% elseif winzer_elem.name == 'landingpage_winzer_pic' %}
+                    {% set landingpage_winzer_pic = winzer_elem.slots.elements|first.data.media %}
+                {% endif %}
+            {% endfor %}
+
+
+            <hr>
+            <h2 class="landingpage-recommendation-header-size">
+                <a href="{{ path('frontend.winzer.winzer', { 'slug' : winzer_slug }) }}">{{ landingpage_winzer_header }}</a>
+            </h2>
+            <hr>
+        </div>
+        <div class="landingpage-recommendation container">
+            <div class="landingpage-recommendation-gray">
+                {% sw_thumbnails 'recommended-winzer-th' with {
+                    media: landingpage_winzer_pic,
+                    attributes: {
+                        class: 'landingpage-recommendation-winzer',
+                        alt: 'Bild des vorgestellten Winzers'
+                    },
+                    sizes: {
+                        'default': '800px'
+                    }
+                } %}
+                <div class="landingpage-recommendation-products">
+                    {% for product in landingpage_winzer_products %}
+                        {% if loop.first %}
+                            {% sw_include '@Storefront/storefront/component/product/card/box.html.twig' with {
+                                'product': product
+                            } %}
+                            <div class="landingpage-recommendation-products-line"></div>
+                        {% else %}
+                            {% sw_include '@Storefront/storefront/component/product/card/box.html.twig' with {
+                                'product': product
+                            } %}
+                        {% endif %}
+                    {% endfor %}
+
+                </div>
+            </div>
+        </div>
+    {% endif %}
+{% endblock %}

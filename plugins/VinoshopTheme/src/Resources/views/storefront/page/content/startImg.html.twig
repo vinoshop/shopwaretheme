@@ -1,0 +1,33 @@
+{% block start_img %}
+    {% if landingpage_header %}
+        {% set img_block = '' %}
+        {% set header_block = '' %}
+
+        {% for block in landingpage_header.blocks %}
+            {% if block.name == 'landingpage_top_bg_img' %}
+                {% set img_block = block %}
+            {% elseif block.name == 'landingpage_top_header' %}
+                {% set header_block = block %}
+            {% endif %}
+        {% endfor %}
+
+        {% if img_block %}
+            {% for img in img_block.slots.elements|first.data.media.thumbnails.elements %}
+                {% if img.width == 1920 %}
+                    <div style="background-image: url({{ img.url }})"
+                    class="landingpage-top">
+                    <div class="landingpage-top-text container">
+                        {{ header_block.slots.elements|first.data.content | raw }}
+                        <a href="#products" class="display-5">
+                            <button class="landingpage-top-text-button display-5">
+                                Entdecken
+                            </button>
+                        </a>
+                    </div>
+                {% endif %}
+            {% endfor %}
+            </div>
+            <span id="products"></span>
+        {% endif %}
+    {% endif %}
+{% endblock %}
